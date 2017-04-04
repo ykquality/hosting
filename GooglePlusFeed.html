@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<!-- https://ykquality.github.io/hosting/ -->
+<script src='https://ykquality.github.io/hosting/jquery.min.js' type='text/javascript'></script>
+<script src='jquery.xdomainajax.js' type='text/javascript'></script>
+
+
+</head>
+<body>
+<script type='text/javascript'>
+$.ajax({
+	url: 'https://gplus-to-rss.appspot.com/rss/103274438679581487299?excludeCommunityPosts',
+	type: 'get',
+	//dataType: 'xml',
+	timeout:1000,
+    error:function() {
+		//console.log("error");
+    },
+	success: function(res) {
+		//console.log("success");
+		var data=[];
+		var xml=$.parseXML(res['responseText']);
+		//var xml=res['responseText'];
+		//var xml=$.parseXML(res);
+		//var xml=res;
+		var nodeName;
+		console.log("xml:"+xml);
+		
+		$(xml).find('item').each(function(i) {
+		
+			console.log("i:"+i);
+			data[i] = {};
+			
+			nodeName = $(this)[0].nodeName;
+			data[i][nodeName] = {};
+			data[i][nodeName]['text'] = $(this).text();
+			console.log("title data["+i+"]["+nodeName+"].text:"+data[i][nodeName].text);
+			
+			/*$(this).find('title').each(function() {
+				nodeName = $(this)[0].nodeName;
+				data[i][nodeName] = {};
+				data[i][nodeName]['text'] = $(this).text();
+				console.log("title data["+i+"]["+nodeName+"].text:"+data[i][nodeName].text);
+			});
+			$(this).find('link').each(function() {
+				nodeName = $(this)[0].nodeName;
+				data[i][nodeName] = {};
+				data[i][nodeName]['text'] = $(this).text();
+				console.log("link data["+i+"]["+nodeName+"].text:"+data[i][nodeName].text);
+			});*/
+			
+			$(this).children().each(function() {
+			    nodeName = $(this)[0].nodeName;
+			    data[i][nodeName] = {};
+				data[i][nodeName]['text'] = $(this).text();
+				console.log("children data["+i+"]["+nodeName+"].text:"+data[i][nodeName].text);
+				//console.log("children data["+i+"]["+nodeName+"].value:"+data[i][nodeName].value);
+				//console.log("children data["+i+"]["+nodeName+"].name:"+data[i][nodeName].name);
+			});
+		});
+		var container = document.getElementById("MyGPlus");
+		
+		var date="";
+		var link="";
+		var description="";
+		/*	
+		$('#rss').wrapInner('<ul></ul>');
+		for (i in data) {
+			date = data[i].date.text;
+			link=data[i].link.text;
+			description=data[i].description.text;
+			console.log("date:"+date);
+			console.log("link:"+link);
+			console.log("description:"+description);
+		}*/
+	}  
+});
+</script>
+<div class='MyGPlus' id='MyGPlus'>
+</body>
+</html>
