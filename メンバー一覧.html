@@ -4,18 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Content-Script-Type" content="text/javascript">
 <meta http-equiv="Content-Style-Type" content="text/css">
-<!--youtube-->
-<!--te-->
-<!--<script src='https://ffb53aa3ecbc87f152cc84aadc31d7214dac224d.googledrive.com/host/0B7bRq8mWofTuNnk1X0Z4SU03VFk' type='text/javascript'/>-->
-<script src='https://ykquality.github.io/hosting/my_youtube_player.js' type='text/javascript'></script>
-<!--jquery-->
-<!--<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js' type='text/javascript'></script>-->
 <script src='https://ykquality.github.io/hosting/jquery.min.js' type='text/javascript'></script>
-<!--tablesorter-min-->
-<!--<script src='https://e93eb911ec4c2e96880d48e7d4353ec277949854-www.googledrive.com/host/0B7bRq8mWofTuT2pVbUhlR3dEQmM' type='text/javascript'/>-->
 <script src='https://ykquality.github.io/hosting/jquery.tablesorter.min.js' type='text/javascript'></script>
-<!--jquery-meta-->
-<!--<script src='https://6b1c3c5f6ac39883a246d578b50a9970376ec682-www.googledrive.com/host/0B7bRq8mWofTuY3ZLcWhxemlHTTQ' type='text/javascript'/>-->
 <script src='https://ykquality.github.io/hosting/jquery.metadata.js' type='text/javascript'></script>
 
 
@@ -25,9 +15,7 @@
 <script type="text/javascript">
 
 $(document).ready(function () {
-// $.getJSON("https://raw.githubusercontent.com/ykquality/hosting/master/Member.json", function(data){ //dev
-  $.getJSON("https://ykquality.github.io/hosting/Member.json", function(data){
- 
+ $.getJSON("https://ykquality.github.io/hosting/Member.json", function(data){ //dev
   for(var key in data){
    if(data[key].status.indexOf("graduate")>-1)
     continue;
@@ -43,7 +31,8 @@ $(document).ready(function () {
    var sortvalue_b=data[key].birth.substring(5,7)+""+data[key].birth.substring(8,10);
    //console.log(sortvalue_b);
    
-   var html="<tr><td class={sortValue:"+sortvalue+"} >" +data[key].name_ja+"</td>"
+   var html="<tr>"
+         +"<td class={sortValue:"+sortvalue+"} >" +data[key].name_ja+"</td>"
          +"<td class={sortValue:"+sortvalue_b+"} style='text-align:center;'>"+data[key].birth+"</td>"
          +"<td style='text-align:center;'>"+age+"</td>"
          +"<td style='text-align:center;'>"+data[key].blood+"</td>"
@@ -57,7 +46,7 @@ $(document).ready(function () {
      html+="<td style='text-align:center;'><a href=https://plus.google.com/u/0/"+data[key].google_id+"><i class='fa fa-google-plus'></i></a></td>";
    else
      html+="<td></td>";
-    html+="<tr>";
+         
    
    $("#output2").append(html);
   }
@@ -94,5 +83,6 @@ function sorter(tablesorter)
 <tbody id="output2">
 </tbody>
 </table>
+
 </body>
 </html>
