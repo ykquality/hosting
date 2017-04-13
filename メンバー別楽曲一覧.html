@@ -18,19 +18,18 @@ $(document).ready(function () {
  //$.getJSON("http://yuzo-home.appspot.com/MemberJson?json=obj%2FMember.json", function(data){
  //$.getJSON("https://a59d2968cc8e66c6a7f22143518ed72eaf7c8ddc-www.googledrive.com/host/0B7bRq8mWofTuXzVVanVRa2lsaDg", function(data){ //dev
  //$.getJSON("https://dl.dropboxusercontent.com/u/75233738/hosting/Member.json", function(data){ //dev
-  $.getJSON("https://ykquality.github.io/hosting/Member.json", function(data){ //dev
+	$.getJSON("https://ykquality.github.io/hosting/Member.json", function(data){ //dev
 
-  for(var key in data){
-   //console.log(data[key].name_kana);
-   var sortvalue=getSortValue(data[key].name_kana,7);
-   //console.log(sortvalue);
-   
-   var html="<tr><td class={sortValue:"+sortvalue+"} onClick=getTitle('"+data[key].name_ja+"')  style='cursor:pointer;'>"+data[key].name_ja+"</td></tr>";
-         
-   
-   $("#output2").append(html);
-  }
-  sorter(".tablesorter");
+	for(var key in data){
+	 //console.log(data[key].name_kana);
+	 var sortvalue=getSortValue(data[key].name_kana,7);
+	 //console.log(sortvalue);
+	 
+	 var html="<tr><td class={sortValue:"+sortvalue+"} onClick=getTitle('"+data[key].name_ja+"')	style='cursor:pointer;'>"+data[key].name_ja+"</td></tr>";
+	 
+	 $("#output2").append(html);
+	}
+	sorter(".tablesorter");
  });
 });
 </script>
@@ -39,9 +38,49 @@ $(document).ready(function () {
 function sorter(tablesorter)
 {
  $(tablesorter).tablesorter({
-  widgets:["zebra"],
-  sortList: [[3,1]]
+	widgets:["zebra"],
+	sortList: [[3,1]]
  });
+}
+</script>
+
+
+<script type="text/javascript">
+var dNames=null;
+(function duplicateName(){
+	console.log("duplicateName "+dNames);
+	if(dNames!=null)
+		return;
+	$.ajax({
+		url:'https://ykquality.github.io/hosting/DuplicateName.txt',
+		success: function(data2){
+			var a = data2.split(/\r\n|\r|\n/);
+			dNames = new Array(a.length);
+			for(var i in a){
+				var aa=a[i].split(",");
+				dNames[i] = new Array(2);
+				dNames[i][0]=aa[0];
+				dNames[i][1]=aa[1];
+			}
+		}
+	});
+})()
+function duplicateName2(name,data){
+	//console.log("duplicateName2 "+dNames);
+	for(var i in dNames){
+		if(name==dNames[i][0]){ //検索する名前と重複する可能性のある名前が同じ
+			//if(data.indexOf(dNames[i][1])>-1&&i==0)
+			//	console.log("duplicateName2 "+i+" "+name+" "+dNames[i][0]+" "+dNames[i][1]+" "+data);
+			if(data.indexOf(name)==data.indexOf(dNames[i][1])){ //山本彩と山本彩加のindexが同じ
+				if(data.indexOf(name)==data.lastIndexOf(name) //他に山本彩を含む文字列がない
+				||data.lastIndexOf(name)==data.lastIndexOf(dNames[i][1])){  //山本彩と山本彩加のlastIndexが同じ
+					console.log("duplicateName2 "+i+" true:"+data);
+					return true;
+				}
+			}
+		}
+	}
+	return false;
 }
 </script>
 
@@ -53,41 +92,44 @@ function getTitle(name)
  // $("#title").text(data);
  //});
  
- $(function () {
-  $.ajax({
-   beforeSend: function(xhr){
-    xhr.overrideMimeType('text/html;charset=utf-8');
-   },
-   url:'https://ykquality.github.io/hosting/dev/songs.txt',
-   success: function(data){
-    console.log("success! "+name);
-    var html="";
-    $("#title").html("");
-    var data_array = data.split(/\r\n|\r|\n/);  // 改行コードで分割
-    var len = data_array.length;
-    var num=0;
-    for (var i = 0; i < len; i++){
-     if(data_array[i].match(/==(.*?)==/)){
-      //console.log("match! "+data_array[i]);
-      html="<tr><td bgcolor='#e3f0fb' align='center'>"+data_array[i]+"</td></tr>";
-      $("#title").append(html);
-     }
-     if(data_array[i].indexOf(name)>-1&&i>0){
-      //console.log(name);
-      num++;
-      if(data_array[i].indexOf("thisline")==0){
-       data_array[i]=data_array[i].replace(/thisline/, '');
-       html="<tr><td>"+num+". "+data_array[i]+"</td></tr>";
-      }
-      else{
-       html="<tr><td>"+num+". "+data_array[i-1]+"</td></tr>";
-      }
-      html=html.replace(/\[(.*?)\]/, '');
-      $("#title").append(html);
-     }
-    }
-   }
-  });
+$(function () {
+	$.ajax({
+	 beforeSend: function(xhr){
+		xhr.overrideMimeType('text/html;charset=utf-8');
+	},
+	url:'https://ykquality.github.io/hosting/dev/songs.txt',
+	success: function(data){
+		//console.log("success! "+name);
+		var html="";
+		
+		$("#title").html("");
+		var data_array = data.split(/\r\n|\r|\n/);
+		var len = data_array.length;
+		var num=0;
+		for (var i = 0; i < len; i++){
+			if(data_array[i].match(/==(.*?)==/)){
+				//console.log("match! "+data_array[i]);
+				html="<tr><td bgcolor='#e3f0fb' align='center'>"+data_array[i]+"</td></tr>";
+				$("#title").append(html);
+			}
+			if(data_array[i].indexOf(name)>-1&&i>0){
+				//console.log(name);
+				if(!duplicateName2(name,data_array[i])){
+					num++;
+					if(data_array[i].indexOf("thisline")==0){
+						data_array[i]=data_array[i].replace(/thisline/, '');
+						html="<tr><td>"+num+". "+data_array[i]+"</td></tr>";
+					}
+					else{
+						html="<tr><td>"+num+". "+data_array[i-1]+"</td></tr>";
+					}
+					html=html.replace(/\[(.*?)\]/, '');
+					$("#title").append(html);
+				}
+			}
+		}
+	 }
+	});
  });
  
 }

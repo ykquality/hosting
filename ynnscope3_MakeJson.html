@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<script src='https://ykquality.github.io/hosting/my_youtube_player.js' type='text/javascript'></script>
+<script src='https://ykquality.github.io/hosting/jquery.min.js' type='text/javascript'></script>
+<script src='https://ykquality.github.io/hosting/jquery.tablesorter.min.js' type='text/javascript'></script>
+<script src='https://ykquality.github.io/hosting/jquery.metadata.js' type='text/javascript'></script>
+
+
+
+</head>
+<body>
+
+<script type="text/javascript">
+function scope()
+{
+ //$.getJSON("http://yuzo-home.appspot.com/MemberJson?json=obj%2FMember.json", function(data){
+ //$.getJSON("https://a59d2968cc8e66c6a7f22143518ed72eaf7c8ddc-www.googledrive.com/host/0B7bRq8mWofTuXzVVanVRa2lsaDg", function(data){ //dev
+ //$.getJSON("https://ykquality.github.io/hosting/Member.json", function(data){ //dev
+  $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){ //dev
+  
+  	$.getJSON("https://ykquality.github.io/hosting/Member.json", function(member){ //dev
+  		 for(var key in data){
+  		 	var array=data[key].member.split("、");
+  		 	for(var i=0;i<array.length;i++){
+  		 		var flag=-1;
+  		 		for(var key3 in member){
+  		 			if(array[i]==member[key3].name_ja){
+  		 				//console.log("true");
+  		 				flag=1;
+  		 				break;
+  		 			}
+  		 		}
+  		 		if(flag<0){
+  		 			console.log("!exists:"+array[i]+" "+data[key].title);
+  		 		}
+  		 	}
+  		 }
+  	});
+
+		var text="[<br/>";
+  for(var key in data){
+   	//var sortvalue_u = parseInt(data[key].birth.replace(/-/g,""));
+   	//var sortvalue=getSortValue(data[key].name_kana,7);
+   
+		//console.log("title:"+data[key].title);
+		text+="{"+"<br/>";
+		text+="\""+"title"+"\""+":"+"\""+data[key].title+"\""+",<br/>";
+		text+="\""+"member"+"\""+":"+"\""+data[key].member+"\""+",<br/>";
+		text+="\""+"update"+"\""+":"+"\""+data[key].update+"\""+",<br/>";
+		text+="\""+"live"+"\""+":"+"\""+data[key].live+"\""+",<br/>";
+		text+="\""+"url"+"\""+":"+"\""+data[key].url+"\""+",<br/>";
+		text+="\""+"image"+"\""+":"+"\""+data[key].image+"\""+",<br/>";
+		text+="\""+"blank"+"\""+":"+"\""+data[key].blank+"\""+"<br/>";
+		text+="},<br/>";
+	}
+	text+="]";
+		$("#output").append(text);
+});
+}
+</script>
+<input type="button" onclick="scope()" value="scope">
+<div id="output"></div>
+
+
+</body>
+</html>
