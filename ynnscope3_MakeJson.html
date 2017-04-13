@@ -35,7 +35,8 @@ function scope()
   		 			}
   		 		}
   		 		if(flag<0){
-  		 			console.log("!exists:"+array[i]+" "+data[key].title);
+  		 			if((array[i]!="NMB48")&&(array[i]!="チームN")&&(array[i]!="チームM")&&(array[i]!="チームB2")&&(array[i]!="研究生"))
+  		 				console.log("!exists:"+array[i]+" "+data[key].title);
   		 		}
   		 	}
   		 }
