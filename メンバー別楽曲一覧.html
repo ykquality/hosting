@@ -71,7 +71,7 @@ function duplicateName2(name,data){
 			if(data.indexOf(name)==data.indexOf(dNames[i][1])){ //山本彩と山本彩加のindexが同じ
 				if(data.indexOf(name)==data.lastIndexOf(name) //他に山本彩を含む文字列がない
 				||data.lastIndexOf(name)==data.lastIndexOf(dNames[i][1])){  //山本彩と山本彩加のlastIndexが同じ
-					console.log("duplicateName2 "+i+" true:"+data);
+					//console.log("duplicateName2 "+i+" true:"+data);
 					return true;
 				}
 			}
