@@ -12,15 +12,12 @@
 
 </head>
 <body>
-※2016年11月22日現在<br />
+※2017年04月13日現在<br />
 ※番組一覧表→<a href="http://koneta48.blogspot.com/2016/11/ynn-nmb48_22.html">YNN NMB48チャンネル メンバー別の番組一覧</a><br />
 ※データ→<a href="https://ykquality.github.io/hosting/ynn.json">JSONファイル</a><br />
 <br />
 <script type="text/javascript">
 $(document).ready(function () {
- //$.getJSON("http://yuzo-home.appspot.com/MemberJson?json=obj%2FMember.json", function(data){
- //$.getJSON("https://a59d2968cc8e66c6a7f22143518ed72eaf7c8ddc-www.googledrive.com/host/0B7bRq8mWofTuXzVVanVRa2lsaDg", function(data){ //dev
- //$.getJSON("https://ykquality.github.io/hosting/Member.json", function(data){ //dev
   $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){ //dev
 
   for(var key in data){
@@ -36,8 +33,7 @@ $(document).ready(function () {
    +"<td style='text-align:center;'>"+data[key].live+"</td>"
    //+"<td style='text-align:center;'>"+data[key].url+"</td>"
    //+"<td style='text-align:center;'>"+data[key].blank+"</td>"
-   +"</tr>
-";
+   +"</tr>";
          
    
    $("#output1").append(html);

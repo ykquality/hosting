@@ -11,7 +11,7 @@
 
 </head>
 <body>
-※2016年11月22日現在<br/>
+※2017年04月13日現在<br/>
 ※番組一覧表→<a href="http://koneta48.blogspot.com/2016/11/ynn-nmb48.html">YNN NMB48チャンネル番組一覧</a><br/>
 ※データ→<a href="https://ykquality.github.io/hosting/ynn.json">JSONファイル</a><br/><br/>
 <script type="text/javascript">
@@ -55,24 +55,21 @@ function duplicateName2(name,data){
 
 <script type="text/javascript">
 $(document).ready(function () {
- //$.getJSON("http://yuzo-home.appspot.com/MemberJson?json=obj%2FMember.json", function(data){
- //$.getJSON("https://a59d2968cc8e66c6a7f22143518ed72eaf7c8ddc-www.googledrive.com/host/0B7bRq8mWofTuXzVVanVRa2lsaDg", function(data){ //dev
- //$.getJSON("https://dl.dropboxusercontent.com/u/75233738/hosting/Member.json", function(data){ //dev
 	$.getJSON("https://ykquality.github.io/hosting/Member.json", function(data){ //dev
 
-	var html="<tr><td class={sortValue:"+sortvalue+"} onClick=getTitle('NMB48') style='cursor:pointer;'>"
+	var html="<tr><td onClick=getTitle('NMB48') style='cursor:pointer;'>"
 				 +"NMB48"
 				 +"</td></tr>";
-	html+="<tr><td class={sortValue:"+sortvalue+"} onClick=getTitle('チームN') style='cursor:pointer;'>"
+	html+="<tr><td onClick=getTitle('チームN') style='cursor:pointer;'>"
 				 +"チームN"
 				 +"</td></tr>";
-	html+="<tr><td class={sortValue:"+sortvalue+"} onClick=getTitle('チームM') style='cursor:pointer;'>"
+	html+="<tr><td onClick=getTitle('チームM') style='cursor:pointer;'>"
 				 +"チームM"
 				 +"</td></tr>";
-	html+="<tr><td class={sortValue:"+sortvalue+"} onClick=getTitle('チームB2') style='cursor:pointer;'>"
+	html+="<tr><td onClick=getTitle('チームB2') style='cursor:pointer;'>"
 				 +"チームB2"
 				 +"</td></tr>";
-	html+="<tr><td class={sortValue:"+sortvalue+"} onClick=getTitle('チームB2') style='cursor:pointer;'>"
+	html+="<tr><td onClick=getTitle('研究生') style='cursor:pointer;'>"
 				 +"研究生"
 				 +"</td></tr>";
 	$("#output2").append(html);
@@ -108,7 +105,7 @@ function getTitle(name)
 				var html="<tr><td style='text-align:center;'><a href='"+data[key].url+"' >"+data[key].title+"</a><br/><img src='"+data[key].image+"' style='padding:0px;width:140px;height:80px;'></img></td>"
 					// +"<td><a href='"+data[key].url+"' >"+data[key].title+"</a></td>"
 					 +"<td style='text-align:center;'>"+data[key].member+"</td>"
-					// +"<td style='text-align:center;'>"+data[key].update+"</td>"
+					 //+"<td style='text-align:center;'>"+data[key].update+"</td>"
 					 //+"<td style='text-align:center;'>"+data[key].live+"</td>"
 					 //+"<td style='text-align:center;'>"+data[key].url+"</td>"
 					 //+"<td style='text-align:center;'>"+data[key].blank+"</td>"
