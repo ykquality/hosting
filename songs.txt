@@ -1055,7 +1055,6 @@ thisline三田麻央	主なきその声	Shusui	ヒロイズム
 thisline三田麻央	少女たちよ NO NAME ver.	―	カバー
 thisline三田麻央	大声ダイヤモンド NO NAME ver.	―	カバー
 thisline三田麻央	初日 NO NAME ver.	―	カバー
-thisline三田麻央	てもでもの涙 NO NAME ver.	―	カバー
 
 thislineマザー牧場CMソング	藤江れいな・近野莉菜		松本卓也
 
