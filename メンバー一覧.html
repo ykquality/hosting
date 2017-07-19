@@ -36,7 +36,8 @@ $(document).ready(function () {
          +"<td class={sortValue:"+sortvalue_b+"} style='text-align:center;'>"+data[key].birth+"</td>"
          +"<td style='text-align:center;'>"+age+"</td>"
          +"<td style='text-align:center;'>"+data[key].blood+"</td>"
-         +"<td style='text-align:center;'>"+data[key].from+"</td>";
+         +"<td style='text-align:center;'>"+data[key].from+"</td>"
+         +"<td style='text-align:center;'>"+data[key].term+"</td>";
    
    if(data[key].twitter)
        html+="<td style='text-align:center;'><a href=https://twitter.com/"+data[key].twitter+"><i class='fa fa-twitter'></i></a></td>";
@@ -76,6 +77,7 @@ function sorter(tablesorter)
 <th width="30">年齢</th>
 <th width="30">血液型</th>
 <th width="40">出身地</th>
+<th width="15">期</th>
 <th width="30">twitter</th>
 <th width="30">Google+</th>
 </tr>
