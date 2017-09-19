@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<script src='https://ykquality.github.io/hosting/jquery.min.js' type='text/javascript'></script>
+<script src='https://ykquality.github.io/hosting/jquery.tablesorter.min.js' type='text/javascript'></script>
+<script src='https://ykquality.github.io/hosting/jquery.metadata.js' type='text/javascript'></script>
+
+
+</head>
+<body>
+※2017年04月13日現在<br/>
+※番組一覧表→<a href="http://koneta48.blogspot.com/2016/11/ynn-nmb48.html">YNN NMB48チャンネル番組一覧</a><br/>
+※データ→<a href="https://ykquality.github.io/hosting/ynn.json">JSONファイル</a><br/><br/>
+<script type="text/javascript">
+var dNames=null;
+(function duplicateName(){
+	//console.log("duplicateName "+dNames);
+	if(dNames!=null)
+		return;
+	$.ajax({
+		url:'https://ykquality.github.io/hosting/DuplicateName.txt',
+		success: function(data2){
+			var a = data2.split(/\r\n|\r|\n/);
+			dNames = new Array(a.length);
+			for(var i in a){
+				var aa=a[i].split(",");
+				dNames[i] = new Array(2);
+				dNames[i][0]=aa[0];
+				dNames[i][1]=aa[1];
+			}
+		}
+	});
+})()
+function duplicateName2(name,data){
+	//console.log("duplicateName2 "+dNames);
+	for(var i in dNames){
+		if(name==dNames[i][0]){ //検索する名前と重複する可能性のある名前が同じ
+			//if(data.indexOf(dNames[i][1])>-1&&i==0)
+			//	console.log("duplicateName2 "+i+" "+name+" "+dNames[i][0]+" "+dNames[i][1]+" "+data);
+			if(data.indexOf(name)==data.indexOf(dNames[i][1])){ //山本彩と山本彩加のindexが同じ
+				if(data.indexOf(name)==data.lastIndexOf(name) //他に山本彩を含む文字列がない
+				||data.lastIndexOf(name)==data.lastIndexOf(dNames[i][1])){	//山本彩と山本彩加のlastIndexが同じ
+					//console.log("duplicateName2 "+i+" true:"+data);
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+</script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	$.getJSON("https://ykquality.github.io/hosting/Member.json", function(data){ //dev
+
+	var html="<tr><td onClick=getTitle('NMB48') style='cursor:pointer;'>"
+				 +"NMB48"
+				 +"</td></tr>";
+	html+="<tr><td onClick=getTitle('チームN') style='cursor:pointer;'>"
+				 +"チームN"
+				 +"</td></tr>";
+	html+="<tr><td onClick=getTitle('チームM') style='cursor:pointer;'>"
+				 +"チームM"
+				 +"</td></tr>";
+	html+="<tr><td onClick=getTitle('チームB2') style='cursor:pointer;'>"
+				 +"チームB2"
+				 +"</td></tr>";
+	html+="<tr><td onClick=getTitle('研究生') style='cursor:pointer;'>"
+				 +"研究生"
+				 +"</td></tr>";
+	$("#output2").append(html);
+		
+	for(var key in data){
+		//console.log(data[key].name_kana);
+		var sortvalue=getSortValue(data[key].name_kana,7);
+		//console.log(sortvalue);
+		
+		html="<tr><td class={sortValue:"+sortvalue+"} onClick=getTitle('"+data[key].name_ja+"') style='cursor:pointer;'>"
+				 +data[key].name_ja
+				 +"</td></tr>";
+				 
+	 
+		$("#output2").append(html);
+	}
+	sorter(".tablesorter");
+ });
+});
+</script>
+
+<script type="text/javascript">
+function getTitle(name)
+{
+ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){ //dev
+ var num=0;
+ $("#title").html("");
+	for(var key in data){
+		//console.log(data[key].title);
+		if(data[key].member.indexOf(name)>-1){
+			if(!duplicateName2(name,data[key].member)){
+				num++;
+				var html="<tr><td style='text-align:center;'><a href='"+data[key].url+"' >"+data[key].title+"</a><br/><img src='"+data[key].image+"' style='padding:0px;width:140px;height:80px;'></img></td>"
+					// +"<td><a href='"+data[key].url+"' >"+data[key].title+"</a></td>"
+					 +"<td style='text-align:center;'>"+data[key].member+"</td>"
+					 //+"<td style='text-align:center;'>"+data[key].update+"</td>"
+					 //+"<td style='text-align:center;'>"+data[key].live+"</td>"
+					 //+"<td style='text-align:center;'>"+data[key].url+"</td>"
+					 //+"<td style='text-align:center;'>"+data[key].blank+"</td>"
+					 +"</tr>";
+				$("#title").append(html);
+			}
+		}
+	}
+	//sorter(".tablesorter2");
+ });
+}
+</script>
+<script type="text/javascript">
+function sorter(tablesorter)
+{
+ $(tablesorter).tablesorter({
+	widgets:["zebra"],
+	sortList: [[3,1]]
+ });
+}
+</script>
+
+<table border="0">
+<tr>
+<td valign="top">
+
+
+<table border="1" cellpadding="2" width="100px" cellspacing="0" class="tablesorter">
+<thead bgcolor="#F0F0F6">
+<tr>
+<th class="{sorter:'metadata'}" width="100px">名前</th>
+</tr>
+</thead>
+<tbody id="output2">
+</tbody>
+</table>
+
+
+</td>
+<td valign="top">
+
+
+<table border="1" cellpadding="2" cellspacing="0" class="tablesorter2">
+<thead bgcolor="#F0F0F6">
+<tr>
+<th width="150">タイトル</th>
+<th width="150">出演メンバー</th>
+</tr>
+</thead>
+<tbody id="title">
+</tbody>
+</table>
+
+</td>
+</tr>
+</table>
+</body>
+</html>

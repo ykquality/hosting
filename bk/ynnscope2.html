@@ -24,19 +24,18 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
 	var url=new Array();
 	for(var i=0; i<ele_title.length; i++){
 		title[i]=ele_title[i].textContent;
-		title[i]=title[i].replace(/NMB48チャンネル /g, '');
-		title[i]=title[i].replace(/NMB48チャンネル/g, '');
-		title[i]=title[i].replace(/チームＮ/g, 'チームN');
-		title[i]=title[i].replace(/チームＭ/g, 'チームM');
-		title[i]=title[i].replace(/チームBII/g, 'チームB2');
-		title[i]=title[i].replace(/チームBⅡ/g, 'チームB2');
-		title[i]=title[i].replace(/チームＢII/g, 'チームB2');
-		title[i]=title[i].replace(/チームＢⅡ/g, 'チームB2');
-		title[i]=title[i].replace(/チームＢ2/g, 'チームB2');
+		title[i]=title[i].replace(/NMB48チャンネル |/, '');
+		title[i]=title[i].replace(/NMB48チャンネル|/, '');
+		title[i]=title[i].replace(/チームＮ|/, 'チームB');
+		title[i]=title[i].replace(/チームＭ|/, 'チームM');
+		title[i]=title[i].replace(/チームBII|/, 'チームB2');
+		title[i]=title[i].replace(/チームBⅡ|/, 'チームB2');
+		title[i]=title[i].replace(/チームＢII|/, 'チームB2');
+		title[i]=title[i].replace(/チームＢⅡ|/, 'チームB2');
+		title[i]=title[i].replace(/チームＢ2|/, 'チームB2');
 		url[i]="http://ynn.jp"+ele_title[i].getElementsByTagName("a")[0].href;
 		if(url[i].indexOf("file:///C:")>0)
 			url[i]=url[i].split("file:///C:")[0]+url[i].split("file:///C:")[1];
-		
 		//console.log("title:"+title[i]);
 		//console.log("title:"+url[i]);
 	}
@@ -83,7 +82,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
 <input type="button" onclick="scope()" value="scope">
 <div id="output"></div>
 <div id="ynn"></div>
-
 <div id="feature-content" class="tripleMovieList">
         <h3 class="title-section-name">ピックアップ</h3>
         
@@ -96,10 +94,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1014222" class=""><strong>NMB48チャンネル</strong><br><span>磁極祭</span></a></dt>
+                            <dt class="title"><a href="/m/1013618" class=""><strong>NMB48チャンネル</strong><br><span>TORACO 撮影に密着YNN2017</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1014222" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014222/8edbc63f17effc16a547e1f15e89b0a1.jpg">
+                                <p><a href="/m/1013618" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013618/2d4b63d7c64777435ad39941fe5b8dac.jpg">
 																																															<span class="svod">見放題</span>
 								</a></p>
                                                             </dd>
@@ -115,10 +113,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1014145" class=""><strong>NMB48チャンネル</strong><br><span>摩訶</span></a></dt>
+                            <dt class="title"><a href="/m/1013681"><strong>NMB48チャンネル</strong><br><span>ちゃん24時間テレビ？「忍術」</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1014145" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014145/d3b64b9acfb71a0b3677992da57044d7.jpg">
+                                <p><a href="/m/1013681"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013681/af5a5d923172ecbeb19e965a1d9a7931.jpg">
 																																															<span class="svod">見放題</span>
 								</a></p>
                                                             </dd>
@@ -134,15 +132,15 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1014316" class=""><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#27</span></a></dt>
+                            <dt class="title"><a href="/m/1013564"><strong>NMB48チャンネル</strong><br><span>「もぐもぐなーみ」#4</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1014316" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014316/a8dfae112b69d1778068e0b036e7f173.jpg">
+                                <p><a href="/m/1013564"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013564/9a7ca4f1c7cfdbb0ac89c34edb7e61ac.jpg">
 																																																																									<span class="svod">見放題</span>
 								</a></p>
                                                             </dd>
                             <dd class="price"><p class="coin">
-			100ワロコイン/7日間
+			300ワロコイン/7日間
 	</p></dd>
                             <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
                         </dl>
@@ -164,93 +162,13 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1014593" class=""><strong>NMB48チャンネル</strong><br><span>三田画伯の部屋 #52　明石奈津子</span></a></dt>
+                            <dt class="title"><a href="/m/1013898"><strong>NMB48チャンネル</strong><br><span>薮下柊からの卒業メッセージ</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1014593" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014593/dfe1404edffd7fb6919aff01d607fc46.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                <p class="new">NEW</p>                            </dd>
-                            <dd class="price"><p class="coin">
-			100ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014588" class=""><strong>NMB48チャンネル</strong><br><span>中川美音プレゼンツ「みおんについてこーい！ウォォォー」#2</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014588" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014588/68963c56052a57d4b90fbb9a09dfedea.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                <p class="new">NEW</p>                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014571" class=""><strong>NMB48チャンネル</strong><br><span>いつかはうどん #4</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014571" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014571/a75be863172b44ee096ca05ec4cb720e.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014558" class=""><strong>NMB48チャンネル</strong><br><span>中川美音プレゼンツ「みおんについてこーい！ウォォォー」#1</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014558" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014558/200c819cc798169a78eef79eba96b0c8.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014544" class=""><strong>NMB48チャンネル</strong><br><span>おもちプリンセス</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014544" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014544/47e4644596e526416848905939e3ebb0.jpg">
+                                <p><a href="/m/1013898"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013898/486c7b4f1b4da20b4435e657be010795.jpg">
 																																															<span class="svod">見放題</span>
 								</a></p>
-                                                            </dd>
+                                <p class="new">NEW</p>                            </dd>
                             <dd class="price"><p class="coin">
 			見放題コース
 	</p></dd>
@@ -263,46 +181,15 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1014535"><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#29</span></a></dt>
+                            <dt class="title"><a href="/m/1013894"><strong>NMB48チャンネル</strong><br><span>上西恵からの卒業メッセージ</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1014535"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014535/6d8956665424e07c4ad9cbc5cf80a600.jpg">
-																																																																									<span class="svod">見放題</span>
+                                <p><a href="/m/1013894"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013894/c42bcfa6d26913887ae727d48bc93936.jpg">
+																																															<span class="svod">見放題</span>
 								</a></p>
-                                                            </dd>
+                                <p class="new">NEW</p>                            </dd>
                             <dd class="price"><p class="coin">
-			100ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-
-
-
-<h3 class="title-section-name">中川美音プレゼンツ「みおんについてこーい！ウォォォー」</h3>
-
-
-<!-- PARTS ID 55 -->
-<!-- test -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014558"><strong>NMB48チャンネル</strong><br><span>中川美音プレゼンツ「みおんについてこーい！ウォォォー」#1</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014558"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014558/200c819cc798169a78eef79eba96b0c8.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
+			見放題コース
 	</p></dd>
                             <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
                         </dl>
@@ -313,10 +200,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1014588" class=""><strong>NMB48チャンネル</strong><br><span>中川美音プレゼンツ「みおんについてこーい！ウォォォー」#2</span></a></dt>
+                            <dt class="title"><a href="/m/1013881"><strong>NMB48チャンネル</strong><br><span>三田麻央プレゼンツ「北陸ロマン紀行」#4</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1014588" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014588/68963c56052a57d4b90fbb9a09dfedea.jpg">
+                                <p><a href="/m/1013881"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013881/0cda122dca0478f9ac70a5c95cc9fda9.jpg">
 																																																																									<span class="svod">見放題</span>
 								</a></p>
                                 <p class="new">NEW</p>                            </dd>
@@ -330,28 +217,21 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <!-- △movie：動画ブロック -->
                 </div>
                 <!-- ▲section : １段落分 -->
-
-
-<h3 class="title-section-name">村瀬紗英プレゼンツ「絶対キレイになってやる！」</h3>
-
-
-<!-- PARTS ID 55 -->
-<!-- test -->
                 <!-- ▼section : １段落分 -->
                 <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1014403"><strong>NMB48チャンネル</strong><br><span>村瀬紗英プレゼンツ「絶対キレイになってやる！」#1</span></a></dt>
+                            <dt class="title"><a href="/m/1013891"><strong>NMB48チャンネル</strong><br><span>ぬーさん特別編「ぬーさん、江戸へ行く」</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1014403"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014403/f6320afbc6dea751ab6cff77eb04d2a1.jpg">
-																																																																									<span class="svod">見放題</span>
+                                <p><a href="/m/1013891"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013891/ce74627d93cd5d78e06ef17b2564c0b5.jpg">
+																																															<span class="svod">見放題</span>
 								</a></p>
-                                                            </dd>
+                                <p class="new">NEW</p>                            </dd>
                             <dd class="price"><p class="coin">
-			300ワロコイン/7日間
+			見放題コース
 	</p></dd>
                             <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
                         </dl>
@@ -362,15 +242,15 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1014432"><strong>NMB48チャンネル</strong><br><span>村瀬紗英プレゼンツ「絶対キレイになってやる！」#2</span></a></dt>
+                            <dt class="title"><a href="/m/1013879"><strong>NMB48チャンネル</strong><br><span>NMB48 6th Anniversary LIVE 舞台裏 2日目</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1014432"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014432/1f6eae46e84b89b2b232c435bc3f7b6a.jpg">
-																																																																									<span class="svod">見放題</span>
+                                <p><a href="/m/1013879"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013879/a78ea4ec62023241f336e0e71d5d1529.jpg">
+																																															<span class="svod">見放題</span>
 								</a></p>
-                                                            </dd>
+                                <p class="new">NEW</p>                            </dd>
                             <dd class="price"><p class="coin">
-			300ワロコイン/7日間
+			見放題コース
 	</p></dd>
                             <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
                         </dl>
@@ -381,38 +261,15 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1014463"><strong>NMB48チャンネル</strong><br><span>村瀬紗英プレゼンツ「絶対キレイになってやる！」#3</span></a></dt>
+                            <dt class="title"><a href="/m/1013855"><strong>NMB48チャンネル</strong><br><span>プロ野球女子会2017</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1014463"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014463/708f3b15dc7548042ba62fbc4978481b.jpg">
-																																																																									<span class="svod">見放題</span>
+                                <p><a href="/m/1013855"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013855/dacb4489d11df1dc40c6c8ed82f1a609.jpg">
+																																															<span class="svod">見放題</span>
 								</a></p>
                                                             </dd>
                             <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014493"><strong>NMB48チャンネル</strong><br><span>村瀬紗英プレゼンツ「絶対キレイになってやる！」#4</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014493"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014493/711531e33ff956bc703674ac373ef5d4.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
+			見放題コース
 	</p></dd>
                             <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
                         </dl>
@@ -422,369 +279,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                 </div>
                 <!-- ▲section : １段落分 -->
 
-
-<h3 class="title-section-name">小嶋花梨プレゼンツ「こじりん・ザ・YNN」</h3>
-
-
-<!-- PARTS ID 55 -->
-<!-- test -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014279"><strong>NMB48チャンネル</strong><br><span>小嶋花梨プレゼンツ「こじりん・ザ・YNN」 #1</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014279"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014279/a16eb221437992c94fbd2d1f2f4b9d5a.png">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014311"><strong>NMB48チャンネル</strong><br><span>小嶋花梨プレゼンツ「こじりん・ザ・YNN」 #2</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014311"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014311/cae7c3a6a8eefc8b0bc2ae5f5d1cdc4f.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014342"><strong>NMB48チャンネル</strong><br><span>小嶋花梨プレゼンツ「こじりん・ザ・YNN」 #3</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014342"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014342/bc5c51b37a3d67df23ef50a98b562bc8.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014368"><strong>NMB48チャンネル</strong><br><span>小嶋花梨プレゼンツ「こじりん・ザ・YNN」 #4</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014368"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014368/55654c00a701841e022192d11c4fa5b6.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-
-
-<h3 class="title-section-name">いつかはうどん</h3>
-
-
-<!-- PARTS ID 55 -->
-<!-- test -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014124"><strong>NMB48チャンネル</strong><br><span>いつかはうどん #1</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014124"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014124/8e539b3e9ba8d380b37eb23b07dbf23d.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014259"><strong>NMB48チャンネル</strong><br><span>いつかはうどん #2</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014259"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014259/6f5472067dc7801905443de33756d2d6.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014409"><strong>NMB48チャンネル</strong><br><span>いつかはうどん #3</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014409"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014409/b0338a5a7b792dab877f1786a6b430b9.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014571"><strong>NMB48チャンネル</strong><br><span>いつかはうどん #4</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014571"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014571/a75be863172b44ee096ca05ec4cb720e.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-
-
-<h3 class="title-section-name">鵜野みずきプレゼンツ「いきなり!ミステリーツアー」</h3>
-
-
-<!-- PARTS ID 55 -->
-<!-- test -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014115"><strong>NMB48チャンネル</strong><br><span>鵜野みずきプレゼンツ「いきなり!ミステリーツアー」#1</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014115"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014115/9e2fbac212140bdc47506dedb0c13b4f.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014153"><strong>NMB48チャンネル</strong><br><span>鵜野みずきプレゼンツ「いきなり!ミステリーツアー」#2</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014153"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014153/3b0279354677703d6953989ec109ccb9.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014174"><strong>NMB48チャンネル</strong><br><span>鵜野みずきプレゼンツ「いきなり!ミステリーツアー」#3</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014174"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014174/5f87e1a4e9cdced81c398f3554dc0682.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014212"><strong>NMB48チャンネル</strong><br><span>鵜野みずきプレゼンツ「いきなり!ミステリーツアー」#4</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014212"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014212/3af150c5c20da4cac7c152b82e5fb347.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-
-
-<h3 class="title-section-name"> 西澤瑠莉奈プレゼンツ「世界を目指そう！」</h3>
-
-
-<!-- PARTS ID 55 -->
-<!-- test -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013937"><strong>NMB48チャンネル</strong><br><span>西澤瑠莉奈プレゼンツ「世界を目指そう！」 #1</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1013937"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013937/b70bee8c56ea79f2de1d8c02a4496e6c.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013974"><strong>NMB48チャンネル</strong><br><span>西澤瑠莉奈プレゼンツ「世界を目指そう！」 #2</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1013974"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013974/8d791c94d4b39037dbf8ef0fce23a7ca.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014030"><strong>NMB48チャンネル</strong><br><span>西澤瑠莉奈プレゼンツ「世界を目指そう！」 #3</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014030"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014030/d59242bea23ffd8cae19812e56d82679.png">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014062"><strong>NMB48チャンネル</strong><br><span>西澤瑠莉奈プレゼンツ「世界を目指そう！」 #4</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014062"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014062/e33a4053f299a787a3433a8bdf66e31e.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
 
 
 <h3 class="title-section-name">非ホロノミック系 茶店のガール</h3>
@@ -955,6 +449,8 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <!-- △movie：動画ブロック -->
                 </div>
                 <!-- ▲section : １段落分 -->
+
+
 
 
 <h3 class="title-section-name">ちゃん24時間テレビ？</h3>
@@ -1636,73 +1132,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
 
 
 
-<h3 class="title-section-name"> みらいといっしょに冒険わんちゃん</h3>
-
-
-<!-- PARTS ID 55 -->
-<!-- test -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013947"><strong>NMB48チャンネル</strong><br><span>みらいといっしょに冒険わんちゃん #1</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1013947"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013947/7e0addef2b5bf30120f6c7466d7e9e44.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014016"><strong>NMB48チャンネル</strong><br><span>みらいといっしょに冒険わんちゃん #2</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014016"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014016/40317d16843ad1d7e0058c0c1bd0e3c2.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014286"><strong>NMB48チャンネル</strong><br><span>みらいといっしょに冒険わんちゃん #3</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014286"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014286/5492db96f87ea7c98c905cefc07a3587.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-
 
 <h3 class="title-section-name"> 三田麻央プレゼンツ「北陸ロマン紀行」</h3>
 
@@ -1715,10 +1144,71 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1013779"><strong>NMB48チャンネル</strong><br><span>三田麻央プレゼンツ「北陸ロマン紀行」#1</span></a></dt>
+                            <dt class="title"><a href="/m/1013898"><strong>NMB48チャンネル</strong><br><span>薮下柊からの卒業メッセージ</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1013779"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013779/8a554fbe9f453ae817b701a0d7c6ba3a.jpg">
+                                <p><a href="/m/1013898"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013898/486c7b4f1b4da20b4435e657be010795.jpg">
+																																															<span class="svod">見放題</span>
+								</a></p>
+                                <p class="new">NEW</p>                            </dd>
+                            <dd class="price"><p class="coin">
+			見放題コース
+	</p></dd>
+                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
+                        </dl>
+                        <!-- /.main -->
+                    </div>
+                    <!-- △movie：動画ブロック -->
+                    <!-- ▽movie：動画ブロック -->
+                    <div class="movie">
+                        <!-- .main -->
+                        <dl class="main">
+                            <dt class="title"><a href="/m/1013894"><strong>NMB48チャンネル</strong><br><span>上西恵からの卒業メッセージ</span></a></dt>
+                            <dd class="image">
+				<!-- parts id 55-->
+                                <p><a href="/m/1013894"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013894/c42bcfa6d26913887ae727d48bc93936.jpg">
+																																															<span class="svod">見放題</span>
+								</a></p>
+                                <p class="new">NEW</p>                            </dd>
+                            <dd class="price"><p class="coin">
+			見放題コース
+	</p></dd>
+                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
+                        </dl>
+                        <!-- /.main -->
+                    </div>
+                    <!-- △movie：動画ブロック -->
+                    <!-- ▽movie：動画ブロック -->
+                    <div class="movie">
+                        <!-- .main -->
+                        <dl class="main">
+                            <dt class="title"><a href="/m/1013881"><strong>NMB48チャンネル</strong><br><span>三田麻央プレゼンツ「北陸ロマン紀行」#4</span></a></dt>
+                            <dd class="image">
+				<!-- parts id 55-->
+                                <p><a href="/m/1013881"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013881/0cda122dca0478f9ac70a5c95cc9fda9.jpg">
+																																																																									<span class="svod">見放題</span>
+								</a></p>
+                                <p class="new">NEW</p>                            </dd>
+                            <dd class="price"><p class="coin">
+			300ワロコイン/7日間
+	</p></dd>
+                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
+                        </dl>
+                        <!-- /.main -->
+                    </div>
+                    <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
+                    <!-- ▽movie：動画ブロック -->
+                    <div class="movie">
+                        <!-- .main -->
+                        <dl class="main">
+                            <dt class="title"><a href="/m/1013850"><strong>NMB48チャンネル</strong><br><span>三田麻央プレゼンツ「北陸ロマン紀行」#3</span></a></dt>
+                            <dd class="image">
+				<!-- parts id 55-->
+                                <p><a href="/m/1013850"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013850/df3a8dd00af1a3d662935f78db53185d.jpg">
 																																																																									<span class="svod">見放題</span>
 								</a></p>
                                                             </dd>
@@ -1753,137 +1243,15 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1013850"><strong>NMB48チャンネル</strong><br><span>三田麻央プレゼンツ「北陸ロマン紀行」#3</span></a></dt>
+                            <dt class="title"><a href="/m/1013779"><strong>NMB48チャンネル</strong><br><span>三田麻央プレゼンツ「北陸ロマン紀行」#1</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1013850"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013850/df3a8dd00af1a3d662935f78db53185d.jpg">
+                                <p><a href="/m/1013779"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013779/8a554fbe9f453ae817b701a0d7c6ba3a.jpg">
 																																																																									<span class="svod">見放題</span>
 								</a></p>
                                                             </dd>
                             <dd class="price"><p class="coin">
 			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013881"><strong>NMB48チャンネル</strong><br><span>三田麻央プレゼンツ「北陸ロマン紀行」#4</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1013881"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013881/0cda122dca0478f9ac70a5c95cc9fda9.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013921"><strong>NMB48チャンネル</strong><br><span>北陸寝起きドッキリ</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1013921"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013921/7d6394fad49f12213134b4ea00f62af6.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013925"><strong>NMB48チャンネル</strong><br><span>3月のカニ</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1013925"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013925/829462c18c00174aa535356237b069a7.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013894"><strong>NMB48チャンネル</strong><br><span>上西恵からの卒業メッセージ</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1013894"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013894/c42bcfa6d26913887ae727d48bc93936.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013898"><strong>NMB48チャンネル</strong><br><span>薮下柊からの卒業メッセージ</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1013898"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013898/486c7b4f1b4da20b4435e657be010795.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013917"><strong>NMB48チャンネル</strong><br><span>藤江れいなからの卒業メッセージ</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1013917"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013917/1c6e99615619c4fa22133c91fd485f06.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
 	</p></dd>
                             <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
                         </dl>
@@ -1947,11 +1315,11 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                             <dd class="image">
 				<!-- parts id 55-->
                                 <p><a href="/m/1013653"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013653/1aa2412f91aa2164ce3e33f2b47cc781.jpg">
-																																																																									<span class="svod">見放題</span>
+																																															<span class="svod">見放題</span>
 								</a></p>
                                                             </dd>
                             <dd class="price"><p class="coin">
-			300ワロコイン/7日間
+			見放題コース
 	</p></dd>
                             <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
                         </dl>
@@ -1970,11 +1338,11 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                             <dd class="image">
 				<!-- parts id 55-->
                                 <p><a href="/m/1013692"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013692/7977ff0ce63806f9f2c7b0f1f1d812b6.jpg">
-																																																																									<span class="svod">見放題</span>
+																																															<span class="svod">見放題</span>
 								</a></p>
                                                             </dd>
                             <dd class="price"><p class="coin">
-			300ワロコイン/7日間
+			見放題コース
 	</p></dd>
                             <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
                         </dl>
@@ -4067,7 +3435,7 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                                 <p><a href="/m/1013891"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013891/ce74627d93cd5d78e06ef17b2564c0b5.jpg">
 																																															<span class="svod">見放題</span>
 								</a></p>
-                                                            </dd>
+                                <p class="new">NEW</p>                            </dd>
                             <dd class="price"><p class="coin">
 			見放題コース
 	</p></dd>
@@ -4091,251 +3459,7 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     </a><div class="movie"><a name="nama">
                         <!-- .main -->
                         </a><dl class="main"><a name="nama">
-                            </a><dt class="title"><a name="nama"></a><a href="/m/1014396"><strong>NMB48チャンネル</strong><br><span>まさか深夜合流</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014396"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014396/e582ef3290f4c23a54d972e5357437bc.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014379"><strong>NMB48チャンネル</strong><br><span>アーモンドンモーア</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014379"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014379/4379a9b0e082d41410cc283e2cdae107.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014222"><strong>NMB48チャンネル</strong><br><span>磁極祭</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014222"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014222/8edbc63f17effc16a547e1f15e89b0a1.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014208"><strong>NMB48チャンネル</strong><br><span>6月6日の第六感</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014208"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014208/f414d30f926cf90298c3cc51c6a21b58.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014145"><strong>NMB48チャンネル</strong><br><span>摩訶</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014145"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014145/d3b64b9acfb71a0b3677992da57044d7.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014121"><strong>NMB48チャンネル</strong><br><span>GOLDEN BBQ うどんの休日 3</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014121"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014121/3a5f42ace1118bdbb058b86b62934a43.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014117"><strong>NMB48チャンネル</strong><br><span>GOLDEN BBQ うどんの休日 2</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014117"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014117/c7e3498ac64f7dd407c194c9e4ff00b4.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014116" class=""><strong>NMB48チャンネル</strong><br><span>GOLDEN BBQ うどんの休日 1</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014116" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014116/c7e3498ac64f7dd407c194c9e4ff00b4.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014110"><strong>NMB48チャンネル</strong><br><span>脳みそレボリューション</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014110"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014110/36b43a2f68168808acac8e6f1a740edc.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014109"><strong>NMB48チャンネル</strong><br><span>半熟オムライスシェフ VS ヨガハンバーグ</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014109"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014109/51dfd9af62ee8af026e7c6c2f8c2d080.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013925"><strong>NMB48チャンネル</strong><br><span>3月のカニ</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1013925"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013925/829462c18c00174aa535356237b069a7.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013855"><strong>NMB48チャンネル</strong><br><span>プロ野球女子会2017</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1013855"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013855/dacb4489d11df1dc40c6c8ed82f1a609.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013705"><strong>NMB48チャンネル</strong><br><span>副キャプテン佳奈江</span></a></dt>
+                            </a><dt class="title"><a name="nama"></a><a href="/m/1013705"><strong>NMB48チャンネル</strong><br><span>副キャプテン佳奈江</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
                                 <p><a href="/m/1013705"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013705/2319f16bd7c9b445608b9d9d7dabaf7b.jpg">
@@ -5928,68 +5052,7 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     </a><div class="movie"><a name="tanieda">
                         <!-- .main -->
                         </a><dl class="main"><a name="tanieda">
-                            </a><dt class="title"><a name="tanieda"></a><a href="/m/1014376"><strong>NMB48チャンネル</strong><br><span>谷枝イングリッシュ #15</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014376"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014376/440f2ac4ab84964e34015e86418a2db2.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014223"><strong>NMB48チャンネル</strong><br><span>谷枝イングリッシュ #14</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014223"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014223/157af1510787ee5122b1031b3151c57f.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014097"><strong>NMB48チャンネル</strong><br><span>谷枝イングリッシュ #13</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014097"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014097/5166378abdb952f1508668c3c32a5142.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			300ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013789"><strong>NMB48チャンネル</strong><br><span>谷枝イングリッシュ #12</span></a></dt>
+                            </a><dt class="title"><a name="tanieda"></a><a href="/m/1013789"><strong>NMB48チャンネル</strong><br><span>谷枝イングリッシュ #12</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
                                 <p><a href="/m/1013789"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013789/9d874c2692ff06ea7314f887896ec2b9.jpg">
@@ -6430,106 +5493,7 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     </a><div class="movie"><a name="amakara">
                         <!-- .main -->
                         </a><dl class="main"><a name="amakara">
-                            </a><dt class="title"><a name="amakara"></a><a href="/m/1014535"><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#29</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014535"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014535/6d8956665424e07c4ad9cbc5cf80a600.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			100ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014443"><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#28</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014443"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014443/0f6de08a6d3fd9e6004a09c19781b727.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			100ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014316"><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#27</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014316"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014316/a8dfae112b69d1778068e0b036e7f173.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			100ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014161"><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#26</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014161"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014161/54c84b1a4b35851966e7b06422838017.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			100ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014071"><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#25</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014071"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014071/966d150735aff790ee57a817719cbedd.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			100ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013839"><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#24</span></a></dt>
+                            </a><dt class="title"><a name="amakara"></a><a href="/m/1013839"><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#24</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
                                 <p><a href="/m/1013839"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013839/4f883252b671bb42556a8f8573026854.jpg">
@@ -6544,10 +5508,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6571,10 +5531,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1013522" class=""><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#22</span></a></dt>
+                            <dt class="title"><a href="/m/1013522"><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#22</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1013522" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013522/efadfa40e4775c0bbfa503c94acc8715.jpg">
+                                <p><a href="/m/1013522"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013522/efadfa40e4775c0bbfa503c94acc8715.jpg">
 																																																																									<span class="svod">見放題</span>
 								</a></p>
                                                             </dd>
@@ -6586,6 +5546,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6605,10 +5569,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6647,6 +5607,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6666,10 +5630,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6693,10 +5653,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1012714" class=""><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#16</span></a></dt>
+                            <dt class="title"><a href="/m/1012714"><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#16</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1012714" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1012714/dc4f119cdc64f7c96ffa40bf9b993c32.jpg">
+                                <p><a href="/m/1012714"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1012714/dc4f119cdc64f7c96ffa40bf9b993c32.jpg">
 																																																																									<span class="svod">見放題</span>
 								</a></p>
                                                             </dd>
@@ -6708,6 +5668,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6727,10 +5691,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6769,6 +5729,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6788,10 +5752,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6815,10 +5775,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1011606" class=""><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#10</span></a></dt>
+                            <dt class="title"><a href="/m/1011606"><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#10</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1011606" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1011606/f29dcd3e2823f11b085f36ae95c8e2cd.jpg">
+                                <p><a href="/m/1011606"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1011606/f29dcd3e2823f11b085f36ae95c8e2cd.jpg">
 																																																																									<span class="svod">見放題</span>
 								</a></p>
                                                             </dd>
@@ -6830,6 +5790,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6849,10 +5813,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6891,6 +5851,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6910,10 +5874,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6937,10 +5897,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1010829" class=""><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#4</span></a></dt>
+                            <dt class="title"><a href="/m/1010829"><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#4</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1010829" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1010829/5bd6643917f609fc3bee45f7d3ad78b9.jpg">
+                                <p><a href="/m/1010829"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1010829/5bd6643917f609fc3bee45f7d3ad78b9.jpg">
 																																																																									<span class="svod">見放題</span>
 								</a></p>
                                                             </dd>
@@ -6952,6 +5912,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6971,10 +5935,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -6998,10 +5958,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1010496" class=""><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#1</span></a></dt>
+                            <dt class="title"><a href="/m/1010496"><strong>NMB48チャンネル</strong><br><span>古賀成美の「あまからさんが通る」#1</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
-                                <p><a href="/m/1010496" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1010496/87a2a14f568cc056ba0a2b56def54bfe.jpg">
+                                <p><a href="/m/1010496"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1010496/87a2a14f568cc056ba0a2b56def54bfe.jpg">
 																																																																									<span class="svod">見放題</span>
 								</a></p>
                                                             </dd>
@@ -7028,106 +5988,7 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     </a><div class="movie"><a name="mita">
                         <!-- .main -->
                         </a><dl class="main"><a name="mita">
-                            </a><dt class="title"><a name="mita" class=""></a><a href="/m/1014593" class=""><strong>NMB48チャンネル</strong><br><span>三田画伯の部屋 #52　明石奈津子</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014593" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014593/dfe1404edffd7fb6919aff01d607fc46.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                <p class="new">NEW</p>                            </dd>
-                            <dd class="price"><p class="coin">
-			100ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014475" class=""><strong>NMB48チャンネル</strong><br><span>三田画伯の部屋 #51　加藤夕夏</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014475" class=""><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014475/7dc6081c82710dc930edf3848ce66e2c.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			100ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014356"><strong>NMB48チャンネル</strong><br><span>三田画伯の部屋 #50　安田桃寧</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014356"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014356/2674fd6cdd5f2ba2093007f1703ab59c.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			100ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014186"><strong>NMB48チャンネル</strong><br><span>三田画伯の部屋 #49　西澤瑠莉奈</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014186"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014186/892e1ceab964180daca86731c3df7f60.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			100ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014033"><strong>NMB48チャンネル</strong><br><span>三田画伯の部屋 #48　吉田朱里</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014033"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014033/c95714e303c399ac89197790629864f4.jpg">
-																																																																									<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			100ワロコイン/7日間
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1013758"><strong>NMB48チャンネル</strong><br><span>三田画伯の部屋 #47　山本彩加</span></a></dt>
+                            </a><dt class="title"><a name="mita"></a><a href="/m/1013758"><strong>NMB48チャンネル</strong><br><span>三田画伯の部屋 #47　山本彩加</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
                                 <p><a href="/m/1013758"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013758/bbb18b4879e7d48e34bd625b0fb9aaa0.jpg">
@@ -7142,10 +6003,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7184,6 +6041,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7203,10 +6064,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7245,6 +6102,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7264,10 +6125,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7306,6 +6163,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7325,10 +6186,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7367,6 +6224,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7386,10 +6247,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7429,6 +6286,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7448,10 +6309,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7490,6 +6347,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7509,10 +6370,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7551,6 +6408,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7570,10 +6431,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7612,6 +6469,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7631,10 +6492,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7673,6 +6530,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7692,10 +6553,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7734,6 +6591,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7753,10 +6614,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7795,6 +6652,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7814,10 +6675,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7856,6 +6713,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7875,10 +6736,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7917,6 +6774,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7936,10 +6797,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7978,6 +6835,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -7997,10 +6858,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -8039,6 +6896,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -8058,10 +6919,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -8100,6 +6957,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -8119,10 +6980,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -8841,93 +7698,13 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1014517"><strong>NMB48チャンネル</strong><br><span>リベンジコン 舞台裏</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014517"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014517/e43b05fc1aeb807e5e26c3cb068a9777.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014254"><strong>NMB48チャンネル</strong><br><span>藤江れいな 卒業コンサート舞台裏</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014254"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014254/d7ac5b62291b26227d68190e43b044c7.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014096"><strong>NMB48チャンネル</strong><br><span>薮下柊 卒業コンサート舞台裏</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014096"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014096/e250fb6f3d88cb0450fde7cb15eb3b66.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
-                            <dt class="title"><a href="/m/1014000"><strong>NMB48チャンネル</strong><br><span>上西恵 卒業コンサート舞台裏</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1014000"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1014000/aa5ae74b1dfbf5e525502c362ed7c540.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
                             <dt class="title"><a href="/m/1013879"><strong>NMB48チャンネル</strong><br><span>NMB48 6th Anniversary LIVE 舞台裏 2日目</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
                                 <p><a href="/m/1013879"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013879/a78ea4ec62023241f336e0e71d5d1529.jpg">
 																																															<span class="svod">見放題</span>
 								</a></p>
-                                                            </dd>
+                                <p class="new">NEW</p>                            </dd>
                             <dd class="price"><p class="coin">
 			見放題コース
 	</p></dd>
@@ -8955,10 +7732,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -8978,6 +7751,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -9016,10 +7793,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -9039,6 +7812,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -9077,10 +7854,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -9100,6 +7873,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -9138,10 +7915,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -9161,6 +7934,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -9199,10 +7976,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -9222,6 +7995,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -9260,10 +8037,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -9283,6 +8056,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -9321,10 +8098,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -9344,6 +8117,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -9382,10 +8159,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -9405,6 +8178,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -13090,25 +11867,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                     <div class="movie">
                         <!-- .main -->
                         <dl class="main">
-                            <dt class="title"><a href="/m/1013980"><strong>NMB48チャンネル</strong><br><span>山口夕輝からの卒業メッセージ</span></a></dt>
-                            <dd class="image">
-				<!-- parts id 55-->
-                                <p><a href="/m/1013980"><img height="130" oncontextmenu="return false;" alt="" src="http://aka-ynn.uliza.jp/images/episode/1013980/ea74e382e26b65cf31340fbee40e0821.jpg">
-																																															<span class="svod">見放題</span>
-								</a></p>
-                                                            </dd>
-                            <dd class="price"><p class="coin">
-			見放題コース
-	</p></dd>
-                            <dd class="copyright"><p class="copy">(C)Yoshimoto Creative Agency Co., Ltd</p></dd>
-                        </dl>
-                        <!-- /.main -->
-                    </div>
-                    <!-- △movie：動画ブロック -->
-                    <!-- ▽movie：動画ブロック -->
-                    <div class="movie">
-                        <!-- .main -->
-                        <dl class="main">
                             <dt class="title"><a href="/m/1013382"><strong>NMB48チャンネル</strong><br><span>黒川はーこのちゃんとつくろう</span></a></dt>
                             <dd class="image">
 				<!-- parts id 55-->
@@ -13143,10 +11901,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -13166,6 +11920,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -13204,10 +11962,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -13227,6 +11981,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -13265,10 +12023,6 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
-                </div>
-                <!-- ▲section : １段落分 -->
-                <!-- ▼section : １段落分 -->
-                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -13288,6 +12042,10 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
                         <!-- /.main -->
                     </div>
                     <!-- △movie：動画ブロック -->
+                </div>
+                <!-- ▲section : １段落分 -->
+                <!-- ▼section : １段落分 -->
+                <div class="section">
                     <!-- ▽movie：動画ブロック -->
                     <div class="movie">
                         <!-- .main -->
@@ -14081,6 +12839,8 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
 
 
       </div>
+
+
 
 </body>
 </html>
