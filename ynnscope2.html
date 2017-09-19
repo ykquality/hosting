@@ -26,13 +26,13 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
 		title[i]=ele_title[i].textContent;
 		title[i]=title[i].replace(/NMB48チャンネル /g, '');
 		title[i]=title[i].replace(/NMB48チャンネル/g, '');
-		title[i]=title[i].replace(/チームＮ/g, 'チームN');
+		/*title[i]=title[i].replace(/チームＮ/g, 'チームN');
 		title[i]=title[i].replace(/チームＭ/g, 'チームM');
 		title[i]=title[i].replace(/チームBII/g, 'チームB2');
 		title[i]=title[i].replace(/チームBⅡ/g, 'チームB2');
 		title[i]=title[i].replace(/チームＢII/g, 'チームB2');
 		title[i]=title[i].replace(/チームＢⅡ/g, 'チームB2');
-		title[i]=title[i].replace(/チームＢ2/g, 'チームB2');
+		title[i]=title[i].replace(/チームＢ2/g, 'チームB2');/**/
 		url[i]="http://ynn.jp"+ele_title[i].getElementsByTagName("a")[0].href;
 		if(url[i].indexOf("file:///C:")>0)
 			url[i]=url[i].split("file:///C:")[0]+url[i].split("file:///C:")[1];
@@ -53,9 +53,17 @@ $.getJSON("https://ykquality.github.io/hosting/ynn.json", function(data){
 		var exists=-1;
 		for(var key in data){
 			if(data[key].url==url[i]){
-				console.log("already exists title:"+title[i]);
+				/*if(data[key].title==title[i]){
+					//console.log("already exists title:"+title[i]);
+					exists=1;
+					break;
+				}
+				else{
+					console.log("URL exists "+title[i]+" !exists");
+				}
+				/*/console.log("already exists title:"+title[i]);
 				exists=1;
-				break;
+				break;/**/
 			}
 		}
 		if(exists>0)
