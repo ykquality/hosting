@@ -1253,15 +1253,6 @@
 "blank":""
 },
 {
-"title":"ちゃん24時間テレビ？「茶店のガール モーニング」",
-"member":"渋谷凪咲、薮下柊、太田夢莉、須藤凜々花、古賀成美、上西恵",
-"update":"2017-01-19",
-"live":"2016-12-19",
-"url":"http://ynn.jp/m/1013469",
-"image":"http://aka-ynn.uliza.jp/images/episode/1013469/b79895eb59ad215cfc4ef42dc7df8705.jpg",
-"blank":""
-},
-{
 "title":"ちゃん24時間テレビ？「オープニング」",
 "member":"渋谷凪咲、薮下柊",
 "update":"2017-02-01",
@@ -1820,15 +1811,6 @@
 "blank":""
 },
 {
-"title":"プレゼン参観日",
-"member":"川上礼奈、林萌々香、久代梨奈、黒川葉月、岩田桃夏、溝川実来",
-"update":"2016-11-10",
-"live":"2016-10-30",
-"url":"http://ynn.jp/m/1013189",
-"image":"http://aka-ynn.uliza.jp/images/episode/1013189/60941d7edd9407b6ca75e43d3ce1c4be.jpg",
-"blank":""
-},
-{
 "title":"谷枝イングリッシュ #11",
 "member":"谷川愛梨、上枝恵美加、堀詩音",
 "update":"2017-02-21",
@@ -1853,15 +1835,6 @@
 "live":"",
 "url":"http://ynn.jp/m/1013257",
 "image":"http://aka-ynn.uliza.jp/images/episode/1013257/e23e36681a8a6e04c1ca10591f2c0016.jpg",
-"blank":""
-},
-{
-"title":"谷枝イングリッシュ #8",
-"member":"谷川愛梨、上枝恵美加、矢倉楓子",
-"update":"2016-10-25",
-"live":"",
-"url":"http://ynn.jp/m/1013126",
-"image":"http://aka-ynn.uliza.jp/images/episode/1013126/f42b4da55ed338a378641b681af0126a.jpg",
 "blank":""
 },
 {
@@ -1925,15 +1898,6 @@
 "live":"",
 "url":"http://ynn.jp/m/1013334",
 "image":"http://aka-ynn.uliza.jp/images/episode/1013334/6512a188d7a1f7947e669acbecf67081.jpg",
-"blank":""
-},
-{
-"title":"三田画伯の部屋 #43 黒川葉月",
-"member":"三田麻央、黒川葉月",
-"update":"2016-11-01",
-"live":"",
-"url":"http://ynn.jp/m/1013149",
-"image":"http://aka-ynn.uliza.jp/images/episode/1013149/bed1138f341931613eefd79bc84811f9.jpg",
 "blank":""
 },
 {
@@ -2433,15 +2397,6 @@
 "blank":""
 },
 {
-"title":"開幕直前！プロ野球女子会",
-"member":"川上千尋、木下春奈、薮下柊、山本彩",
-"update":"2015-05-01",
-"live":"2015-03-22",
-"url":"http://ynn.jp/m/1010558",
-"image":"http://aka-ynn.uliza.jp/images/episode/1010558/e89657442b4e0e54d53daf15a3e47123.jpg",
-"blank":""
-},
-{
 "title":"りぃちゃん25時間テレビ「オープニング」",
 "member":"小谷里歩、門脇佳奈子、近藤里奈、矢倉楓子",
 "update":"2016-01-04",
@@ -2761,7 +2716,7 @@
 "member":"川上礼奈、林萌々香、久代梨奈、黒川葉月、岩田桃夏、溝川実来",
 "update":"2016-11-10",
 "live":"2016-10-30",
-"url":"http://ynn.jp",
+"url":"http://ynn.jp/m/1013189",
 "image":"http://aka-ynn.uliza.jp/images/episode/1013189/60941d7edd9407b6ca75e43d3ce1c4be.jpg",
 "blank":""
 },
@@ -2901,15 +2856,6 @@
 "blank":""
 },
 {
-"title":"TORACO",
-"member":"川上千尋、木下春奈、薮下柊、山本彩",
-"update":"2016-02-13",
-"live":"2016-02-12",
-"url":"http://ynn.jp/m/1011767",
-"image":"http://aka-ynn.uliza.jp/images/episode/1011767/ff513e6b24e4c07f5768601dfbada2a6.png",
-"blank":""
-},
-{
 "title":"天使ペンデンス・デイ",
 "member":"近藤里奈、沖田彩華、三田麻央、松岡知穂",
 "update":"2016-01-27",
@@ -2943,15 +2889,6 @@
 "live":"2015-12-12",
 "url":"http://ynn.jp/m/1011616",
 "image":"http://aka-ynn.uliza.jp/images/episode/1011616/00c430ba10f1331581b2f7c321523250.jpg",
-"blank":""
-},
-{
-"title":"プロ野球女子会 2015秋",
-"member":"川上千尋、木下春奈、薮下柊、山本彩",
-"update":"2015-12-16",
-"live":"2015-11-27",
-"url":"http://ynn.jp/m/1011512",
-"image":"http://aka-ynn.uliza.jp/images/episode/1011512/d445c3ad986c9de70298304d822d9daf.jpg",
 "blank":""
 },
 {
@@ -3409,7 +3346,7 @@
 "member":"谷川愛梨、上枝恵美加、矢倉楓子",
 "update":"2016-10-25",
 "live":"",
-"url":"http://ynn.jp",
+"url":"http://ynn.jp/m/1013126",
 "image":"http://aka-ynn.uliza.jp/images/episode/1013126/f42b4da55ed338a378641b681af0126a.jpg",
 "blank":""
 },
@@ -3555,15 +3492,6 @@
 "live":"",
 "url":"http://ynn.jp/m/1011770",
 "image":"http://aka-ynn.uliza.jp/images/episode/1011770/fe3d0044ee17669b04b1eb3a544d2a4d.jpg",
-"blank":""
-},
-{
-"title":"古賀成美の「あまからさんが通る」#20",
-"member":"古賀成美、久代梨奈",
-"update":"2016-11-08",
-"live":"",
-"url":"http://ynn.jp/m/1013187",
-"image":"http://aka-ynn.uliza.jp/images/episode/1013187/4fa1ac513873906a5afdc918e0c3a92e.jpg",
 "blank":""
 },
 {
@@ -3742,7 +3670,7 @@
 "member":"三田麻央、黒川葉月",
 "update":"2016-11-01",
 "live":"",
-"url":"http://ynn.jp",
+"url":"http://ynn.jp/m/1013149",
 "image":"http://aka-ynn.uliza.jp/images/episode/1013149/bed1138f341931613eefd79bc84811f9.jpg",
 "blank":""
 },
