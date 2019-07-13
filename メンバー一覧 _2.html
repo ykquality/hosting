@@ -16,11 +16,16 @@
 
 function check(file)
 {
- var element = document.getElementById("output2");
-	while (element.firstChild) {
- 	 element.removeChild(element.firstChild);
-	}
+ del();
  read(file);
+}
+function del()
+{
+var element = document.getElementById("output2");
+while (element.firstChild) {
+  element.removeChild(element.firstChild);
+ $("#output2").innerHTML = "";
+}
 }
 
 function read(file)
@@ -57,7 +62,7 @@ function read(file)
    
    $("#output2").append(html);
   }
- sorter(".tablesorter");
+ //sorter(".tablesorter");
  });
 }
 </script>
@@ -85,6 +90,7 @@ function sorter(tablesorter)
 <input type="button" value="Member_JKT" onclick="check('Member_JKT');"/><br />
 <input type="button" value="Member_TPE" onclick="check('Member_TPE');"/><br />
 <input type="button" value="Member_BNK" onclick="check('Member_BNK');"/><br />
+<input type="button" value="del" onclick="del();"/><br />
 
 <table border="1" cellpadding="2" cellspacing="0" class="tablesorter">
 <thead bgcolor="#10F0F6">

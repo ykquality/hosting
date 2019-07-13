@@ -5,7 +5,8 @@
 "birth":"1995-02-12",
 "from":"雲林県",
 "blood":"不明",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"陳詩雅",
@@ -13,7 +14,8 @@
 "birth":"1995-04-24",
 "from":"台北市",
 "blood":"O",
-"term":"台湾研究生"
+"term":"台湾研究生",
+"status":""
 },
 {
 "name_ja":"阿部マリア",
@@ -21,7 +23,8 @@
 "birth":"1995-11-29",
 "from":"神奈川県",
 "blood":"B",
-"term":"AKB10"
+"term":"AKB10",
+"status":""
 },
 {
 "name_ja":"劉語晴",
@@ -37,7 +40,8 @@
 "birth":"1996-07-28",
 "from":"台北市",
 "blood":"AB",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"劉潔明",
@@ -53,7 +57,8 @@
 "birth":"1999-02-13",
 "from":"香港",
 "blood":"不明",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"邱品涵",
@@ -69,7 +74,8 @@
 "birth":"2000-08-02",
 "from":"香港",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"林倢",
@@ -85,7 +91,8 @@
 "birth":"2002-01-14",
 "from":"宜蘭県",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Kuo Shin-yu",
@@ -93,7 +100,8 @@
 "birth":"2002-10-11",
 "from":"台北市",
 "blood":"B",
-"term":"台湾研究生"
+"term":"台湾研究生",
+"status":""
 },
 {
 "name_ja":"Chang Yu-lin",
@@ -109,7 +117,8 @@
 "birth":"2006-03-15",
 "from":"新竹市",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"周佳郁",
@@ -125,7 +134,8 @@
 "birth":"1998-11-30",
 "from":"大阪府",
 "blood":"B",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"賈宜蓁",
@@ -141,7 +151,8 @@
 "birth":"1999-09-13",
 "from":"台北市",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"蔡亞恩",
@@ -157,7 +168,8 @@
 "birth":"2000-11-21",
 "from":"台北市",
 "blood":"B",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"林家瑩",
@@ -165,7 +177,8 @@
 "birth":"2000-12-04",
 "from":"新北市",
 "blood":"B",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"蔡伊柔",
@@ -181,7 +194,8 @@
 "birth":"2001-10-20",
 "from":"台中市",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"李佳俐",
@@ -197,7 +211,8 @@
 "birth":"2001-11-18",
 "from":"嘉義市",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"張法法",
@@ -213,7 +228,8 @@
 "birth":"2002-06-04",
 "from":"屏東県",
 "blood":"A",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"小山美玲",
@@ -229,7 +245,8 @@
 "birth":"2003-03-27",
 "from":"新北市",
 "blood":"A",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Cheng Yu-wei",
@@ -237,7 +254,8 @@
 "birth":"2003-11-11",
 "from":"台南市",
 "blood":"A",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Tung Zih-syuan",
@@ -245,7 +263,8 @@
 "birth":"2003-12-04",
 "from":"台北市",
 "blood":"A",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Li Cai-jie",
@@ -253,7 +272,8 @@
 "birth":"2004-03-15",
 "from":"台北市",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Cheng Chia-yu",
@@ -261,7 +281,8 @@
 "birth":"2004-04-28",
 "from":"台北市",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Lo Jui-ting",
@@ -269,7 +290,8 @@
 "birth":"2004-08-06",
 "from":"台北市",
 "blood":"A",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Kao Yen-chen",
@@ -277,6 +299,7 @@
 "birth":"2006-07-16",
 "from":"新北市",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 }
 ]
