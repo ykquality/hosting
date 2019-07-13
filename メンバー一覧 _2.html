@@ -14,8 +14,12 @@
 <body>
 <script type="text/javascript">
 
-$(document).ready(function () {
- $.getJSON("https://ykquality.github.io/hosting/Member.json", function(data){ //dev
+
+function check(file)
+{
+ $("#output2").innerHTML = "";
+ $.getJSON("https://ykquality.github.io/hosting/"+file+".json", function(data){
+ //$.getJSON(file+".json", function(data){ //dev
   for(var key in data){
    if(data[key].status.indexOf("graduate")>-1)
     continue;
@@ -28,32 +32,26 @@ $(document).ready(function () {
    //console.log(data[key].name_kana);
    var sortvalue=getSortValue(data[key].name_kana,7);
    //console.log(sortvalue);
-   var sortvalue_b=data[key].birth.substring(5,7)+""+data[key].birth.substring(8,10);
+   var birth_m=data[key].birth.substring(5,7);
+   var birth_d=data[key].birth.substring(8,10);
+   var sortvalue_b=birth_m+""+birth_d;
    //console.log(sortvalue_b);
    
    var html="<tr>"
          +"<td class={sortValue:"+sortvalue+"} >" +data[key].name_ja+"</td>"
-         +"<td class={sortValue:"+sortvalue_b+"} style='text-align:center;'>"+data[key].birth+"</td>"
+         +"<td class={sortValue:"+sortvalue_b+"} style='text-align:center;'>"+birth_m+"月"+birth_d+"日"+"</td>"
          +"<td style='text-align:center;'>"+age+"</td>"
          +"<td style='text-align:center;'>"+data[key].blood+"</td>"
          +"<td style='text-align:center;'>"+data[key].from+"</td>"
          +"<td style='text-align:center;'>"+data[key].term+"</td>";
    
-   if(data[key].twitter)
-       html+="<td style='text-align:center;'><a href=https://twitter.com/"+data[key].twitter+"><i class='fa fa-twitter'></i></a></td>";
-   else
-     html+="<td></td>";
-   if(data[key].google_id)    
-     html+="<td style='text-align:center;'><a href=https://plus.google.com/u/0/"+data[key].google_id+"><i class='fa fa-google-plus'></i></a></td>";
-   else
-     html+="<td></td>";
          
    
    $("#output2").append(html);
   }
  sorter(".tablesorter");
  });
-});
+}
 </script>
 
 <script type="text/javascript">
@@ -69,6 +67,14 @@ function sorter(tablesorter)
 
 
 <br />
+<input type="button" value="Member_AKB" onclick="check('Member_AKB');"/><br />
+<input type="button" value="Member_AKB8" onclick="check('Member_AKB8');"/><br />
+<input type="button" value="Member_SKE" onclick="check('Member_SKE');"/><br />
+<input type="button" value="Member_NMB" onclick="check('Member');"/><br />
+<input type="button" value="Member_HKT" onclick="check('Member_HKT');"/><br />
+<input type="button" value="Member_NGT" onclick="check('Member_NGT');"/><br />
+<input type="button" value="Member_STU" onclick="check('Member_STU');"/><br />
+
 <table border="1" cellpadding="2" cellspacing="0" class="tablesorter">
 <thead bgcolor="#F0F0F6">
 <tr>
@@ -78,8 +84,6 @@ function sorter(tablesorter)
 <th width="30">血液型</th>
 <th width="40">出身地</th>
 <th width="30">期</th>
-<th width="30">twitter</th>
-<th width="30">Google+</th>
 </tr>
 </thead>
 <tbody id="output2">
