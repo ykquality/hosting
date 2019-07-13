@@ -14,10 +14,17 @@
 <body>
 <script type="text/javascript">
 
-
 function check(file)
 {
- $("#output2").innerHTML = "";
+ var element = document.getElementById("output2");
+	while (element.firstChild) {
+ 	 element.removeChild(element.firstChild);
+	}
+ read(file);
+}
+
+function read(file)
+{
  $.getJSON("https://ykquality.github.io/hosting/"+file+".json", function(data){
  //$.getJSON(file+".json", function(data){ //dev
   for(var key in data){
@@ -29,6 +36,7 @@ function check(file)
    today=today.getFullYear()*10000+today.getMonth()*100+100+today.getDate();
    var age=Math.floor((today-birth)/10000);
    
+   console.log(data[key].name_ja);
    //console.log(data[key].name_kana);
    var sortvalue=getSortValue(data[key].name_kana,7);
    //console.log(sortvalue);
@@ -74,9 +82,9 @@ function sorter(tablesorter)
 <input type="button" value="Member_HKT" onclick="check('Member_HKT');"/><br />
 <input type="button" value="Member_NGT" onclick="check('Member_NGT');"/><br />
 <input type="button" value="Member_STU" onclick="check('Member_STU');"/><br />
-<input type="button" value="Member_STU" onclick="check('Member_JKT');"/><br />
-<input type="button" value="Member_STU" onclick="check('Member_TPE');"/><br />
-<input type="button" value="Member_STU" onclick="check('Member_BNK');"/><br />
+<input type="button" value="Member_JKT" onclick="check('Member_JKT');"/><br />
+<input type="button" value="Member_TPE" onclick="check('Member_TPE');"/><br />
+<input type="button" value="Member_BNK" onclick="check('Member_BNK');"/><br />
 
 <table border="1" cellpadding="2" cellspacing="0" class="tablesorter">
 <thead bgcolor="#10F0F6">
