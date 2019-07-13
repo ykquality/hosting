@@ -1,0 +1,1226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<script src='https://ykquality.github.io/hosting/my_youtube_player.js' type='text/javascript'></script>
+<script src='https://ykquality.github.io/hosting/jquery.min.js' type='text/javascript'></script>
+<script src='https://ykquality.github.io/hosting/jquery.tablesorter.min.js' type='text/javascript'></script>
+<script src='https://ykquality.github.io/hosting/jquery.metadata.js' type='text/javascript'></script>
+
+
+
+</head>
+<body>
+<script type="text/javascript">
+function scope()
+{
+	var ele_member=document.getElementsByTagName("tr");
+	var name_ja=new Array();
+	var name_kana=new Array();
+	var birth=new Array();
+	var from=new Array();
+	var blood=new Array();
+	var term=new Array();
+	var n=0;
+	for(var i=0; i<ele_member.length; i++){
+		var ele_value=ele_member[i].getElementsByTagName("td");
+		
+		var TPE=false;
+		var JKT=false;
+		
+		if(ele_value.length>6){
+			var nj=2;
+			var nk=2;
+			var b=4;
+			var f=5;
+			var t=6;
+			if(TPE){//TPE
+				var b=5;
+				var f=6;
+				var t=7;
+			}
+			
+			if(TPE)
+				name_ja[n]=ele_value[nj].textContent;//TPE
+			else if(JKT)
+				name_ja[n]=ele_value[nj].textContent.substring(0,ele_value[nj].textContent.indexOf("（")-1);//JKT
+			else
+				name_ja[n]=ele_value[nj].textContent.substring(0,ele_value[nj].textContent.indexOf(" "));
+				
+			if(TPE)
+				name_kana[n]=ele_value[3].textContent;//TPE
+			else if(JKT)
+				name_kana[n]=ele_value[nk].textContent.substring(ele_value[nk].textContent.indexOf("（")+1,ele_value[nk].textContent.indexOf("）"));
+			else
+				name_kana[n]=ele_value[nk].textContent.substring(ele_value[nk].textContent.indexOf("（")+1,ele_value[nk].textContent.indexOf("）"));
+			
+				
+			var birth_y=ele_value[b].textContent.substring(0,4);
+			var birth_m=ele_value[b].textContent.substring(ele_value[b].textContent.indexOf("年")+1,ele_value[b].textContent.indexOf("月"));
+			var birth_d=ele_value[b].textContent.substring(ele_value[b].textContent.indexOf("月")+1,ele_value[b].textContent.indexOf("日"));
+			if(birth_m.length==1)
+				birth_m="0"+birth_m;
+			if(birth_d.length==1)
+				birth_d="0"+birth_d;
+			birth[n]=birth_y+"-"+birth_m+"-"+birth_d;
+			
+			from[n]=ele_value[f].textContent;
+			blood[n]="A";
+			
+			term[n]=ele_value[t].textContent.trim();
+			term[n]=term[n].replace(/ドラフト /g, 'D');
+			term[n]=term[n].replace(/期/g, '');
+			
+			for(var d=0; d<ele_value.length; d++){console.log("["+i+"]["+d+"]"+ele_value[d].textContent);}
+	   		//console.log("["+i+"]["+n+"]"+name_ja[n]+"|"+name_kana[n]+"|"+birth[n]+"|"+from[n]+"|"+blood[n]+"|"+term[n]);
+			n++;
+		}
+	}
+	
+	var text="[<br/>";
+	for(var i=0; i<name_ja.length; i++){
+		text+="{"+"<br/>";
+		text+="\""+"name_ja"+"\""+":"+"\""+name_ja[i]+"\""+",<br/>";
+		text+="\""+"name_kana"+"\""+":"+"\""+name_kana[i]+"\""+",<br/>";
+		text+="\""+"birth"+"\""+":"+"\""+birth[i]+"\""+",<br/>";
+		text+="\""+"from"+"\""+":"+"\""+from[i]+"\""+",<br/>";
+		text+="\""+"blood"+"\""+":"+"\""+blood[i]+"\""+",<br/>";
+		text+="\""+"term"+"\""+":"+"\""+term[i]+"\""+"<br/>";
+		if(i==name_ja.length-1)
+			text+="}<br/>";
+		else
+			text+="},<br/>";
+	}
+	text+="]";
+	$("#output").append(text);
+
+}
+</script>
+<input type="button" onclick="scope()" value="scope">
+<div id="output"></div>
+
+
+
+
+
+<table class="wikitable sortable with-remarks jquery-tablesorter" style="text-align:center;">
+<thead><tr>
+<th class="headerSort" tabindex="0" role="columnheader button" title="昇順に並べ替え">
+</th>
+<th class="unsortable" style="min-width:30px;">
+</th>
+<th class="headerSort" tabindex="0" role="columnheader button" title="昇順に並べ替え">名前
+</th>
+<th class="headerSort" tabindex="0" role="columnheader button" title="昇順に並べ替え">本名タイ文字表記<br>日本語よみ<br>ラテン文字転写
+</th>
+<th class="headerSort" tabindex="0" role="columnheader button" title="昇順に並べ替え">生年月日
+</th>
+<th class="headerSort" tabindex="0" role="columnheader button" title="昇順に並べ替え">出身地
+</th>
+<th class="headerSort" tabindex="0" role="columnheader button" title="昇順に並べ替え">期
+</th>
+<th class="headerSort" tabindex="0" role="columnheader button" title="昇順に並べ替え">昇格日
+</th>
+<th class="headerSort" tabindex="0" role="columnheader button" title="昇順に並べ替え">公式SNSアカウント
+</th>
+<th class="headerSort" tabindex="0" role="columnheader button" title="昇順に並べ替え">備考
+</th></tr></thead><tbody>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Cherprang_Areekul.jpg" class="image"><img alt="2019年BNK48プロフィール Cherprang Areekul.jpg" src="/images/thumb/0/06/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Cherprang_Areekul.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Cherprang_Areekul.jpg" width="50" height="50" srcset="/images/thumb/0/06/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Cherprang_Areekul.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Cherprang_Areekul.jpg 1.5x, /images/thumb/0/06/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Cherprang_Areekul.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Cherprang_Areekul.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Cherprang"><ruby data-sort-value="チャープラン"><rb>Cherprang</rb> <rp>（</rp><rt>チャープラン</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Cherprang Areekul">@-#2 -2#5"L8%<br><ruby data-sort-value="チャープラン・アーリークン"><rb>Cherprang Areekul</rb> <rp>（</rp><rt>チャープラン・アーリークン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19960502">1996年5月2日</span> <span style="white-space:nowrap;">（23歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.cherprang">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/cherprang.bnk48official">インスタグラム</a>
+</td>
+<td style="text-align:left;">BNK48キャプテン
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_%E4%BC%8A%E8%B1%86%E7%94%B0%E8%8E%89%E5%A5%88.jpg" class="image"><img alt="2019年BNK48プロフィール 伊豆田莉奈.jpg" src="/images/thumb/f/f3/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_%E4%BC%8A%E8%B1%86%E7%94%B0%E8%8E%89%E5%A5%88.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_%E4%BC%8A%E8%B1%86%E7%94%B0%E8%8E%89%E5%A5%88.jpg" width="50" height="50" srcset="/images/thumb/f/f3/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_%E4%BC%8A%E8%B1%86%E7%94%B0%E8%8E%89%E5%A5%88.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_%E4%BC%8A%E8%B1%86%E7%94%B0%E8%8E%89%E5%A5%88.jpg 1.5x, /images/thumb/f/f3/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_%E4%BC%8A%E8%B1%86%E7%94%B0%E8%8E%89%E5%A5%88.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_%E4%BC%8A%E8%B1%86%E7%94%B0%E8%8E%89%E5%A5%88.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Izurina"><ruby data-sort-value="イズリナ"><rb>Izurina</rb> <rp>（</rp><rt>イズリナ</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Rina Izuta">#40 -480<br><ruby data-sort-value="いずた りな"><rb> <a href="/%E4%BC%8A%E8%B1%86%E7%94%B0%E8%8E%89%E5%A5%88" title="伊豆田莉奈">伊豆田莉奈</a></rb> <rp>（</rp><rt>いずた りな</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19951126">1995年11月26日</span> <span style="white-space:nowrap;">（23歳）</span>
+</td>
+<td><span data-sort-value="11">埼玉県</span>
+</td>
+<td><span data-sort-value="201003">AKB48 <span style="white-space:nowrap;">10期</span></span>
+</td>
+<td>2017年7月2日<br>（移籍）<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.izutarina">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/rinaizuta.bnk48official">インスタグラム</a><br><a rel="nofollow" class="external text" href="https://twitter.com/izuketsu_deen">ツイッター</a>
+</td>
+<td><a href="/CGM48" title="CGM48">CGM48</a>へ完全移籍予定（移籍時期未定）
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Napaphat_Worraphuttanon.jpg" class="image"><img alt="2019年BNK48プロフィール Napaphat Worraphuttanon.jpg" src="/images/thumb/4/4c/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Napaphat_Worraphuttanon.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Napaphat_Worraphuttanon.jpg" width="50" height="50" srcset="/images/thumb/4/4c/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Napaphat_Worraphuttanon.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Napaphat_Worraphuttanon.jpg 1.5x, /images/thumb/4/4c/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Napaphat_Worraphuttanon.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Napaphat_Worraphuttanon.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Jaa"><ruby data-sort-value="ジャー"><rb>Jaa</rb> <rp>（</rp><rt>ジャー</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Napaphat Worraphuttanon"> 1
+ '#$2L<br><ruby data-sort-value="ナパパット・ワォラプルットターノン"><rb>Napaphat Worraphuttanon</rb> <rp>（</rp><rt>ナパパット・ワォラプルットターノン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20030120">2003年1月20日</span> <span style="white-space:nowrap;">（16歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.jaa">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/jaa.bnk48official">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kunjiranut_Intarasin.jpg" class="image"><img alt="2019年BNK48プロフィール Kunjiranut Intarasin.jpg" src="/images/thumb/1/14/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kunjiranut_Intarasin.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kunjiranut_Intarasin.jpg" width="50" height="50" srcset="/images/thumb/1/14/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kunjiranut_Intarasin.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kunjiranut_Intarasin.jpg 1.5x, /images/thumb/1/14/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kunjiranut_Intarasin.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kunjiranut_Intarasin.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Jane"><ruby data-sort-value="ジェーン"><rb>Jane</rb> <rp>（</rp><rt>ジェーン</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Kunjiranut Intarasin">8%4#21 -4#(4%L<br><ruby data-sort-value="クンジラナット・インタラシン"><rb>Kunjiranut Intarasin</rb> <rp>（</rp><rt>クンジラナット・インタラシン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20000309">2000年3月9日</span> <span style="white-space:nowrap;">（19歳）</span>
+</td>
+<td>パトゥムターニー県
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.jane">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/jane.bnk48official">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jennis_Oprasert.jpg" class="image"><img alt="2019年BNK48プロフィール Jennis Oprasert.jpg" src="/images/thumb/0/04/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jennis_Oprasert.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jennis_Oprasert.jpg" width="50" height="50" srcset="/images/thumb/0/04/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jennis_Oprasert.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jennis_Oprasert.jpg 1.5x, /images/thumb/0/04/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jennis_Oprasert.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jennis_Oprasert.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Jennis"><ruby data-sort-value="ジェニス"><rb>Jennis</rb> <rp>（</rp><rt>ジェニス</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Jennis Oprasert">@4)L B-H#0@*#4<br><ruby data-sort-value="ジェニス・オープラサート"><rb>Jennis Oprasert</rb> <rp>（</rp><rt>ジェニス・オープラサート</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20000704">2000年7月4日</span> <span style="white-space:nowrap;">（19歳）</span>
+</td>
+<td>ペッチャブリー県
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.jennis">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/jennis.bnk48official">インスタグラム</a>
+</td>
+<td style="text-align:left;">チームBIII副キャプテン
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Suchaya_Saenkhot.jpg" class="image"><img alt="2019年BNK48プロフィール Suchaya Saenkhot.jpg" src="/images/thumb/d/db/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Suchaya_Saenkhot.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Suchaya_Saenkhot.jpg" width="50" height="50" srcset="/images/thumb/d/db/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Suchaya_Saenkhot.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Suchaya_Saenkhot.jpg 1.5x, /images/thumb/d/db/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Suchaya_Saenkhot.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Suchaya_Saenkhot.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Jib"><ruby data-sort-value="ジッブ"><rb>Jib</rb> <rp>（</rp><rt>ジッブ</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Suchaya Saenkhot">*8
+2 A*B<br><ruby data-sort-value="スチャヤー・セーンコート"><rb>Suchaya Saenkhot</rb> <rp>（</rp><rt>スチャヤー・セーンコート</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20020704">2002年7月4日</span> <span style="white-space:nowrap;">（17歳）</span>
+</td>
+<td>ロッブリー県
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.jib">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/jib.bnk48office">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natruja_Chutiwansopon.jpg" class="image"><img alt="2019年BNK48プロフィール Natruja Chutiwansopon.jpg" src="/images/thumb/b/bf/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natruja_Chutiwansopon.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natruja_Chutiwansopon.jpg" width="50" height="50" srcset="/images/thumb/b/bf/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natruja_Chutiwansopon.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natruja_Chutiwansopon.jpg 1.5x, /images/thumb/b/bf/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natruja_Chutiwansopon.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natruja_Chutiwansopon.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Kaew"><ruby data-sort-value="ゲーウ"><rb>Kaew</rb> <rp>（</rp><rt>ゲーウ</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Natruja Chutiwansopon">1#82 
+84'##B* <br><ruby data-sort-value="ナットルジャー・チュティワンソーポン"><rb>Natruja Chutiwansopon</rb> <rp>（</rp><rt>ナットルジャー・チュティワンソーポン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19940331">1994年3月31日</span> <span style="white-space:nowrap;">（25歳）</span>
+</td>
+<td>チョンブリー県
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.kaew">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/kaew.bnk48official">インスタグラム</a>
+</td>
+<td>BNK48最年長
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Warattaya_Deesomlert.jpg" class="image"><img alt="2019年BNK48プロフィール Warattaya Deesomlert.jpg" src="/images/thumb/0/07/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Warattaya_Deesomlert.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Warattaya_Deesomlert.jpg" width="50" height="50" srcset="/images/thumb/0/07/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Warattaya_Deesomlert.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Warattaya_Deesomlert.jpg 1.5x, /images/thumb/0/07/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Warattaya_Deesomlert.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Warattaya_Deesomlert.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Kaimook"><ruby data-sort-value="カイムック"><rb>Kaimook</rb> <rp>（</rp><rt>カイムック</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Warattaya Deesomlert">'#1"2 5*!@%4(<br><ruby data-sort-value="ワラッタヤー・ディーソムラート"><rb>Warattaya Deesomlert</rb> <rp>（</rp><rt>ワラッタヤー・ディーソムラート</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19970827">1997年8月27日</span> <span style="white-space:nowrap;">（21歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.kaimook">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/kaimook.bnk48official">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Korapat_Nilprapa.jpg" class="image"><img alt="2019年BNK48プロフィール Korapat Nilprapa.jpg" src="/images/thumb/6/66/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Korapat_Nilprapa.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Korapat_Nilprapa.jpg" width="50" height="50" srcset="/images/thumb/6/66/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Korapat_Nilprapa.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Korapat_Nilprapa.jpg 1.5x, /images/thumb/6/66/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Korapat_Nilprapa.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Korapat_Nilprapa.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Kate"><ruby data-sort-value="ケート"><rb>Kate</rb> <rp>（</rp><rt>ケート</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Korapat Nilprapa"># 1#L 4%#0 2<br><ruby data-sort-value="コラパット・ニンプラパー"><rb>Korapat Nilprapa</rb> <rp>（</rp><rt>コラパット・ニンプラパー</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20010609">2001年6月9日</span> <span style="white-space:nowrap;">（18歳）</span>
+</td>
+<td>パヤオ県
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.kate">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/kate.bnk48official">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Vathusiri_Phuwapunyasiri.jpg" class="image"><img alt="2019年BNK48プロフィール Vathusiri Phuwapunyasiri.jpg" src="/images/thumb/1/1f/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Vathusiri_Phuwapunyasiri.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Vathusiri_Phuwapunyasiri.jpg" width="50" height="50" srcset="/images/thumb/1/1f/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Vathusiri_Phuwapunyasiri.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Vathusiri_Phuwapunyasiri.jpg 1.5x, /images/thumb/1/1f/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Vathusiri_Phuwapunyasiri.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Vathusiri_Phuwapunyasiri.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Korn"><ruby data-sort-value="ゴーン"><rb>Korn</rb> <rp>（</rp><rt>ゴーン</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Vathusiri Phuwapunyasiri">'9(4#4  9'12*4#4<br><ruby data-sort-value="ワテゥーシリ・プーワパンヤーシリ"><rb>Vathusiri Phuwapunyasiri</rb> <rp>（</rp><rt>ワテゥーシリ・プーワパンヤーシリ</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19990121">1999年1月21日</span> <span style="white-space:nowrap;">（20歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.korn">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/korn.bnk48official">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Panisa_Srilaloeng.jpg" class="image"><img alt="2019年BNK48プロフィール Panisa Srilaloeng.jpg" src="/images/thumb/7/78/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Panisa_Srilaloeng.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Panisa_Srilaloeng.jpg" width="50" height="50" srcset="/images/thumb/7/78/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Panisa_Srilaloeng.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Panisa_Srilaloeng.jpg 1.5x, /images/thumb/7/78/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Panisa_Srilaloeng.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Panisa_Srilaloeng.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Mind"><ruby data-sort-value="マイ"><rb>Mind</rb> <rp>（</rp><rt>マイ</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Panisa Srilaloeng">4(2 (#5%0@%4<br><ruby data-sort-value="パニサー・シーラロエン"><rb>Panisa Srilaloeng</rb> <rp>（</rp><rt>パニサー・シーラロエン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20010906">2001年9月6日</span> <span style="white-space:nowrap;">（17歳）</span>
+</td>
+<td>ナコーン<br>ラーチャシーマー県
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.mind">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/mind.bnk48official">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_%E5%A4%A7%E4%B9%85%E4%BF%9D%E7%BE%8E%E7%B9%94.jpg" class="image"><img alt="2019年BNK48プロフィール 大久保美織.jpg" src="/images/thumb/4/43/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_%E5%A4%A7%E4%B9%85%E4%BF%9D%E7%BE%8E%E7%B9%94.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_%E5%A4%A7%E4%B9%85%E4%BF%9D%E7%BE%8E%E7%B9%94.jpg" width="50" height="50" srcset="/images/thumb/4/43/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_%E5%A4%A7%E4%B9%85%E4%BF%9D%E7%BE%8E%E7%B9%94.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_%E5%A4%A7%E4%B9%85%E4%BF%9D%E7%BE%8E%E7%B9%94.jpg 1.5x, /images/thumb/4/43/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_%E5%A4%A7%E4%B9%85%E4%BF%9D%E7%BE%8E%E7%B9%94.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_%E5%A4%A7%E4%B9%85%E4%BF%9D%E7%BE%8E%E7%B9%94.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Miori"><ruby data-sort-value="ミオリ"><rb>Miori</rb> <rp>（</rp><rt>ミオリ</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Miori Ohkubo">!4B-#4 B-8B0<br><ruby data-sort-value="おおくぼ みおり"><rb>大久保美織</rb> <rp>（</rp><rt>おおくぼ みおり</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19980930">1998年9月30日</span> <span style="white-space:nowrap;">（20歳）</span>
+</td>
+<td><span data-sort-value="08">茨城県</span>
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.miori">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/miori.bnk48official">インスタグラム</a>
+</td>
+<td style="text-align:left;">1期生唯一の日本人メンバー<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pimrapat_Phadungwatanachok.jpg" class="image"><img alt="2019年BNK48プロフィール Pimrapat Phadungwatanachok.jpg" src="/images/thumb/1/10/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pimrapat_Phadungwatanachok.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pimrapat_Phadungwatanachok.jpg" width="50" height="50" srcset="/images/thumb/1/10/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pimrapat_Phadungwatanachok.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pimrapat_Phadungwatanachok.jpg 1.5x, /images/thumb/1/10/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pimrapat_Phadungwatanachok.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pimrapat_Phadungwatanachok.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Mobile"><ruby data-sort-value="モバイル"><rb> <a href="/%E3%83%A2%E3%83%90%E3%82%A4%E3%83%AB" title="モバイル">Mobile</a></rb> <rp>（</rp><rt>モバイル</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Pimrapat Phadungwatanachok">4!# 1* 8'10B
+<br><ruby data-sort-value="ピモンパット・パドゥンワッタナチョーク"><rb>Pimrapat Phadungwatanachok</rb> <rp>（</rp><rt>ピモンパット・パドゥンワッタナチョーク</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20020709">2002年7月9日</span> <span style="white-space:nowrap;">（17歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.mobile">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/mobile.bnk48official">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Praewa_Suthamphong.jpg" class="image"><img alt="2019年BNK48プロフィール Praewa Suthamphong.jpg" src="/images/thumb/a/ac/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Praewa_Suthamphong.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Praewa_Suthamphong.jpg" width="50" height="50" srcset="/images/thumb/a/ac/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Praewa_Suthamphong.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Praewa_Suthamphong.jpg 1.5x, /images/thumb/a/ac/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Praewa_Suthamphong.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Praewa_Suthamphong.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Music"><ruby data-sort-value="ミュージック"><rb>Music</rb> <rp>（</rp><rt>ミュージック</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Praewa Suthamphong">A#'2 *8##!)L<br><ruby data-sort-value="プレーワー・スタムポン"><rb>Praewa Suthamphong</rb> <rp>（</rp><rt>プレーワー・スタムポン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20010224">2001年2月24日</span> <span style="white-space:nowrap;">（18歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.music">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/music.bnk48official">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Milin_Dokthian.jpg" class="image"><img alt="2019年BNK48プロフィール Milin Dokthian.jpg" src="/images/thumb/7/70/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Milin_Dokthian.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Milin_Dokthian.jpg" width="50" height="50" srcset="/images/thumb/7/70/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Milin_Dokthian.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Milin_Dokthian.jpg 1.5x, /images/thumb/7/70/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Milin_Dokthian.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Milin_Dokthian.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Namneung"><ruby data-sort-value="ナムヌン"><rb>Nam-Neung</rb> <rp>（</rp><rt>ナムヌン</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Milin Dokthian">!4%4 -@5"<br><ruby data-sort-value="ミリン・ドックティアン"><rb>Milin Dokthian</rb> <rp>（</rp><rt>ミリン・ドックティアン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19961111">1996年11月11日</span> <span style="white-space:nowrap;">（22歳）</span>
+</td>
+<td>シンブリー県
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.namneung">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/namneung.bnk48official">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pichayapa_Natha.jpg" class="image"><img alt="2019年BNK48プロフィール Pichayapa Natha.jpg" src="/images/thumb/c/c8/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pichayapa_Natha.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pichayapa_Natha.jpg" width="50" height="50" srcset="/images/thumb/c/c8/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pichayapa_Natha.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pichayapa_Natha.jpg 1.5x, /images/thumb/c/c8/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pichayapa_Natha.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pichayapa_Natha.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Namsai"><ruby data-sort-value="ナムサイ"><rb>Namsai</rb> <rp>（</rp><rt>ナムサイ</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Pichayapa Natha">4
+2 2 22<br><ruby data-sort-value="ピチャヤパー・ナーター"><rb>Pichayapa Natha</rb> <rp>（</rp><rt>ピチャヤパー・ナーター</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19991026">1999年10月26日</span> <span style="white-space:nowrap;">（19歳）</span>
+</td>
+<td>チエンマイ県
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.namsai">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/namsai.bnk48official">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kanteera_Wadcharathadsanakul.jpg" class="image"><img alt="2019年BNK48プロフィール Kanteera Wadcharathadsanakul.jpg" src="/images/thumb/4/42/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kanteera_Wadcharathadsanakul.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kanteera_Wadcharathadsanakul.jpg" width="50" height="50" srcset="/images/thumb/4/42/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kanteera_Wadcharathadsanakul.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kanteera_Wadcharathadsanakul.jpg 1.5x, /images/thumb/4/42/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kanteera_Wadcharathadsanakul.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kanteera_Wadcharathadsanakul.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Noey"><ruby data-sort-value="ヌイ"><rb>Noey</rb> <rp>（</rp><rt>ヌイ</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Kanteera Wadcharathadsanakul">2L5#2 '1
+#1(8%<br><ruby data-sort-value="カーンティーラー・ワチャラタサナクン"><rb>Kanteera Wadcharathadsanakul</rb> <rp>（</rp><rt>カーンティーラー・ワチャラタサナクン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19970409">1997年4月9日</span> <span style="white-space:nowrap;">（22歳）</span>
+</td>
+<td>サムットプラーカーン県
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.noey">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/noey.bnk48office">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Patchanan_Jiajirachote.jpg" class="image"><img alt="2019年BNK48プロフィール Patchanan Jiajirachote.jpg" src="/images/thumb/4/4c/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Patchanan_Jiajirachote.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Patchanan_Jiajirachote.jpg" width="50" height="50" srcset="/images/thumb/4/4c/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Patchanan_Jiajirachote.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Patchanan_Jiajirachote.jpg 1.5x, /images/thumb/4/4c/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Patchanan_Jiajirachote.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Patchanan_Jiajirachote.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Orn"><ruby data-sort-value="オーン"><rb>Orn</rb> <rp>（</rp><rt>オーン</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Patchanan Jiajirachote">1(
+1L @5"4#B
+4<br><ruby data-sort-value="パッチャナン・ジアジラチョート"><rb>Patchanan Jiajirachote</rb> <rp>（</rp><rt>パッチャナン・ジアジラチョート</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19970203">1997年2月3日</span> <span style="white-space:nowrap;">（22歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.orn">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/orn.bnk48official">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Punsikorn_Tiyakorn.jpg" class="image"><img alt="2019年BNK48プロフィール Punsikorn Tiyakorn.jpg" src="/images/thumb/1/16/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Punsikorn_Tiyakorn.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Punsikorn_Tiyakorn.jpg" width="50" height="50" srcset="/images/thumb/1/16/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Punsikorn_Tiyakorn.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Punsikorn_Tiyakorn.jpg 1.5x, /images/thumb/1/16/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Punsikorn_Tiyakorn.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Punsikorn_Tiyakorn.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Pun"><ruby data-sort-value="パン"><rb>Pun</rb> <rp>（</rp><rt>パン</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Punsikorn Tiyakorn">1*4#L 4"0#<br><ruby data-sort-value="パンシコーン・ティヤコン"><rb>Punsikorn Tiyakorn</rb> <rp>（</rp><rt>パンシコーン・ティヤコン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20001109">2000年11月9日</span> <span style="white-space:nowrap;">（18歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.pun">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/pun.bnk48official">インスタグラム</a>
+</td>
+<td style="text-align:left;">チームBIIIキャプテン
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jiradapa_Intajak.jpg" class="image"><img alt="2019年BNK48プロフィール Jiradapa Intajak.jpg" src="/images/thumb/d/d0/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jiradapa_Intajak.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jiradapa_Intajak.jpg" width="50" height="50" srcset="/images/thumb/d/d0/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jiradapa_Intajak.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jiradapa_Intajak.jpg 1.5x, /images/thumb/d/d0/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jiradapa_Intajak.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jiradapa_Intajak.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Pupe"><ruby data-sort-value="プーペ"><rb>Pupe</rb> <rp>（</rp><rt>プーペ</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Jiradapa Intajak">4#2 2 -41#<br><ruby data-sort-value="ジラダーパー・インタジャック"><rb>Jiradapa Intajak</rb> <rp>（</rp><rt>ジラダーパー・インタジャック</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19980118">1998年1月18日</span> <span style="white-space:nowrap;">（21歳）</span>
+</td>
+<td>チエンラーイ県
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.pupe">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/pupe.bnk48official">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sawitchaya_Kajonrungsilp.jpg" class="image"><img alt="2019年BNK48プロフィール Sawitchaya Kajonrungsilp.jpg" src="/images/thumb/9/97/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sawitchaya_Kajonrungsilp.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sawitchaya_Kajonrungsilp.jpg" width="50" height="50" srcset="/images/thumb/9/97/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sawitchaya_Kajonrungsilp.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sawitchaya_Kajonrungsilp.jpg 1.5x, /images/thumb/9/97/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sawitchaya_Kajonrungsilp.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sawitchaya_Kajonrungsilp.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Satchan"><ruby data-sort-value="さっちゃん"><rb>Satchan</rb> <rp>（</rp><rt>さっちゃん</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Sawitchaya Kajonrungsilp">*'4
+2 ##8H(4%L<br><ruby data-sort-value="サウィチャヤー・カチョンルンシン"><rb>Sawitchaya Kajonrungsilp</rb> <rp>（</rp><rt>サウィチャヤー・カチョンルンシン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20031213">2003年12月13日</span> <span style="white-space:nowrap;">（15歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.satchan">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/satchan.bnk48official">インスタグラム</a>
+</td>
+<td style="text-align:left;">母親が日本人、日本名：<ruby data-sort-value="はなみ さちや"><rb>花見咲知弥</rb> <rp>（</rp><rt>はなみ さちや</rt><rp>）</rp></ruby><sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup>
+</td></tr>
+<tr>
+<td data-sort-value="111" class="bgcolor bgcolor-BIII">BIII
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Isarapa_Thawatpakdee.jpg" class="image"><img alt="2019年BNK48プロフィール Isarapa Thawatpakdee.jpg" src="/images/thumb/2/2f/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Isarapa_Thawatpakdee.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Isarapa_Thawatpakdee.jpg" width="50" height="50" srcset="/images/thumb/2/2f/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Isarapa_Thawatpakdee.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Isarapa_Thawatpakdee.jpg 1.5x, /images/thumb/2/2f/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Isarapa_Thawatpakdee.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Isarapa_Thawatpakdee.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Tarwaan"><ruby data-sort-value="ターワン"><rb>Tarwaan</rb> <rp>（</rp><rt>ターワン</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Isarapa Thawatpakdee">-4*#2 2 '1
+ 15<br><ruby data-sort-value="イサラーパー・タワットパックディー"><rb>Isarapa Thawatpakdee</rb> <rp>（</rp><rt>イサラーパー・タワットパックディー</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19961218">1996年12月18日</span> <span style="white-space:nowrap;">（22歳）</span>
+</td>
+<td>ナコーンパトム県
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td><span data-sort-value="20171224">2017年12月24日</span>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.tarwaan">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/tarwaan.bnk48office">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Mananya_Kaoju.jpg" class="image"><img alt="2019年BNK48プロフィール Mananya Kaoju.jpg" src="/images/thumb/2/27/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Mananya_Kaoju.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Mananya_Kaoju.jpg" width="50" height="50" srcset="/images/thumb/2/27/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Mananya_Kaoju.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Mananya_Kaoju.jpg 1.5x, /images/thumb/2/27/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Mananya_Kaoju.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Mananya_Kaoju.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Nink"><ruby data-sort-value="ニンク"><rb>Nink</rb> <rp>（</rp><rt>ニンク</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Mananya Kaoju">!12 @209<br><ruby data-sort-value="マナンヤー・ゴチュー"><rb>Mananya Kaoju</rb> <rp>（</rp><rt>マナンヤー・ゴチュー</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20000203">2000年2月3日</span> <span style="white-space:nowrap;">（19歳）</span>
+</td>
+<td>サムットサーコーン県
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.nink">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/nink.bnk48official">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Rinrada_Inthaisong.jpg" class="image"><img alt="2019年BNK48プロフィール Rinrada Inthaisong.jpg" src="/images/thumb/e/ec/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Rinrada_Inthaisong.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Rinrada_Inthaisong.jpg" width="50" height="64" srcset="/images/thumb/e/ec/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Rinrada_Inthaisong.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Rinrada_Inthaisong.jpg 1.5x, /images/thumb/e/ec/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Rinrada_Inthaisong.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Rinrada_Inthaisong.jpg 2x" data-file-width="250" data-file-height="321"></a>
+</td>
+<td data-sort-value="Piam"><ruby data-sort-value="ピアム"><rb>Piam</rb> <rp>（</rp><rt>ピアム</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Rinrada Inthaisong">#4#2 -4#LD*<br><ruby data-sort-value="リンラダー・インタイソン"><rb>Rinrada Inthaisong</rb> <rp>（</rp><rt>リンラダー・インタイソン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20030604">2003年6月4日</span> <span style="white-space:nowrap;">（16歳）</span>
+</td>
+<td>サラブリー県
+</td>
+<td><span data-sort-value="201702"> <span style="white-space:nowrap;">1期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.piam">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/piam.bnk48office">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Punyawee_Jungcharoen.jpg" class="image"><img alt="2019年BNK48プロフィール Punyawee Jungcharoen.jpg" src="/images/thumb/c/c3/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Punyawee_Jungcharoen.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Punyawee_Jungcharoen.jpg" width="50" height="50" srcset="/images/thumb/c/c3/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Punyawee_Jungcharoen.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Punyawee_Jungcharoen.jpg 1.5x, /images/thumb/c/c3/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Punyawee_Jungcharoen.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Punyawee_Jungcharoen.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Aom"><ruby data-sort-value="オーム"><rb>Aom</rb> <rp>（</rp><rt>オーム</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Punyawee Jungcharoen">8"'5#L 6@#4<br><ruby data-sort-value="プンヤウィー・チュンチャロエン"><rb>Punyawee Jungcharoen</rb> <rp>（</rp><rt>プンヤウィー・チュンチャロエン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19950920">1995年9月20日</span> <span style="white-space:nowrap;">（23歳）</span>
+</td>
+<td>チエンマイ県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.aom">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/aom.bnk48official/">インスタグラム</a>
+</td>
+<td>CGM48へ完全移籍予定（移籍時期未定）
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Janista_Tansiri.jpg" class="image"><img alt="2019年BNK48プロフィール Janista Tansiri.jpg" src="/images/thumb/a/a1/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Janista_Tansiri.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Janista_Tansiri.jpg" width="50" height="50" srcset="/images/thumb/a/a1/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Janista_Tansiri.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Janista_Tansiri.jpg 1.5x, /images/thumb/a/a1/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Janista_Tansiri.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Janista_Tansiri.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Bamboo"><ruby data-sort-value="バンブー"><rb>Bamboo</rb> <rp>（</rp><rt>バンブー</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Janista Tansiri">4*2 1(4#4<br><ruby data-sort-value="ジャニスター・タンシリ"><rb>Janista Tansiri</rb> <rp>（</rp><rt>ジャニスター・タンシリ</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20020903">2002年9月3日</span> <span style="white-space:nowrap;">（16歳）</span>
+</td>
+<td>サムットプラーカーン県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.bamboo">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/bamboo.bnk48office/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nawaporn_Chansuk.jpg" class="image"><img alt="2019年BNK48プロフィール Nawaporn Chansuk.jpg" src="/images/thumb/f/f7/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nawaporn_Chansuk.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nawaporn_Chansuk.jpg" width="50" height="50" srcset="/images/thumb/f/f7/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nawaporn_Chansuk.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nawaporn_Chansuk.jpg 1.5x, /images/thumb/f/f7/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nawaporn_Chansuk.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nawaporn_Chansuk.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Cake"><ruby data-sort-value="ケーキ"><rb>Cake</rb> <rp>（</rp><rt>ケーキ</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Nawaporn Chansuk">'# 1#L*8<br><ruby data-sort-value="ナワポーン・チャンスック"><rb>Nawaporn Chansuk</rb> <rp>（</rp><rt>ナワポーン・チャンスック</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19961118">1996年11月18日</span> <span style="white-space:nowrap;">（22歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.cake">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/cake.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pimnipa_Tungsakul.jpg" class="image"><img alt="2019年BNK48プロフィール Pimnipa Tungsakul.jpg" src="/images/thumb/2/2e/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pimnipa_Tungsakul.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pimnipa_Tungsakul.jpg" width="50" height="50" srcset="/images/thumb/2/2e/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pimnipa_Tungsakul.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pimnipa_Tungsakul.jpg 1.5x, /images/thumb/2/2e/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pimnipa_Tungsakul.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pimnipa_Tungsakul.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Deenee"><ruby data-sort-value="ディーニー"><rb>Deenee</rb> <rp>（</rp><rt>ディーニー</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Pimnipa Tungsakul">4!L4 2 1I*8%<br><ruby data-sort-value="ピムニパー・タンサクン"><rb>Pimnipa Tungsakul</rb> <rp>（</rp><rt>ピムニパー・タンサクン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20011128">2001年11月28日</span> <span style="white-space:nowrap;">（17歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.deenee">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/deenee.bnk48official/">インスタグラム</a>
+</td>
+<td style="text-align:left;">2019年8月11日活動終了予定
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sumitra_Duangkaew.jpg" class="image"><img alt="2019年BNK48プロフィール Sumitra Duangkaew.jpg" src="/images/thumb/0/0e/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sumitra_Duangkaew.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sumitra_Duangkaew.jpg" width="50" height="50" srcset="/images/thumb/0/0e/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sumitra_Duangkaew.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sumitra_Duangkaew.jpg 1.5x, /images/thumb/0/0e/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sumitra_Duangkaew.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sumitra_Duangkaew.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Faii"><ruby data-sort-value="ファーイ"><rb>Faii</rb> <rp>（</rp><rt>ファーイ</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Sumitra Duangkaew">*8!4#2 'AI'<br><ruby data-sort-value="スミトラー・ドゥアンゲーウ"><rb>Sumitra Duangkaew</rb> <rp>（</rp><rt>スミトラー・ドゥアンゲーウ</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19960628">1996年6月28日</span> <span style="white-space:nowrap;">（23歳）</span>
+</td>
+<td>パトゥムターニー県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.faii">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/faii.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Paweethida_Sakunpiphat.jpg" class="image"><img alt="2019年BNK48プロフィール Paweethida Sakunpiphat.jpg" src="/images/thumb/9/94/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Paweethida_Sakunpiphat.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Paweethida_Sakunpiphat.jpg" width="50" height="50" srcset="/images/thumb/9/94/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Paweethida_Sakunpiphat.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Paweethida_Sakunpiphat.jpg 1.5x, /images/thumb/9/94/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Paweethida_Sakunpiphat.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Paweethida_Sakunpiphat.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Fifa"><ruby data-sort-value="フィーファー"><rb>Fifa</rb> <rp>（</rp><rt>フィーファー</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Paweethida Sakunpiphat">'5L42 *8%41L<br><ruby data-sort-value="パウィーティダー・サクンピパット"><rb>Paweethida Sakunpiphat</rb> <rp>（</rp><rt>パウィーティダー・サクンピパット</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20011106">2001年11月6日</span> <span style="white-space:nowrap;">（17歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.fifa">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/fifa.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natticha_Chantaravareelekha.jpg" class="image"><img alt="2019年BNK48プロフィール Natticha Chantaravareelekha.jpg" src="/images/thumb/1/13/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natticha_Chantaravareelekha.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natticha_Chantaravareelekha.jpg" width="50" height="50" srcset="/images/thumb/1/13/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natticha_Chantaravareelekha.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natticha_Chantaravareelekha.jpg 1.5x, /images/thumb/1/13/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natticha_Chantaravareelekha.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natticha_Chantaravareelekha.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Fond"><ruby data-sort-value="フォン"><rb>Fond</rb> <rp>（</rp><rt>フォン</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Natticha Chantaravareelekha">14
+2 1#'2#5@%2<br><ruby data-sort-value="ナッティチャー・チャンタラワーリーレーカー"><rb>Natticha Chantaravareelekha</rb> <rp>（</rp><rt>ナッティチャー・チャンタラワーリーレーカー</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20021203">2002年12月3日</span> <span style="white-space:nowrap;">（16歳）</span>
+</td>
+<td>プラチュワップキーリーカン県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.fond">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/fond.bnk48office/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nuttakul_Pimtongchaikul.jpg" class="image"><img alt="2019年BNK48プロフィール Nuttakul Pimtongchaikul.jpg" src="/images/thumb/4/48/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nuttakul_Pimtongchaikul.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nuttakul_Pimtongchaikul.jpg" width="50" height="50" srcset="/images/thumb/4/48/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nuttakul_Pimtongchaikul.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nuttakul_Pimtongchaikul.jpg 1.5x, /images/thumb/4/48/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nuttakul_Pimtongchaikul.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nuttakul_Pimtongchaikul.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Gygee"><ruby data-sort-value="チーチー"><rb>Gygee</rb> <rp>（</rp><rt>チーチー</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Nuttakul Pimtongchaikul">18% 4!L
+1"8%<br><ruby data-sort-value="ナッタクン・ピムトンチャイクン"><rb>Nuttakul Pimtongchaikul</rb> <rp>（</rp><rt>ナッタクン・ピムトンチャイクン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20011004">2001年10月4日</span> <span style="white-space:nowrap;">（17歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.gygee">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/gygee.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Plearnpichaya_Komalarajun.jpg" class="image"><img alt="2019年BNK48プロフィール Plearnpichaya Komalarajun.jpg" src="/images/thumb/0/0b/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Plearnpichaya_Komalarajun.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Plearnpichaya_Komalarajun.jpg" width="50" height="50" srcset="/images/thumb/0/0b/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Plearnpichaya_Komalarajun.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Plearnpichaya_Komalarajun.jpg 1.5x, /images/thumb/0/0b/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Plearnpichaya_Komalarajun.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Plearnpichaya_Komalarajun.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="June"><ruby data-sort-value="ジュネ"><rb>June</rb> <rp>（</rp><rt>ジュネ</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Plearnpichaya Komalarajun">@%44
+2 B!%2#
+8<br><ruby data-sort-value="プルーンピチャヤー・コマラーラシュン"><rb>Plearnpichaya Komalarajun</rb> <rp>（</rp><rt>プルーンピチャヤー・コマラーラシュン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20000704">2000年7月4日</span> <span style="white-space:nowrap;">（19歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.june">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/june.bnk48office/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Manipa_Roopanya.jpg" class="image"><img alt="2019年BNK48プロフィール Manipa Roopanya.jpg" src="/images/thumb/5/56/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Manipa_Roopanya.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Manipa_Roopanya.jpg" width="50" height="50" srcset="/images/thumb/5/56/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Manipa_Roopanya.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Manipa_Roopanya.jpg 1.5x, /images/thumb/5/56/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Manipa_Roopanya.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Manipa_Roopanya.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Khamin"><ruby data-sort-value="カミン"><rb>Khamin</rb> <rp>（</rp><rt>カミン</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Manipa Roopanya">!4 2 #9I12<br><ruby data-sort-value="マニパー・ルーパンヤー"><rb>Manipa Roopanya</rb> <rp>（</rp><rt>マニパー・ルーパンヤー</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19990423">1999年4月23日</span> <span style="white-space:nowrap;">（20歳）</span>
+</td>
+<td>コーンケン県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.khamin">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/khamin.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Juthamas_Khonta.jpg" class="image"><img alt="2019年BNK48プロフィール Juthamas Khonta.jpg" src="/images/thumb/d/dc/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Juthamas_Khonta.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Juthamas_Khonta.jpg" width="50" height="50" srcset="/images/thumb/d/dc/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Juthamas_Khonta.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Juthamas_Khonta.jpg 1.5x, /images/thumb/d/dc/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Juthamas_Khonta.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Juthamas_Khonta.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Kheng"><ruby data-sort-value="ケーン"><rb>Kheng</rb> <rp>（</rp><rt>ケーン</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Juthamas Khonta">82!2( %2<br><ruby data-sort-value="ジュターマート・コンター"><rb>Juthamas Khonta</rb> <rp>（</rp><rt>ジュターマート・コンター</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20000326">2000年3月26日</span> <span style="white-space:nowrap;">（19歳）</span>
+</td>
+<td>サムットプラーカーン県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.kheng">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/kheng.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Maira_Kuyama.jpg" class="image"><img alt="2019年BNK48プロフィール Maira Kuyama.jpg" src="/images/thumb/a/a6/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Maira_Kuyama.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Maira_Kuyama.jpg" width="50" height="50" srcset="/images/thumb/a/a6/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Maira_Kuyama.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Maira_Kuyama.jpg 1.5x, /images/thumb/a/a6/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Maira_Kuyama.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Maira_Kuyama.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Maira"><ruby data-sort-value="マイラ"><rb>Maira</rb> <rp>（</rp><rt>マイラ</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Maira Kuyama">!0-4#0 9"2!2<br><ruby data-sort-value="マイラ・クヤマ"><rb>Maira Kuyama</rb> <rp>（</rp><rt>マイラ・クヤマ</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19970224">1997年2月24日</span> <span style="white-space:nowrap;">（22歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.maira">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/maira.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nannaphas_Loetnamchoetsakun.jpg" class="image"><img alt="2019年BNK48プロフィール Nannaphas Loetnamchoetsakun.jpg" src="/images/thumb/e/e3/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nannaphas_Loetnamchoetsakun.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nannaphas_Loetnamchoetsakun.jpg" width="50" height="50" srcset="/images/thumb/e/e3/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nannaphas_Loetnamchoetsakun.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nannaphas_Loetnamchoetsakun.jpg 1.5x, /images/thumb/e/e3/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nannaphas_Loetnamchoetsakun.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Nannaphas_Loetnamchoetsakun.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Mewnich"><ruby data-sort-value="ミューニック"><rb>Mewnich</rb> <rp>（</rp><rt>ミューニック</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Nannaphas Loetnamchoetsakun">@1L 1* @%4(2!@
+4*8%<br><ruby data-sort-value="ナンナパット・ルートナームチュートサクン"><rb>Nannaphas Loetnamchoetsakun</rb> <rp>（</rp><rt>ナンナパット・ルートナームチュートサクン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20020311">2002年3月11日</span> <span style="white-space:nowrap;">（17歳）</span>
+</td>
+<td>サムットプラーカーン県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.mewnich">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/mewnich.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Rachaya_Tupkunanon.jpg" class="image"><img alt="2019年BNK48プロフィール Rachaya Tupkunanon.jpg" src="/images/thumb/2/25/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Rachaya_Tupkunanon.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Rachaya_Tupkunanon.jpg" width="50" height="50" srcset="/images/thumb/2/25/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Rachaya_Tupkunanon.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Rachaya_Tupkunanon.jpg 1.5x, /images/thumb/2/25/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Rachaya_Tupkunanon.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Rachaya_Tupkunanon.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Minmin"><ruby data-sort-value="ミンミン"><rb>Minmin</rb> <rp>（</rp><rt>ミンミン</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Rachaya Tupkunanon">#
+"2 1L82L<br><ruby data-sort-value="ラチャヤー・タップクナーノン"><rb>Rachaya Tupkunanon</rb> <rp>（</rp><rt>ラチャヤー・タップクナーノン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19970320">1997年3月20日</span> <span style="white-space:nowrap;">（22歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.minmin">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/minmin.bnk48office/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Khawisara_Singplod.jpg" class="image"><img alt="2019年BNK48プロフィール Khawisara Singplod.jpg" src="/images/thumb/0/05/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Khawisara_Singplod.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Khawisara_Singplod.jpg" width="50" height="50" srcset="/images/thumb/0/05/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Khawisara_Singplod.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Khawisara_Singplod.jpg 1.5x, /images/thumb/0/05/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Khawisara_Singplod.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Khawisara_Singplod.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Myyu"><ruby data-sort-value="マイユー"><rb>Myyu</rb> <rp>（</rp><rt>マイユー</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Khawisara Singplod">'4*#2 *4+L%-<br><ruby data-sort-value="カウィサラー・シンプロード"><rb>Khawisara Singplod</rb> <rp>（</rp><rt>カウィサラー・シンプロード</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19991028">1999年10月28日</span> <span style="white-space:nowrap;">（19歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.myyu">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/myyu.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Dusita_Kitisarakulchai.jpg" class="image"><img alt="2019年BNK48プロフィール Dusita Kitisarakulchai.jpg" src="/images/thumb/b/b8/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Dusita_Kitisarakulchai.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Dusita_Kitisarakulchai.jpg" width="50" height="50" srcset="/images/thumb/b/b8/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Dusita_Kitisarakulchai.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Dusita_Kitisarakulchai.jpg 1.5x, /images/thumb/b/b8/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Dusita_Kitisarakulchai.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Dusita_Kitisarakulchai.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Natherine"><ruby data-sort-value="ナタリン"><rb>Natherine</rb> <rp>（</rp><rt>ナタリン</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Dusita Kitisarakulchai">8*42 44*2#08%
+1"<br><ruby data-sort-value="デュシター・キティサラクンチャイ"><rb>Dusita Kitisarakulchai</rb> <rp>（</rp><rt>デュシター・キティサラクンチャイ</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19991111">1999年11月11日</span> <span style="white-space:nowrap;">（19歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.natherine">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/natherine.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Chanyapuk_Numprasop.jpg" class="image"><img alt="2019年BNK48プロフィール Chanyapuk Numprasop.jpg" src="/images/thumb/5/52/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Chanyapuk_Numprasop.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Chanyapuk_Numprasop.jpg" width="50" height="50" srcset="/images/thumb/5/52/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Chanyapuk_Numprasop.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Chanyapuk_Numprasop.jpg 1.5x, /images/thumb/5/52/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Chanyapuk_Numprasop.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Chanyapuk_Numprasop.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="New"><ruby data-sort-value="ニュー"><rb>New</rb> <rp>（</rp><rt>ニュー</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Chanyapuk Numprasop">
+12 1 8H!#0*<br><ruby data-sort-value="シャンヤーパック・ヌムプラソップ"><rb>Chanyapuk Numprasop</rb> <rp>（</rp><rt>シャンヤーパック・ヌムプラソップ</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20030102">2003年1月2日</span> <span style="white-space:nowrap;">（16歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.new">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/new.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Warinrat_Yolprasong.jpg" class="image"><img alt="2019年BNK48プロフィール Warinrat Yolprasong.jpg" src="/images/thumb/4/4d/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Warinrat_Yolprasong.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Warinrat_Yolprasong.jpg" width="50" height="50" srcset="/images/thumb/4/4d/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Warinrat_Yolprasong.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Warinrat_Yolprasong.jpg 1.5x, /images/thumb/4/4d/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Warinrat_Yolprasong.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Warinrat_Yolprasong.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Niky"><ruby data-sort-value="ニキー"><rb>Niky</rb> <rp>（</rp><rt>ニキー</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Warinrat Yolprasong">'#4L#1L "%#0*L<br><ruby data-sort-value="ワリンラット・ヨンプラソン"><rb>Warinrat Yolprasong</rb> <rp>（</rp><rt>ワリンラット・ヨンプラソン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20050126">2005年1月26日</span> <span style="white-space:nowrap;">（14歳）</span>
+</td>
+<td>チエンマイ県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.niky">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/niky.bnk48office/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Phattharanarin_Mueanarit.jpg" class="image"><img alt="2019年BNK48プロフィール Phattharanarin Mueanarit.jpg" src="/images/thumb/1/19/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Phattharanarin_Mueanarit.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Phattharanarin_Mueanarit.jpg" width="50" height="50" srcset="/images/thumb/1/19/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Phattharanarin_Mueanarit.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Phattharanarin_Mueanarit.jpg 1.5x, /images/thumb/1/19/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Phattharanarin_Mueanarit.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Phattharanarin_Mueanarit.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Nine"><ruby data-sort-value="ナーイ"><rb>Nine</rb> <rp>（</rp><rt>ナーイ</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Phattharanarin Mueanarit"> 1##4#L @+!7-$4L<br><ruby data-sort-value="パッタラナリン・ムアンリット"><rb>Phattharanarin Mueanarit</rb> <rp>（</rp><rt>パッタラナリン・ムアンリット</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20001111">2000年11月11日</span> <span style="white-space:nowrap;">（18歳）</span>
+</td>
+<td>ナコーンサワン県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.nine">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/nine.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natcha_Krisdhasima.jpg" class="image"><img alt="2019年BNK48プロフィール Natcha Krisdhasima.jpg" src="/images/thumb/1/1f/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natcha_Krisdhasima.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natcha_Krisdhasima.jpg" width="50" height="50" srcset="/images/thumb/1/1f/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natcha_Krisdhasima.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natcha_Krisdhasima.jpg 1.5x, /images/thumb/1/1f/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natcha_Krisdhasima.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Natcha_Krisdhasima.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Oom"><ruby data-sort-value="ウム"><rb>Oom</rb> <rp>（</rp><rt>ウム</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Natcha Krisdhasima">1
+
+2 $)2*4!0<br><ruby data-sort-value="ナッチャー・グリッサダーシマ"><rb>Natcha Krisdhasima</rb> <rp>（</rp><rt>ナッチャー・グリッサダーシマ</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20020929">2002年9月29日</span> <span style="white-space:nowrap;">（16歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.oom">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/oom.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pakwan_Noijaiboon.jpg" class="image"><img alt="2019年BNK48プロフィール Pakwan Noijaiboon.jpg" src="/images/thumb/d/d2/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pakwan_Noijaiboon.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pakwan_Noijaiboon.jpg" width="50" height="50" srcset="/images/thumb/d/d2/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pakwan_Noijaiboon.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pakwan_Noijaiboon.jpg 1.5x, /images/thumb/d/d2/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pakwan_Noijaiboon.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Pakwan_Noijaiboon.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Pakwan"><ruby data-sort-value="パークワン"><rb>Pakwan</rb> <rp>（</rp><rt>パークワン</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Pakwan Noijaiboon">2'1 I-"C8<br><ruby data-sort-value="パークワン・ノーイジャイブン"><rb>Pakwan Noijaiboon</rb> <rp>（</rp><rt>パークワン・ノーイジャイブン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20000218">2000年2月18日</span> <span style="white-space:nowrap;">（19歳）</span>
+</td>
+<td>サコンナコーン県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/pakwan.bnk48official">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/pakwan.bnk48office/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jidrapha_Chamchooy.jpg" class="image"><img alt="2019年BNK48プロフィール Jidrapha Chamchooy.jpg" src="/images/thumb/8/8a/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jidrapha_Chamchooy.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jidrapha_Chamchooy.jpg" width="50" height="50" srcset="/images/thumb/8/8a/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jidrapha_Chamchooy.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jidrapha_Chamchooy.jpg 1.5x, /images/thumb/8/8a/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jidrapha_Chamchooy.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Jidrapha_Chamchooy.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Panda"><ruby data-sort-value="パンダー"><rb>Panda</rb> <rp>（</rp><rt>パンダー</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Jidrapha Chamchooy">42 2 A
+H!
+I-"<br><ruby data-sort-value="ジダーパー・シェムショーイ"><rb>Jidrapha Chamchooy</rb> <rp>（</rp><rt>ジダーパー・シェムショーイ</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19971010">1997年10月10日</span> <span style="white-space:nowrap;">（21歳）</span>
+</td>
+<td>ナコーンパトム県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.panda">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/panda.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sirikarn_Shinnawatsuwan.jpg" class="image"><img alt="2019年BNK48プロフィール Sirikarn Shinnawatsuwan.jpg" src="/images/thumb/5/50/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sirikarn_Shinnawatsuwan.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sirikarn_Shinnawatsuwan.jpg" width="50" height="50" srcset="/images/thumb/5/50/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sirikarn_Shinnawatsuwan.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sirikarn_Shinnawatsuwan.jpg 1.5x, /images/thumb/5/50/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sirikarn_Shinnawatsuwan.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Sirikarn_Shinnawatsuwan.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Phukkhom"><ruby data-sort-value="パックコム"><rb>Phukkhom</rb> <rp>（</rp><rt>パックコム</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Sirikarn Shinnawatsuwan">*4#42#"L 
+4'1
+#L*8'##<br><ruby data-sort-value="シリカーン・シンナワットスワン"><rb>Sirikarn Shinnawatsuwan</rb> <rp>（</rp><rt>シリカーン・シンナワットスワン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="19980228">1998年2月28日</span> <span style="white-space:nowrap;">（21歳）</span>
+</td>
+<td>サムットプラーカーン県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.phukkhom">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/phukkhom.bnk48office/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Ratah_Chinkrajangkit.jpg" class="image"><img alt="2019年BNK48プロフィール Ratah Chinkrajangkit.jpg" src="/images/thumb/7/72/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Ratah_Chinkrajangkit.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Ratah_Chinkrajangkit.jpg" width="50" height="50" srcset="/images/thumb/7/72/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Ratah_Chinkrajangkit.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Ratah_Chinkrajangkit.jpg 1.5x, /images/thumb/7/72/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Ratah_Chinkrajangkit.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Ratah_Chinkrajangkit.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Ratah"><ruby data-sort-value="ラター"><rb>Ratah</rb> <rp>（</rp><rt>ラター</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Ratah Chinkrajangkit">#2 
+4#0H24<br><ruby data-sort-value="ラター・シングラジャンギット"><rb>Ratah Chinkrajangkit</rb> <rp>（</rp><rt>ラター・シングラジャンギット</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20020327">2002年3月27日</span> <span style="white-space:nowrap;">（17歳）</span>
+</td>
+<td>チエンマイ県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.ratah">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/ratah.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Tarisa_Preechatangkit.jpg" class="image"><img alt="2019年BNK48プロフィール Tarisa Preechatangkit.jpg" src="/images/thumb/a/a9/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Tarisa_Preechatangkit.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Tarisa_Preechatangkit.jpg" width="50" height="50" srcset="/images/thumb/a/a9/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Tarisa_Preechatangkit.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Tarisa_Preechatangkit.jpg 1.5x, /images/thumb/a/a9/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Tarisa_Preechatangkit.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Tarisa_Preechatangkit.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Stang"><ruby data-sort-value="サタン"><rb>Stang</rb> <rp>（</rp><rt>サタン</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Tarisa Preechatangkit">#4)2 #5
+21I4<br><ruby data-sort-value="タリサー・プリーシャータンギット"><rb>Tarisa Preechatangkit</rb> <rp>（</rp><rt>タリサー・プリーシャータンギット</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20031020">2003年10月20日</span> <span style="white-space:nowrap;">（15歳）</span>
+</td>
+<td>バンコク
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.stang">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/stang.bnk48office/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kamonthida_Rotthawinithi.jpg" class="image"><img alt="2019年BNK48プロフィール Kamonthida Rotthawinithi.jpg" src="/images/thumb/d/d5/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kamonthida_Rotthawinithi.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kamonthida_Rotthawinithi.jpg" width="50" height="50" srcset="/images/thumb/d/d5/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kamonthida_Rotthawinithi.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kamonthida_Rotthawinithi.jpg 1.5x, /images/thumb/d/d5/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kamonthida_Rotthawinithi.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Kamonthida_Rotthawinithi.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="View"><ruby data-sort-value="ビュー"><rb>View</rb> <rp>（</rp><rt>ビュー</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Kamonthida Rotthawinithi">!42 B#L'544<br><ruby data-sort-value="カモンティダー・ロートタウィーニティ"><rb>Kamonthida Rotthawinithi</rb> <rp>（</rp><rt>カモンティダー・ロートタウィーニティ</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20040528">2004年5月28日</span> <span style="white-space:nowrap;">（15歳）</span>
+</td>
+<td>ノンタブリー県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.view">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/view.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr>
+<tr>
+<td data-sort-value="119" class="bgcolor bgcolor-BNK研">研
+</td>
+<td><a href="/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Weeraya_Zhang.jpg" class="image"><img alt="2019年BNK48プロフィール Weeraya Zhang.jpg" src="/images/thumb/8/87/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Weeraya_Zhang.jpg/50px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Weeraya_Zhang.jpg" width="50" height="50" srcset="/images/thumb/8/87/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Weeraya_Zhang.jpg/75px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Weeraya_Zhang.jpg 1.5x, /images/thumb/8/87/2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Weeraya_Zhang.jpg/100px-2019%E5%B9%B4BNK48%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB_Weeraya_Zhang.jpg 2x" data-file-width="320" data-file-height="320"></a>
+</td>
+<td data-sort-value="Wee"><ruby data-sort-value="ウィー"><rb>Wee</rb> <rp>（</rp><rt>ウィー</rt><rp>）</rp></ruby>
+</td>
+<td data-sort-value="Weeraya Zhang">'5#"2 2<br><ruby data-sort-value="ウィーラヤー・チャーン"><rb>Weeraya Zhang</rb> <rp>（</rp><rt>ウィーラヤー・チャーン</rt><rp>）</rp></ruby>
+</td>
+<td><span data-sort-value="20011023">2001年10月23日</span> <span style="white-space:nowrap;">（17歳）</span>
+</td>
+<td>チョンブリー県
+</td>
+<td><span data-sort-value="201804"> <span style="white-space:nowrap;">2期</span></span>
+</td>
+<td>
+</td>
+<td><a rel="nofollow" class="external text" href="https://www.facebook.com/bnk48official.wee">Facebook</a><br><a rel="nofollow" class="external text" href="https://www.instagram.com/wee.bnk48official/">インスタグラム</a>
+</td>
+<td>
+</td></tr></tbody><tfoot></tfoot></table>

@@ -1,0 +1,538 @@
+[
+{
+"name_ja":"石黒友月",
+"name_kana":"いしぐろ ゆづき",
+"birth":"2003-10-11",
+"from":"愛知県 ",
+"blood":"AB",
+"term":" 8"
+},
+{
+"name_ja":"井上瑠夏",
+"name_kana":"いのうえ るか",
+"birth":"2001-06-12",
+"from":"熊本県 ",
+"blood":"O",
+"term":" 8"
+},
+{
+"name_ja":"大谷悠妃",
+"name_kana":"おおたに ゆうき",
+"birth":"2004-07-29",
+"from":"愛知県 ",
+"blood":"A",
+"term":"D3"
+},
+{
+"name_ja":"上村亜柚香",
+"name_kana":"かみむら あゆか",
+"birth":"2004-01-27",
+"from":"愛知県 ",
+"blood":"A",
+"term":"D2"
+},
+{
+"name_ja":"北川愛乃",
+"name_kana":"きたがわよしの",
+"birth":"2001-01-24",
+"from":"大阪府 ",
+"blood":"O",
+"term":" 8"
+},
+{
+"name_ja":"北川綾巴",
+"name_kana":"きたがわ りょうは",
+"birth":"1998-10-09",
+"from":"愛知県 ",
+"blood":"B",
+"term":" 6"
+},
+{
+"name_ja":"坂本真凛",
+"name_kana":"さかもと まりん",
+"birth":"2002-02-02",
+"from":"愛知県 ",
+"blood":"B",
+"term":" 8"
+},
+{
+"name_ja":"杉山愛佳",
+"name_kana":"すぎやま あいか",
+"birth":"2002-03-05",
+"from":"愛知県 ",
+"blood":"B",
+"term":" 7"
+},
+{
+"name_ja":"都築里佳",
+"name_kana":"つづき りか",
+"birth":"1995-11-08",
+"from":"愛知県 ",
+"blood":"O",
+"term":" 4"
+},
+{
+"name_ja":"仲村和泉",
+"name_kana":"なかむら いずみ",
+"birth":"2000-03-15",
+"from":"大阪府 ",
+"blood":"A",
+"term":" 8"
+},
+{
+"name_ja":"野島樺乃",
+"name_kana":"のじま かの",
+"birth":"2001-09-06",
+"from":"愛知県 ",
+"blood":"O",
+"term":" 7"
+},
+{
+"name_ja":"野村実代",
+"name_kana":"のむら みよ",
+"birth":"2003-02-01",
+"from":"愛知県 ",
+"blood":"A",
+"term":" 8"
+},
+{
+"name_ja":"松井珠理奈",
+"name_kana":"まつい じゅりな",
+"birth":"1997-03-08",
+"from":"愛知県 ",
+"blood":"B",
+"term":" 1"
+},
+{
+"name_ja":"松本慈子",
+"name_kana":"まつもと ちかこ",
+"birth":"1999-11-19",
+"from":"大阪府 ",
+"blood":"O",
+"term":"D1"
+},
+{
+"name_ja":"山内鈴蘭",
+"name_kana":"やまうち すずらん",
+"birth":"1994-12-08",
+"from":"千葉県 ",
+"blood":"O",
+"term":"AKB9"
+},
+{
+"name_ja":"青木詩織",
+"name_kana":"あおき しおり",
+"birth":"1996-04-22",
+"from":"静岡県 ",
+"blood":"O",
+"term":"6"
+},
+{
+"name_ja":"荒井優希",
+"name_kana":"あらい ゆき",
+"birth":"1998-05-07",
+"from":"京都府 ",
+"blood":"A",
+"term":"D1"
+},
+{
+"name_ja":"江籠裕奈",
+"name_kana":"えご ゆうな",
+"birth":"2000-03-29",
+"from":"愛知県 ",
+"blood":"O",
+"term":"5"
+},
+{
+"name_ja":"大芝りんか",
+"name_kana":"おおしば りんか",
+"birth":"2001-10-29",
+"from":"埼玉県 ",
+"blood":"B",
+"term":"8"
+},
+{
+"name_ja":"太田彩夏",
+"name_kana":"おおた あやか",
+"birth":"2000-08-17",
+"from":"岐阜県 ",
+"blood":"B",
+"term":"7"
+},
+{
+"name_ja":"大場美奈",
+"name_kana":"おおば みな",
+"birth":"1992-04-03",
+"from":"神奈川県 ",
+"blood":"A",
+"term":"AKB9"
+},
+{
+"name_ja":"片岡成美",
+"name_kana":"かたおか なるみ",
+"birth":"2003-03-13",
+"from":"愛知県 ",
+"blood":"A",
+"term":"7"
+},
+{
+"name_ja":"北野瑠華",
+"name_kana":"きたの るか",
+"birth":"1999-05-25",
+"from":"岐阜県 ",
+"blood":"A",
+"term":"6"
+},
+{
+"name_ja":"白井琴望",
+"name_kana":"しらい ことの",
+"birth":"2002-12-01",
+"from":"愛知県 ",
+"blood":"B",
+"term":"D2"
+},
+{
+"name_ja":"惣田紗莉渚",
+"name_kana":"そうだ さりな",
+"birth":"1993-01-18",
+"from":"埼玉県 ",
+"blood":"B",
+"term":"D1"
+},
+{
+"name_ja":"高柳明音",
+"name_kana":"たかやなぎ あかね",
+"birth":"1991-11-29",
+"from":"愛知県 ",
+"blood":"B",
+"term":"2"
+},
+{
+"name_ja":"竹内彩姫",
+"name_kana":"たけうち さき",
+"birth":"1999-11-24",
+"from":"愛知県 ",
+"blood":"B",
+"term":"6"
+},
+{
+"name_ja":"中野愛理",
+"name_kana":"なかの あいり",
+"birth":"2001-03-24",
+"from":"愛知県 ",
+"blood":"A",
+"term":"D3"
+},
+{
+"name_ja":"日高優月",
+"name_kana":"ひだか ゆづき",
+"birth":"1998-04-01",
+"from":"愛知県 ",
+"blood":"O",
+"term":"6"
+},
+{
+"name_ja":"古畑奈和",
+"name_kana":"ふるはた なお",
+"birth":"1996-09-15",
+"from":"愛知県 ",
+"blood":"O",
+"term":"5"
+},
+{
+"name_ja":"水野愛理",
+"name_kana":"みずの あいり",
+"birth":"2002-09-21",
+"from":"愛知県 ",
+"blood":"A",
+"term":"D2"
+},
+{
+"name_ja":"相川暖花",
+"name_kana":"あいかわ ほのか",
+"birth":"2003-10-22",
+"from":"愛知県 ",
+"blood":"O",
+"term":"7"
+},
+{
+"name_ja":"浅井裕華",
+"name_kana":"あさい ゆうか",
+"birth":"2003-11-10",
+"from":"愛知県 ",
+"blood":"O",
+"term":"7"
+},
+{
+"name_ja":"井田玲音名",
+"name_kana":"いだ れおな",
+"birth":"1998-12-03",
+"from":"三重県 ",
+"blood":"AB",
+"term":"6"
+},
+{
+"name_ja":"鎌田菜月",
+"name_kana":"かまた なつき",
+"birth":"1996-08-29",
+"from":"愛知県 ",
+"blood":"O",
+"term":"6"
+},
+{
+"name_ja":"熊崎晴香",
+"name_kana":"くまざき はるか",
+"birth":"1997-08-10",
+"from":"愛知県 ",
+"blood":"O",
+"term":"6"
+},
+{
+"name_ja":"倉島杏実",
+"name_kana":"くらしま あみ",
+"birth":"2005-06-28",
+"from":"神奈川県 ",
+"blood":"B",
+"term":"8"
+},
+{
+"name_ja":"後藤楽々",
+"name_kana":"ごとう らら",
+"birth":"2000-07-23",
+"from":"愛知県 ",
+"blood":"AB",
+"term":"7"
+},
+{
+"name_ja":"斉藤真木子",
+"name_kana":"さいとう まきこ",
+"birth":"1994-06-28",
+"from":"大阪府 ",
+"blood":"A",
+"term":"2"
+},
+{
+"name_ja":"佐藤佳穂",
+"name_kana":"さとう かほ",
+"birth":"1997-05-16",
+"from":"愛知県 ",
+"blood":"A",
+"term":"8"
+},
+{
+"name_ja":"末永桜花",
+"name_kana":"すえなが おうか",
+"birth":"2002-02-26",
+"from":"愛知県 ",
+"blood":"A",
+"term":"7"
+},
+{
+"name_ja":"菅原茉椰",
+"name_kana":"すがわら まや",
+"birth":"2000-01-10",
+"from":"宮城県 ",
+"blood":"不明",
+"term":"D2"
+},
+{
+"name_ja":"須田亜香里",
+"name_kana":"すだ あかり",
+"birth":"1991-10-31",
+"from":"愛知県 ",
+"blood":"A",
+"term":"3"
+},
+{
+"name_ja":"髙畑結希",
+"name_kana":"たかはた ゆうき",
+"birth":"1995-07-18",
+"from":"香川県 ",
+"blood":"A",
+"term":"7"
+},
+{
+"name_ja":"谷真理佳",
+"name_kana":"たに まりか",
+"birth":"1996-01-05",
+"from":"福岡県 ",
+"blood":"B",
+"term":"HKT2"
+},
+{
+"name_ja":"西満里奈",
+"name_kana":"にし まりな",
+"birth":"2000-01-16",
+"from":"神奈川県 ",
+"blood":"A",
+"term":"D3"
+},
+{
+"name_ja":"野々垣美希",
+"name_kana":"ののがき みき",
+"birth":"1999-10-07",
+"from":"愛知県 ",
+"blood":"O",
+"term":"8"
+},
+{
+"name_ja":"平田詩奈",
+"name_kana":"ひらた しいな",
+"birth":"1999-08-22",
+"from":"愛知県 ",
+"blood":"O",
+"term":"D3"
+},
+{
+"name_ja":"深井ねがい",
+"name_kana":"ふかい ねがい",
+"birth":"2003-01-16",
+"from":"大阪府 ",
+"blood":"O",
+"term":"8"
+},
+{
+"name_ja":"福士奈央",
+"name_kana":"ふくし なお",
+"birth":"1999-04-23",
+"from":"栃木県 ",
+"blood":"O",
+"term":"D1"
+},
+{
+"name_ja":"青海ひな乃",
+"name_kana":"あおうみ ひなの",
+"birth":"2000-11-02",
+"from":"愛知県 ",
+"blood":"A",
+"term":"9"
+},
+{
+"name_ja":"赤堀君江",
+"name_kana":"あかほり きみえ",
+"birth":"2002-01-21",
+"from":"静岡県 ",
+"blood":"A",
+"term":"9"
+},
+{
+"name_ja":"荒野姫楓",
+"name_kana":"あらの ひめか",
+"birth":"2002-01-09",
+"from":"神奈川県 ",
+"blood":"O",
+"term":"9"
+},
+{
+"name_ja":"池田楓",
+"name_kana":"いけだ かえで",
+"birth":"2000-07-05",
+"from":"長崎県 ",
+"blood":"O",
+"term":"9"
+},
+{
+"name_ja":"石川花音",
+"name_kana":"いしかわ かのん",
+"birth":"1997-12-19",
+"from":"千葉県 ",
+"blood":"A",
+"term":"9"
+},
+{
+"name_ja":"入内嶋涼",
+"name_kana":"いりうちじま さやか",
+"birth":"1999-05-13",
+"from":"神奈川県 ",
+"blood":"O",
+"term":"9"
+},
+{
+"name_ja":"大橋真子",
+"name_kana":"おおはし まこ",
+"birth":"2004-05-24",
+"from":"東京都 ",
+"blood":"不明",
+"term":"9"
+},
+{
+"name_ja":"岡本彩夏",
+"name_kana":"おかもと あやか",
+"birth":"2002-08-12",
+"from":"東京都 ",
+"blood":"A",
+"term":"9"
+},
+{
+"name_ja":"川嶋美晴",
+"name_kana":"かわしま みはる",
+"birth":"2002-12-17",
+"from":"愛知県 ",
+"blood":"O",
+"term":"8"
+},
+{
+"name_ja":"白井友紀乃",
+"name_kana":"しらい ゆきの",
+"birth":"2000-09-28",
+"from":"愛知県 ",
+"blood":"O",
+"term":"9"
+},
+{
+"name_ja":"鈴木愛菜",
+"name_kana":"すずき えな",
+"birth":"2004-01-09",
+"from":"愛知県 ",
+"blood":"A",
+"term":"9"
+},
+{
+"name_ja":"鈴木恋奈",
+"name_kana":"すずき ここな",
+"birth":"2003-12-28",
+"from":"岐阜県 ",
+"blood":"A",
+"term":"9"
+},
+{
+"name_ja":"竹内ななみ",
+"name_kana":"たけうち ななみ",
+"birth":"2001-02-24",
+"from":"大阪府 ",
+"blood":"A",
+"term":"9"
+},
+{
+"name_ja":"田辺美月",
+"name_kana":"たなべ みづき",
+"birth":"2001-01-02",
+"from":"新潟県 ",
+"blood":"A",
+"term":"9"
+},
+{
+"name_ja":"中坂美祐",
+"name_kana":"なかさか みゆ",
+"birth":"2005-06-11",
+"from":"愛知県 ",
+"blood":"O",
+"term":"9"
+},
+{
+"name_ja":"平野百菜",
+"name_kana":"ひらの ももな",
+"birth":"2006-09-05",
+"from":"愛知県 ",
+"blood":"B",
+"term":"9"
+},
+{
+"name_ja":"藤本冬香",
+"name_kana":"ふじもと ふゆか",
+"birth":"1998-04-03",
+"from":"広島県 ",
+"blood":"A",
+"term":"9"
+}
+]
