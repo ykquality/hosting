@@ -14,6 +14,10 @@
 <body>
 <script type="text/javascript">
 
+
+$(document).ready(function () {
+});
+
 function check(file)
 {
  del();
@@ -24,14 +28,16 @@ function del()
 var element = document.getElementById("output2");
 while (element.firstChild) {
   element.removeChild(element.firstChild);
- $("#output2").innerHTML = "";
 }
+ $("#output2").innerHTML = "";
 }
 
 function read(file)
 {
  $.getJSON("https://ykquality.github.io/hosting/"+file+".json", function(data){
  //$.getJSON(file+".json", function(data){ //dev
+ 
+   console.log("aaaaa");
   for(var key in data){
    if(data[key].status.indexOf("graduate")>-1)
     continue;
