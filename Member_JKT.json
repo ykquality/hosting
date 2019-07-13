@@ -5,7 +5,8 @@
 "birth":"2000-05-12",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"6"
+"term":"6",
+"status":""
 },
 {
 "name_ja":"Cindy Hapsari Maharani Pujiantoro Putri",
@@ -13,7 +14,8 @@
 "birth":"1998-09-13",
 "from":"中部ジャワ州プルウォケルト ",
 "blood":"O",
-"term":"4"
+"term":"4",
+"status":""
 },
 {
 "name_ja":"Cindy Yuvia",
@@ -21,7 +23,8 @@
 "birth":"1998-01-14",
 "from":"ジャカルタ ",
 "blood":"A",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Diani Amalia Ramadhani",
@@ -29,7 +32,8 @@
 "birth":"1999-01-05",
 "from":"中部ジャワ州ペカロンガン ",
 "blood":"A",
-"term":"5"
+"term":"5",
+"status":""
 },
 {
 "name_ja":"Eve Antoinette Ichwan",
@@ -37,7 +41,8 @@
 "birth":"2003-10-17",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"5"
+"term":"5",
+"status":""
 },
 {
 "name_ja":"Feni Fitriyanti",
@@ -45,7 +50,8 @@
 "birth":"1999-01-16",
 "from":"西ジャワ州チアミス ",
 "blood":"O",
-"term":"3"
+"term":"3",
+"status":""
 },
 {
 "name_ja":"Frieska Anastasia Laksani",
@@ -53,7 +59,8 @@
 "birth":"1996-03-04",
 "from":"西ジャワ州バンドン ",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Gabriela Margareth Warouw",
@@ -61,7 +68,8 @@
 "birth":"1998-04-11",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Michelle Christo Kusnadi",
@@ -69,7 +77,8 @@
 "birth":"1999-10-28",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"3"
+"term":"3",
+"status":""
 },
 {
 "name_ja":"Nurhayati",
@@ -77,7 +86,8 @@
 "birth":"1997-10-18",
 "from":"南スマトラ州パレンバン ",
 "blood":"B",
-"term":"5"
+"term":"5",
+"status":""
 },
 {
 "name_ja":"Riska Amelia Putri",
@@ -85,7 +95,8 @@
 "birth":"2000-03-18",
 "from":"中部ジャワ州プルウォケルト ",
 "blood":"A",
-"term":"6"
+"term":"6",
+"status":""
 },
 {
 "name_ja":"Sania Julia Montolalu",
@@ -93,7 +104,8 @@
 "birth":"2001-07-18",
 "from":"ジャカルタ ",
 "blood":"A",
-"term":"5"
+"term":"5",
+"status":""
 },
 {
 "name_ja":"Sinka Juliani",
@@ -101,7 +113,8 @@
 "birth":"1996-07-04",
 "from":"ジャカルタ ",
 "blood":"A",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Alicia Chanzia",
@@ -109,7 +122,8 @@
 "birth":"1999-05-24",
 "from":"西ジャワ州バンドン ",
 "blood":"O",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Anindhita Rahma Cahyadi",
@@ -117,7 +131,8 @@
 "birth":"1999-01-05",
 "from":"南スマトラ州パレンバン ",
 "blood":"O",
-"term":"3"
+"term":"3",
+"status":""
 },
 {
 "name_ja":"Beby Chaesara Anadila",
@@ -125,7 +140,8 @@
 "birth":"1998-03-18",
 "from":"西ジャワ州バンドン ",
 "blood":"B",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Fransisca Saraswati Puspa Dewi",
@@ -133,7 +149,8 @@
 "birth":"2000-02-24",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"3"
+"term":"3",
+"status":""
 },
 {
 "name_ja":"Jennifer Rachel Natasya",
@@ -141,7 +158,8 @@
 "birth":"1999-04-10",
 "from":"ジャカルタ ",
 "blood":"B",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Kandiya Rafa Maulidita",
@@ -149,7 +167,8 @@
 "birth":"2003-05-14",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"6"
+"term":"6",
+"status":""
 },
 {
 "name_ja":"Maria Genoveva Natalia Desy Purnamasari Gunawan",
@@ -157,7 +176,8 @@
 "birth":"1996-12-25",
 "from":"中部ジャワ州チラチャップ ",
 "blood":"A",
-"term":"3"
+"term":"3",
+"status":""
 },
 {
 "name_ja":"Nadila Cindi Wantari",
@@ -165,7 +185,8 @@
 "birth":"1998-09-23",
 "from":"西ジャワ州ボゴール ",
 "blood":"B",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Natalia",
@@ -173,7 +194,8 @@
 "birth":"1996-12-28",
 "from":"ジャカルタ ",
 "blood":"A",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Ni Made Ayu Vania Aurellia",
@@ -181,7 +203,8 @@
 "birth":"1999-08-08",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"3"
+"term":"3",
+"status":""
 },
 {
 "name_ja":"Ratu Vienny Fitrilya",
@@ -189,7 +212,8 @@
 "birth":"1996-02-23",
 "from":"ジャカルタ ",
 "blood":"A",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Rona Anggreani",
@@ -197,7 +221,8 @@
 "birth":"1995-03-19",
 "from":"東ジャワ州パスルアン ",
 "blood":"B",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Shani Indira Natio",
@@ -205,7 +230,8 @@
 "birth":"1998-10-05",
 "from":"中部ジャワ州ケブメン ",
 "blood":"B",
-"term":"3"
+"term":"3",
+"status":""
 },
 {
 "name_ja":"Shania Gracia",
@@ -213,7 +239,8 @@
 "birth":"1999-08-31",
 "from":"ジャカルタ ",
 "blood":"A",
-"term":"3"
+"term":"3",
+"status":""
 },
 {
 "name_ja":"Viviyona Apriani",
@@ -221,7 +248,8 @@
 "birth":"1994-04-13",
 "from":"西ジャワ州ボゴール ",
 "blood":"B",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Adhisty Zara",
@@ -229,7 +257,8 @@
 "birth":"2003-06-21",
 "from":"西ジャワ州バンドン ",
 "blood":"O",
-"term":"5"
+"term":"5",
+"status":""
 },
 {
 "name_ja":"Adriani Elisabeth",
@@ -237,7 +266,8 @@
 "birth":"2000-05-10",
 "from":"中部ジャワ州プルバリンガ ",
 "blood":"A",
-"term":"4"
+"term":"4",
+"status":""
 },
 {
 "name_ja":"Ayana Shahab",
@@ -245,7 +275,8 @@
 "birth":"1997-06-03",
 "from":"大阪府 ",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Fidly Immanda Azzahra",
@@ -253,7 +284,8 @@
 "birth":"2001-03-19",
 "from":"西ジャワ州カラワン ",
 "blood":"AB",
-"term":"4"
+"term":"4",
+"status":""
 },
 {
 "name_ja":"Gabryela Marcelina",
@@ -261,7 +293,8 @@
 "birth":"2001-09-06",
 "from":"西ジャワ州ボゴール ",
 "blood":"O",
-"term":"5"
+"term":"5",
+"status":""
 },
 {
 "name_ja":"Hasyakyla Utami Kusumawardhani",
@@ -269,7 +302,8 @@
 "birth":"2002-05-20",
 "from":"西ジャワ州バンドン ",
 "blood":"O",
-"term":"5"
+"term":"5",
+"status":""
 },
 {
 "name_ja":"Jinan Safa Safira",
@@ -277,7 +311,8 @@
 "birth":"1999-07-08",
 "from":"ジャカルタ ",
 "blood":"A",
-"term":"4"
+"term":"4",
+"status":""
 },
 {
 "name_ja":"Melati Putri Rahel Sesilia",
@@ -285,7 +320,8 @@
 "birth":"2000-01-01",
 "from":"ジャカルタ ",
 "blood":"A",
-"term":"4"
+"term":"4",
+"status":""
 },
 {
 "name_ja":"Puti Nadhira Azalia",
@@ -293,7 +329,8 @@
 "birth":"2000-06-07",
 "from":"ジャカルタ ",
 "blood":"B",
-"term":"5"
+"term":"5",
+"status":""
 },
 {
 "name_ja":"Rinanda Syahputri",
@@ -301,7 +338,8 @@
 "birth":"2003-09-13",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"6"
+"term":"6",
+"status":""
 },
 {
 "name_ja":"Sonia Natalia",
@@ -309,7 +347,8 @@
 "birth":"1997-12-17",
 "from":"中部ジャワ州スマラン ",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Syahfira Angela Nurhaliza",
@@ -317,7 +356,8 @@
 "birth":"2000-12-20",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"3"
+"term":"3",
+"status":""
 },
 {
 "name_ja":"Tan Zhi Hui Celine ",
@@ -325,7 +365,8 @@
 "birth":"2001-08-21",
 "from":"マレーシアジョホール州ジョホールバル ",
 "blood":"A",
-"term":"4"
+"term":"4",
+"status":""
 },
 {
 "name_ja":"Thalia Ivanka Elizabeth",
@@ -333,7 +374,8 @@
 "birth":"1999-06-29",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Aiko Harumi",
@@ -341,7 +383,8 @@
 "birth":"2002-03-23",
 "from":"西ジャワ州ブカシ ",
 "blood":"O",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Amanina Afiqah",
@@ -349,7 +392,8 @@
 "birth":"2006-01-06",
 "from":" ",
 "blood":"B",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Amirah Fatin",
@@ -357,7 +401,8 @@
 "birth":"2000-10-12",
 "from":" ",
 "blood":"A",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Anastasya Narwastu Tety Handuran",
@@ -365,7 +410,8 @@
 "birth":"2000-06-16",
 "from":"ジャカルタ ",
 "blood":"B",
-"term":"6"
+"term":"6",
+"status":""
 },
 {
 "name_ja":"Angelina Christy",
@@ -373,7 +419,8 @@
 "birth":"2005-12-05",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Aurel Mayori",
@@ -381,7 +428,8 @@
 "birth":"2006-05-14",
 "from":"バンテン州タンゲラン ",
 "blood":"B",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Azizi Asadel",
@@ -389,7 +437,8 @@
 "birth":"2004-05-16",
 "from":"バンテン州タンゲラン ",
 "blood":"O",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Cornelia Vanisa",
@@ -397,7 +446,8 @@
 "birth":"2002-07-26",
 "from":" ",
 "blood":"O",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Devytha Maharani",
@@ -405,7 +455,8 @@
 "birth":"2002-11-22",
 "from":" ",
 "blood":"B",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Dhea Angelia",
@@ -413,7 +464,8 @@
 "birth":"2001-08-18",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Eriena Kartika",
@@ -421,7 +473,8 @@
 "birth":"2003-04-18",
 "from":" ",
 "blood":"O",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Febi Komaril",
@@ -429,7 +482,8 @@
 "birth":"2000-02-03",
 "from":"ジャカルタ ",
 "blood":"不明",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Febrina Diponegoro",
@@ -437,7 +491,8 @@
 "birth":"2002-02-17",
 "from":"西ジャワ州ブカシ ",
 "blood":"A",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Febriola Sinambela",
@@ -445,7 +500,8 @@
 "birth":"2005-02-26",
 "from":"ジャカルタ ",
 "blood":"B",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Fiony Alveria",
@@ -453,7 +509,8 @@
 "birth":"2002-02-04",
 "from":" ",
 "blood":"O",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Freya Jayawardana",
@@ -461,7 +518,8 @@
 "birth":"2006-02-13",
 "from":"バンテン州タンゲラン ",
 "blood":"B",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Gabriel Angelina",
@@ -469,7 +527,8 @@
 "birth":"2004-07-17",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Gabriella Stevany",
@@ -477,7 +536,8 @@
 "birth":"2002-05-22",
 "from":" ",
 "blood":"O",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Gita Sekar Andarini",
@@ -485,7 +545,8 @@
 "birth":"2001-06-30",
 "from":" ",
 "blood":"O",
-"term":"6"
+"term":"6",
+"status":""
 },
 {
 "name_ja":"Helisma Putri",
@@ -493,7 +554,8 @@
 "birth":"2000-06-15",
 "from":"西ジャワ州西バンドン県 ",
 "blood":"O",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Jessica Chandra",
@@ -501,7 +563,8 @@
 "birth":"2005-09-23",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Jesslyn Callista",
@@ -509,7 +572,8 @@
 "birth":"2000-04-20",
 "from":"バンテン州南タンゲラン ",
 "blood":"O",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Keisya Ramadhani",
@@ -517,7 +581,8 @@
 "birth":"2004-11-10",
 "from":" ",
 "blood":"AB",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Lulu Salsabila",
@@ -525,7 +590,8 @@
 "birth":"2002-10-23",
 "from":" ",
 "blood":"B",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Mutiara Azzahra",
@@ -533,7 +599,8 @@
 "birth":"2004-07-12",
 "from":"西ジャワ州ブカシ ",
 "blood":"B",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Nabila Fitriana",
@@ -541,7 +608,8 @@
 "birth":"2000-12-29",
 "from":"バンテン州タンゲラン ",
 "blood":"O",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Pamela Krysanthe",
@@ -549,7 +617,8 @@
 "birth":"2003-10-03",
 "from":" ",
 "blood":"A",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Reva Adriana",
@@ -557,7 +626,8 @@
 "birth":"2004-11-03",
 "from":" ",
 "blood":"O",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Reva Fidela",
@@ -565,7 +635,8 @@
 "birth":"2006-07-14",
 "from":" ",
 "blood":"A",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Rifa Fatmasari",
@@ -573,7 +644,8 @@
 "birth":"2000-05-10",
 "from":"西ジャワ州デポック ",
 "blood":"A",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Salma Annisa",
@@ -581,7 +653,8 @@
 "birth":"2000-08-16",
 "from":" ",
 "blood":"O",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Shalza Grasita",
@@ -589,7 +662,8 @@
 "birth":"2004-10-07",
 "from":"ジャカルタ ",
 "blood":"A",
-"term":"6"
+"term":"6",
+"status":""
 },
 {
 "name_ja":"Stephanie Pricilla Indarto Putri",
@@ -597,7 +671,8 @@
 "birth":"2000-11-19",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"3"
+"term":"3",
+"status":""
 },
 {
 "name_ja":"Viona Fadrin",
@@ -605,7 +680,8 @@
 "birth":"2000-11-08",
 "from":"ジャカルタ ",
 "blood":"O",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Yessica Tamara",
@@ -613,7 +689,8 @@
 "birth":"2002-09-24",
 "from":"北スマトラ州メダン ",
 "blood":"A",
-"term":"7"
+"term":"7",
+"status":""
 },
 {
 "name_ja":"Zahra Nur",
@@ -621,7 +698,8 @@
 "birth":"2003-08-05",
 "from":" ",
 "blood":"AB",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Cindy Nugroho",
@@ -629,7 +707,8 @@
 "birth":"2007-06-09",
 "from":" ",
 "blood":"AV",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Flora Shafiq",
@@ -637,7 +716,8 @@
 "birth":"2005-04-04",
 "from":" ",
 "blood":"B",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Nyimas Ratu Rafa",
@@ -645,7 +725,8 @@
 "birth":"2005-07-01",
 "from":" ",
 "blood":"AB",
-"term":"8"
+"term":"8",
+"status":""
 },
 {
 "name_ja":"Umega Maulana",
@@ -653,6 +734,7 @@
 "birth":"2004-03-27",
 "from":" ",
 "blood":"O",
-"term":"8"
+"term":"8",
+"status":""
 }
 ]

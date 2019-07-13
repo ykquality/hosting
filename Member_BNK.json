@@ -5,7 +5,8 @@
 "birth":"1996-05-02",
 "from":"バンコク ",
 "blood":"B",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"伊豆田莉奈",
@@ -13,7 +14,8 @@
 "birth":"1995-11-26",
 "from":"埼玉県 ",
 "blood":"A",
-"term":"AKB10"
+"term":"AKB10",
+"status":""
 },
 {
 "name_ja":"Jaa",
@@ -21,7 +23,8 @@
 "birth":"2003-01-20",
 "from":"バンコク ",
 "blood":"B",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Jane",
@@ -29,7 +32,8 @@
 "birth":"2000-03-09",
 "from":"パトゥムターニー県 ",
 "blood":"A",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Jennis",
@@ -37,7 +41,8 @@
 "birth":"2000-07-04",
 "from":"ペッチャブリー県 ",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Jib",
@@ -45,7 +50,8 @@
 "birth":"2002-07-04",
 "from":"ロッブリー県 ",
 "blood":"A",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Kaew",
@@ -53,7 +59,8 @@
 "birth":"1994-03-31",
 "from":"チョンブリー県 ",
 "blood":"B",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Kaimook",
@@ -61,7 +68,8 @@
 "birth":"1997-08-27",
 "from":"バンコク ",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Kate",
@@ -77,7 +85,8 @@
 "birth":"1999-01-21",
 "from":"バンコク ",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Mind",
@@ -93,7 +102,8 @@
 "birth":"1998-09-30",
 "from":"茨城県 ",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Mobile",
@@ -101,7 +111,8 @@
 "birth":"2002-07-09",
 "from":"バンコク ",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Music",
@@ -109,7 +120,8 @@
 "birth":"2001-02-24",
 "from":"バンコク ",
 "blood":"B",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Nam-Neung",
@@ -125,7 +137,8 @@
 "birth":"1999-10-26",
 "from":"チエンマイ県 ",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Noey",
@@ -133,7 +146,8 @@
 "birth":"1997-04-09",
 "from":"サムットプラーカーン県 ",
 "blood":"AB",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Orn",
@@ -149,7 +163,8 @@
 "birth":"2000-11-09",
 "from":"バンコク ",
 "blood":"A",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Pupe",
@@ -165,7 +180,8 @@
 "birth":"2003-12-13",
 "from":"バンコク ",
 "blood":"A",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Tarwaan",
@@ -181,7 +197,8 @@
 "birth":"2000-02-03",
 "from":"サムットサーコーン県 ",
 "blood":"B",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Piam",
@@ -197,7 +214,8 @@
 "birth":"1995-09-20",
 "from":"チエンマイ県 ",
 "blood":"B",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Bamboo",
@@ -213,7 +231,8 @@
 "birth":"1996-11-18",
 "from":"バンコク ",
 "blood":"O",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Deenee",
@@ -229,7 +248,8 @@
 "birth":"1996-06-28",
 "from":"パトゥムターニー県 ",
 "blood":"B",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Fifa",
@@ -245,7 +265,8 @@
 "birth":"2002-12-03",
 "from":"プラチュワップキーリーカン県 ",
 "blood":"A",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Gygee",
@@ -261,7 +282,8 @@
 "birth":"2000-07-04",
 "from":"バンコク ",
 "blood":"A",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Khamin",
@@ -277,7 +299,8 @@
 "birth":"2000-03-26",
 "from":"サムットプラーカーン県 ",
 "blood":"O",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Maira",
@@ -293,7 +316,8 @@
 "birth":"2002-03-11",
 "from":"サムットプラーカーン県 ",
 "blood":"B",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Minmin",
@@ -309,7 +333,8 @@
 "birth":"1999-10-28",
 "from":"バンコク ",
 "blood":"O",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Natherine",
@@ -325,7 +350,8 @@
 "birth":"2003-01-02",
 "from":"バンコク ",
 "blood":"B",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Niky",
@@ -341,7 +367,8 @@
 "birth":"2000-11-11",
 "from":"ナコーンサワン県 ",
 "blood":"B",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Oom",
@@ -365,7 +392,8 @@
 "birth":"1997-10-10",
 "from":"ナコーンパトム県 ",
 "blood":"A",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Phukkhom",
@@ -381,7 +409,8 @@
 "birth":"2002-03-27",
 "from":"チエンマイ県 ",
 "blood":"A",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Stang",
@@ -389,7 +418,8 @@
 "birth":"2003-10-20",
 "from":"バンコク ",
 "blood":"O",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"View",
@@ -397,7 +427,8 @@
 "birth":"2004-05-28",
 "from":"ノンタブリー県 ",
 "blood":"B",
-"term":"2"
+"term":"2",
+"status":""
 },
 {
 "name_ja":"Wee",
@@ -405,6 +436,7 @@
 "birth":"2001-10-23",
 "from":"チョンブリー県 ",
 "blood":"O",
-"term":"2"
+"term":"2",
+"status":""
 }
 ]
