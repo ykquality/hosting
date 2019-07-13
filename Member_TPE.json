@@ -32,7 +32,8 @@
 "birth":"1996-07-14",
 "from":"桃園市",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"潘姿怡",
@@ -49,7 +50,8 @@
 "birth":"1997-04-19",
 "from":"台北市",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Sin Tik-kei",
@@ -66,7 +68,8 @@
 "birth":"1999-12-24",
 "from":"台北市",
 "blood":"O",
-"term":"台湾研究生"
+"term":"台湾研究生",
+"status":""
 },
 {
 "name_ja":"劉曉晴",
@@ -83,7 +86,8 @@
 "birth":"2001-02-14",
 "from":"新竹県",
 "blood":"B",
-"term":"台湾研究生"
+"term":"台湾研究生",
+"status":""
 },
 {
 "name_ja":"林于馨",
@@ -109,7 +113,8 @@
 "birth":"2003-07-11",
 "from":"花蓮県",
 "blood":"不明",
-"term":"台湾研究生"
+"term":"台湾研究生",
+"status":""
 },
 {
 "name_ja":"本田柚萱",
@@ -126,7 +131,8 @@
 "birth":"1997-11-19",
 "from":"台北市",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"藤井麻由",
@@ -143,7 +149,8 @@
 "birth":"1999-08-18",
 "from":"新竹県",
 "blood":"O",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"柏靈",
@@ -160,7 +167,8 @@
 "birth":"2000-10-21",
 "from":"基隆市",
 "blood":"A",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Lin Yi-yun",
@@ -186,7 +194,8 @@
 "birth":"2001-07-15",
 "from":"新北市",
 "blood":"B",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"Gao Yun-jue",
@@ -203,7 +212,8 @@
 "birth":"2001-11-05",
 "from":"台北市",
 "blood":"A",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"王逸嘉",
@@ -220,7 +230,8 @@
 "birth":"2001-12-27",
 "from":"台北市",
 "blood":"B",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"李孟純",
@@ -237,7 +248,8 @@
 "birth":"2002-06-28",
 "from":"福岡県",
 "blood":"A",
-"term":"1"
+"term":"1",
+"status":""
 },
 {
 "name_ja":"林潔心",

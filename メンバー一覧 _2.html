@@ -18,6 +18,20 @@
 $(document).ready(function () {
 });
 
+function all(){
+	del();
+	read("Member_AKB");
+	read("Member_AKB8");
+	read("Member_SKE");
+	read("Member_NMB");
+	read("Member_HKT");
+	read("Member_NGT");
+	read("Member_STU");
+	read("Member_JKT");
+	read("Member_TPE");
+	read("Member_BNK");
+	sorter(".tablesorter");
+}
 function check(file)
 {
  del();
@@ -29,7 +43,6 @@ var element = document.getElementById("output2");
 while (element.firstChild) {
   element.removeChild(element.firstChild);
 }
- $("#output2").innerHTML = "";
 }
 
 function read(file)
@@ -37,7 +50,6 @@ function read(file)
  $.getJSON("https://ykquality.github.io/hosting/"+file+".json", function(data){
  //$.getJSON(file+".json", function(data){ //dev
  
-   console.log("aaaaa");
   for(var key in data){
    if(data[key].status.indexOf("graduate")>-1)
     continue;
@@ -63,8 +75,6 @@ function read(file)
          +"<td style='text-align:center;'>"+data[key].blood+"</td>"
          +"<td style='text-align:center;'>"+data[key].from+"</td>"
          +"<td style='text-align:center;'>"+data[key].term+"</td>";
-   
-         
    
    $("#output2").append(html);
   }
@@ -96,6 +106,7 @@ function sorter(tablesorter)
 <input type="button" value="Member_JKT" onclick="check('Member_JKT');"/><br />
 <input type="button" value="Member_TPE" onclick="check('Member_TPE');"/><br />
 <input type="button" value="Member_BNK" onclick="check('Member_BNK');"/><br />
+<input type="button" value="all" onclick="all();"/><br />
 <input type="button" value="del" onclick="del();"/><br />
 
 <table border="1" cellpadding="2" cellspacing="0" class="tablesorter">
