@@ -4,9 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Content-Script-Type" content="text/javascript">
 <meta http-equiv="Content-Style-Type" content="text/css">
+<!--<script src='https://ykquality.github.io/hosting/jquery.min.js' type='text/javascript'></script>-->
+<!--<script src='https://ykquality.github.io/hosting/jquery.tablesorter.min.js' type='text/javascript'></script>-->
+<!--<script src='https://ykquality.github.io/hosting/jquery.metadata.js' type='text/javascript'></script>-->
+
 <script src='https://ykquality.github.io/hosting/jquery.min.js' type='text/javascript'></script>
-<script src='https://ykquality.github.io/hosting/jquery.tablesorter.min.js' type='text/javascript'></script>
 <script src='https://ykquality.github.io/hosting/jquery.metadata.js' type='text/javascript'></script>
+<script src='https://ykquality.github.io/hosting/tablesorter-master/js/jquery.tablesorter.js' type='text/javascript'></script>
+<link rel="stylesheet" href='https://ykquality.github.io/hosting/DataTables/datatables.min.css'/> 
+<script src='https://ykquality.github.io/hosting/DataTables/datatables.min.js'></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/> 
+<script src="./DataTables/datatables.min.js"></script>
 
 
 
@@ -14,35 +22,44 @@
 <body>
 <script type="text/javascript">
 
+var AKB="Member_AKB";
+var AKB8="Member_AKB8";
+var SKE="Member_SKE";
+var NMB="Member";
+var HKT="Member_HKT";
+var NGT="Member_NGT";
+var STU="Member_STU";
+var JKT="Member_JKT";
+var TPE="Member_TPE";
+var BNK="Member_BNK";
 
-$(document).ready(function () {
-});
 
-function all(){
+function allcheck(){
+	console.log("allcheck");
 	del();
-	read("Member_AKB");
-	read("Member_AKB8");
-	read("Member_SKE");
-	read("Member_NMB");
-	read("Member_HKT");
-	read("Member_NGT");
-	read("Member_STU");
-	read("Member_JKT");
-	read("Member_TPE");
-	read("Member_BNK");
+	read(AKB);
+	read(AKB8);
+	read(SKE);
+	read(NMB);
+	read(HKT);
+	read(NGT);
+	read(STU);
+	read(JKT);
+	read(TPE);
+	read(BNK);
 	sorter(".tablesorter");
 }
 function check(file)
 {
- del();
- read(file);
+	del();
+	read(file);
 }
 function del()
 {
-var element = document.getElementById("output2");
-while (element.firstChild) {
-  element.removeChild(element.firstChild);
-}
+	var element = document.getElementById("output2");
+	while (element.firstChild) {
+		element.removeChild(element.firstChild);
+	}
 }
 
 function read(file)
@@ -86,10 +103,13 @@ function read(file)
 <script type="text/javascript">
 function sorter(tablesorter)
 {
- $(tablesorter).tablesorter({
-  widgets:["zebra"],
-  sortList: [[3,1]]
+ /*$(tablesorter).tablesorter({
+  widgets:["zebra"]
  });
+ /*/
+ jQuery(function($){
+  $(tablesorter).DataTable();
+ });*/
 }
 </script>
 
@@ -106,7 +126,7 @@ function sorter(tablesorter)
 <input type="button" value="Member_JKT" onclick="check('Member_JKT');"/><br />
 <input type="button" value="Member_TPE" onclick="check('Member_TPE');"/><br />
 <input type="button" value="Member_BNK" onclick="check('Member_BNK');"/><br />
-<input type="button" value="all" onclick="all();"/><br />
+<input type="button" value="allcheck" onclick="allcheck();"/><br />
 <input type="button" value="del" onclick="del();"/><br />
 
 <table border="1" cellpadding="2" cellspacing="0" class="tablesorter">

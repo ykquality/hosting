@@ -1,7 +1,7 @@
 /*
  * Metadata - jQuery plugin for parsing metadata from elements
  *
- * Copyright (c) 2006 John Resig, Yehuda Katz, Jﴀ＀orn Zaefferer, Paul McLanahan
+ * Copyright (c) 2006 John Resig, Yehuda Katz, Jï¿½Ã¶rn Zaefferer, Paul McLanahan
  *
  * Dual licensed under the MIT and GPL licenses:
  *   http://www.opensource.org/licenses/mit-license.php
@@ -10,7 +10,7 @@
  * Revision: $Id$
  *
  */
-
+ 
 /**
  * Sets the type of metadata to use. Metadata is encoded in JSON, and each property
  * in the JSON will become a property of the element itself.
@@ -53,59 +53,58 @@
  * @type undefined
  * @see metadata()
  */
-
+ 
 (function($) {
-
+ 
 $.extend({
-	metadata : {
-		defaults : {
-			type: 'class',
-			name: 'metadata',
-			cre: /({.*})/,
-			single: 'metadata'
-		},
-		setType: function( type, name ){
-			this.defaults.type = type;
-			this.defaults.name = name;
-		},
-		get: function( elem, opts ){
-			var settings = $.extend({},this.defaults,opts);
-			// check for empty string in single property
-			if ( !settings.single.length ) settings.single = 'metadata';
-			
-			var data = $.data(elem, settings.single);
-			// returned cached data if it already exists
-			if ( data ) return data;
-			
-			data = "{}";
-			
-			if ( settings.type == "class" ) {
-				var m = settings.cre.exec( elem.className );
-				if ( m )
-					data = m[1];
-			} else if ( settings.type == "elem" ) {
-				if( !elem.getElementsByTagName )
-					return undefined;
-				var e = elem.getElementsByTagName(settings.name);
-				if ( e.length )
-					data = $.trim(e[0].innerHTML);
-			} else if ( elem.getAttribute != undefined ) {
-				var attr = elem.getAttribute( settings.name );
-				if ( attr )
-					data = attr;
-			}
-			
-			if ( data.indexOf( '{' ) <0 )
-			data = "{" + data + "}";
-			
-			data = eval("(" + data + ")");
-			
-			$.data( elem, settings.single, data );
-			return data;
-		}
-	}
+    metadata : {
+        defaults : {
+            type: 'class',
+            name: 'metadata',
+            cre: /({.*})/,
+            single: 'metadata'
+        },
+        setType: function( type, name ){
+            this.defaults.type = type;
+            this.defaults.name = name;
+        },
+        get: function( elem, opts ){
+            var settings = $.extend({},this.defaults,opts);
+            // check for empty string in single property
+            if ( !settings.single.length ) settings.single = 'metadata';
+             
+            var data = $.data(elem, settings.single);
+            // returned cached data if it already exists
+            if ( data ) return data;
+             
+            data = "{}";
+             
+            if ( settings.type == "class" ) {
+                var m = settings.cre.exec( elem.className );
+                if ( m )
+                    data = m[1];
+            } else if ( settings.type == "elem" ) {
+                if( !elem.getElementsByTagName )
+                    return undefined;
+                var e = elem.getElementsByTagName(settings.name);
+                if ( e.length )
+                    data = $.trim(e[0].innerHTML);
+            } else if ( elem.getAttribute != undefined ) {
+                var attr = elem.getAttribute( settings.name );
+                if ( attr )
+                    data = attr;
+            }
+             
+            if ( data.indexOf( '{' ) <0 )
+            data = "{" + data + "}";
+             
+            data = eval("(" + data + ")");
+             
+            $.data( elem, settings.single, data );
+            return data;
+        }
+    }
 });
-
 /**
  * Returns the metadata object for the first member of the jQuery object.
  *
@@ -116,25 +115,25 @@ $.extend({
  * @cat Plugins/Metadata
  */
 $.fn.metadata = function( opts ){
-	return $.metadata.get( this[0], opts );
+    return $.metadata.get( this[0], opts );
 };
-
+ 
 })(jQuery);
-
+ 
 function getSortValue(value,len)
 {
     len=len*4;
     var data="";
     for (var i = 0; i < value.length; i++) {
         var c = value.charCodeAt(i);
-        if ( 0xff10 <= c && c <= 0xff19 ||
-            0xff21 <= c && c <= 0xff3a ||
-            0xff40 <= c && c <= 0xff5a ||
-            0x3041 <= c && c <= 0x3094 ||
-            0x309b <= c && c <= 0x309e ||
-            0x30a1 <= c && c <= 0x30fe ||
-            0x3000 <= c && c <= 0x3015 ||
-            0x4e00 <= c && c <= 0x9f90
+        if ( 0xff10 <= c && c <= 0xff19 || // Sp
+            0xff21 <= c && c <= 0xff3a || // Sppå¶
+            0xff40 <= c && c <= 0xff5a || // Spp¬¶
+            0x3041 <= c && c <= 0x3094 || // ÐçªÈ
+            0x309b <= c && c <= 0x309e || // ©ÈL
+            0x30a1 <= c && c <= 0x30fe || // J^Ji
+            0x3000 <= c && c <= 0x3015 || // CJKL
+            0x4e00 <= c && c <= 0x9f90  // CJK¿
         ) {
             data+=""+c;
         }
