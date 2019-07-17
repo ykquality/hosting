@@ -10,11 +10,11 @@
 
 <script src='https://ykquality.github.io/hosting/jquery.min.js' type='text/javascript'></script>
 <script src='https://ykquality.github.io/hosting/jquery.metadata.js' type='text/javascript'></script>
+<link rel="stylesheet" type="text/css" href='https://ykquality.github.io/hosting/tablesorter-master/css/theme.default.css' />
+<script src='https://ykquality.github.io/hosting/tablesorter-master/js/jquery.tablesorter.widgets.js' type='text/javascript'></script>
 <script src='https://ykquality.github.io/hosting/tablesorter-master/js/jquery.tablesorter.js' type='text/javascript'></script>
 <link rel="stylesheet" href='https://ykquality.github.io/hosting/DataTables/datatables.min.css'/> 
 <script src='https://ykquality.github.io/hosting/DataTables/datatables.min.js'></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.css"/> 
-<script src="./DataTables/datatables.min.js"></script>
 
 
 
@@ -22,6 +22,7 @@
 <body>
 <script type="text/javascript">
 
+var NUM=0;
 var AKB="Member_AKB";
 var AKB8="Member_AKB8";
 var SKE="Member_SKE";
@@ -32,8 +33,14 @@ var STU="Member_STU";
 var JKT="Member_JKT";
 var TPE="Member_TPE";
 var BNK="Member_BNK";
+var NOGI="Member_NOGI";
+var KEYA="Member_KEYA";
+var HINA="Member_HINA";
+var YOSHI="Member_YOSHI";
 
-
+$(document).ready(function () {
+	allcheck();
+});
 function allcheck(){
 	console.log("allcheck");
 	del();
@@ -47,7 +54,27 @@ function allcheck(){
 	read(JKT);
 	read(TPE);
 	read(BNK);
-	sorter(".tablesorter");
+}
+function groupname(file){
+	var r = "";
+	switch (file) {
+		case AKB:r="AKB48";break;
+		case AKB8:r="team8";break;
+		case SKE:r="SKE48";break;
+		case NMB:r="NMB48";break;
+		case HKT:r="HKT48";break;
+		case NGT:r="NGT48";break;
+		case STU:r="STU48";break;
+		case JKT:r="JKT48";break;
+		case TPE:r="TPE48";break;
+		case BNK:r="BNK48";break;
+		case NOGI:r="乃木坂46";break;
+		case KEYA:r="欅坂46";break;
+		case HINA:r="日向坂46";break;
+		case YOSHI:r="吉本坂46";break;
+	}
+	return r;
+
 }
 function check(file)
 {
@@ -56,9 +83,10 @@ function check(file)
 }
 function del()
 {
-	var element = document.getElementById("output2");
-	while (element.firstChild) {
-		element.removeChild(element.firstChild);
+	NUM=0;
+	var ele = document.getElementById("output2");
+	while (ele.firstChild) {
+		ele.removeChild(ele.firstChild);
 	}
 }
 
@@ -71,6 +99,7 @@ function read(file)
    if(data[key].status.indexOf("graduate")>-1)
     continue;
     
+   NUM++;
    var birth = parseInt(data[key].birth.replace(/-/g,""));
    var today = new Date();
    today=today.getFullYear()*10000+today.getMonth()*100+100+today.getDate();
@@ -86,30 +115,67 @@ function read(file)
    //console.log(sortvalue_b);
    
    var html="<tr>"
-         +"<td class={sortValue:"+sortvalue+"} >" +data[key].name_ja+"</td>"
-         +"<td class={sortValue:"+sortvalue_b+"} style='text-align:center;'>"+birth_m+"月"+birth_d+"日"+"</td>"
-         +"<td style='text-align:center;'>"+age+"</td>"
-         +"<td style='text-align:center;'>"+data[key].blood+"</td>"
-         +"<td style='text-align:center;'>"+data[key].from+"</td>"
-         +"<td style='text-align:center;'>"+data[key].term+"</td>";
+         +"<td class='group' style='text-align:center;'>" +groupname(file)+"</td>"
+         +"<td class='name' class={sortValue:"+sortvalue+"} >" +data[key].name_ja+"</td>"
+         +"<td class='birth' class={sortValue:"+sortvalue_b+"} style='text-align:center;'>"+birth_m+"月"+birth_d+"日"+"</td>"
+         +"<td class='age' style='text-align:center;'>"+age+"</td>"
+         +"<td class='blood' style='text-align:center;'>"+data[key].blood+"</td>"
+         +"<td class='from' style='text-align:center;'>"+data[key].from+"</td>"
+         +"<td class='term' style='text-align:center;'>"+data[key].term+"</td>";
    
-   $("#output2").append(html);
+	$("#output2").append(html);
+	$("#NUM").html(NUM+"人");
   }
- //sorter(".tablesorter");
+ //sorter("#tablesorter");
  });
+}
+</script>
+
+
+<script type="text/javascript">
+
+function namecheck(output)
+{
+	var ele = document.getElementsByClassName("name");
+
+	for(var i=0;i<ele.length;i++){
+		var name1=ele[i].textContent;
+		for(var j=0;j<ele.length;j++){
+			var name2=ele[j].textContent;
+			var flag=false;
+			var html="<tr><td>"+name1+"</td>";
+			for(var k=0;k<name1.length;k++){
+				if(name1.length>k+1){
+					if(name1.substring(k+1,k+2)==name2.substring(k,k+1)){
+						console.log(name1.substring(k+1,k+2)+":"+name2.substring(k,k+1)+" "+name1+":"+name2);
+						flag=true;
+					}
+					else{
+						flag=false;
+						break;
+					}
+				}
+			}
+			if(flag==true){
+				 html+="<td>"+name2+"</td></tr>";
+				 $(output).append(html);
+			}
+		}
+	}
 }
 </script>
 
 <script type="text/javascript">
 function sorter(tablesorter)
 {
- /*$(tablesorter).tablesorter({
+ $(tablesorter).tablesorter({
   widgets:["zebra"]
  });
  /*/
- jQuery(function($){
-  $(tablesorter).DataTable();
- });*/
+ $(tablesorter).dataTable({
+    "bPaginate": false,
+    "bLengthChange": false
+  });/**/
 }
 </script>
 
@@ -128,10 +194,24 @@ function sorter(tablesorter)
 <input type="button" value="Member_BNK" onclick="check('Member_BNK');"/><br />
 <input type="button" value="allcheck" onclick="allcheck();"/><br />
 <input type="button" value="del" onclick="del();"/><br />
+<input type="button" value="名前1" onclick="namecheck('#name1');"/><br />
+<input type="button" value="sorter" onclick="sorter('.tablesorter');"/><br />
+
+<div id="NUM"></div>
+
+<table border="1" cellpadding="2" cellspacing="0">
+<thead>
+<tr>
+<th width="30">名前1</th>
+<th width="30">名前2</th>
+<tbody id="name1">
+</tbody>
+</table>
 
 <table border="1" cellpadding="2" cellspacing="0" class="tablesorter">
 <thead bgcolor="#10F0F6">
 <tr>
+<th width="30">グループ</th>
 <th class="{sorter:'metadata'}" width="90">名前</th>
 <th class="{sorter:'metadata'}" width="90">誕生日</th>
 <th width="30">年齢</th>
