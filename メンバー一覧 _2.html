@@ -43,7 +43,7 @@ $(document).ready(function () {
 });
 function allcheck(){
 	console.log("allcheck");
-	del();
+	alldel();
 	read(AKB);
 	read(AKB8);
 	read(SKE);
@@ -65,9 +65,9 @@ function groupname(file){
 		case HKT:r="HKT48";break;
 		case NGT:r="NGT48";break;
 		case STU:r="STU48";break;
-		case JKT:r="JKT48";break;
 		case TPE:r="TPE48";break;
 		case BNK:r="BNK48";break;
+		case JKT:r="JKT48";break;
 		case NOGI:r="乃木坂46";break;
 		case KEYA:r="欅坂46";break;
 		case HINA:r="日向坂46";break;
@@ -78,13 +78,19 @@ function groupname(file){
 }
 function check(file)
 {
-	del();
+	alldel();
 	read(file);
 }
-function del()
+function alldel()
+{
+	del("output1");
+	del("output2");
+	del("output3");
+}
+function del(output)
 {
 	NUM=0;
-	var ele = document.getElementById("output2");
+	var ele = document.getElementById(output);
 	while (ele.firstChild) {
 		ele.removeChild(ele.firstChild);
 	}
@@ -105,7 +111,7 @@ function read(file)
    today=today.getFullYear()*10000+today.getMonth()*100+100+today.getDate();
    var age=Math.floor((today-birth)/10000);
    
-   console.log(data[key].name_ja);
+   //console.log(data[key].name_ja);
    //console.log(data[key].name_kana);
    var sortvalue=getSortValue(data[key].name_kana,7);
    //console.log(sortvalue);
@@ -123,7 +129,7 @@ function read(file)
          +"<td class='from' style='text-align:center;'>"+data[key].from+"</td>"
          +"<td class='term' style='text-align:center;'>"+data[key].term+"</td>";
    
-	$("#output2").append(html);
+	$("#output1").append(html);
 	$("#NUM").html(NUM+"人");
   }
  //sorter("#tablesorter");
@@ -133,11 +139,9 @@ function read(file)
 
 
 <script type="text/javascript">
-
 function namecheck(output)
 {
 	var ele = document.getElementsByClassName("name");
-
 	for(var i=0;i<ele.length;i++){
 		var name1=ele[i].textContent;
 		for(var j=0;j<ele.length;j++){
@@ -146,9 +150,13 @@ function namecheck(output)
 			var html="<tr><td>"+name1+"</td>";
 			for(var k=0;k<name1.length;k++){
 				if(name1.length>k+1){
-					if(name1.substring(k+1,k+2)==name2.substring(k,k+1)){
-						console.log(name1.substring(k+1,k+2)+":"+name2.substring(k,k+1)+" "+name1+":"+name2);
-						flag=true;
+					//古賀成美 賀古美成
+					if(name1.substring(k,k+1)==name2.substring(k+1,k+2)){
+						if(name1.substring(k+1,k+2)==name2.substring(k,k+1)){
+							console.log(name1.substring(k,k+1)+":"+name2.substring(k+1,k+2)+" "+name1+":"+name2);
+							flag=true;
+							k++;
+						}
 					}
 					else{
 						flag=false;
@@ -165,6 +173,41 @@ function namecheck(output)
 }
 </script>
 
+<script type="text/javascript">
+function bloodcheck(output)
+{
+	var eleb = document.getElementsByClassName("blood");
+	var elen = document.getElementsByClassName("name");
+	var texta="";
+	var numa=0;
+	var textb="";
+	var numb=0;
+	var texto="";
+	var numo=0;
+	var textab="";
+	var numab=0;
+	var textf="";
+	var numf=0;
+	
+	for(var i=0;i<eleb.length;i++){
+		var blood=eleb[i].textContent;
+		switch (blood) {
+			case "A":numa++;texta+=" "+elen[i].textContent;break;
+			case "B":numb++;textb+=" "+elen[i].textContent;break;
+			case "O":numo++;texto+=" "+elen[i].textContent;break;
+			case "AB":numab++;textab+=" "+elen[i].textContent;break;
+			case "不明":numf++;textf+=" "+elen[i].textContent;break;
+			default:console.log(blood);break;
+		}
+	}
+	$(output).append("<tr><td>A型</td><td>"+numa+"人</td><td>"+texta+"</td></tr>");
+	$(output).append("<tr><td>B型</td><td>"+numb+"人</td><td>"+textb+"</td></tr>");
+	$(output).append("<tr><td>O型</td><td>"+numo+"人</td><td>"+texto+"</td></tr>");
+	$(output).append("<tr><td>AB型</td><td>"+numab+"人</td><td>"+textab+"</td></tr>");
+	$(output).append("<tr><td>不明</td><td>"+numf+"人</td><td>"+textf+"</td></tr>");
+	
+}
+</script>
 <script type="text/javascript">
 function sorter(tablesorter)
 {
@@ -193,8 +236,9 @@ function sorter(tablesorter)
 <input type="button" value="Member_TPE" onclick="check('Member_TPE');"/><br />
 <input type="button" value="Member_BNK" onclick="check('Member_BNK');"/><br />
 <input type="button" value="allcheck" onclick="allcheck();"/><br />
-<input type="button" value="del" onclick="del();"/><br />
-<input type="button" value="名前1" onclick="namecheck('#name1');"/><br />
+<input type="button" value="del" onclick="alldel();"/><br />
+<input type="button" value="名前1" onclick="namecheck('#output2');"/><br />
+<input type="button" value="血液型1" onclick="bloodcheck('#output3');"/><br />
 <input type="button" value="sorter" onclick="sorter('.tablesorter');"/><br />
 
 <div id="NUM"></div>
@@ -204,7 +248,17 @@ function sorter(tablesorter)
 <tr>
 <th width="30">名前1</th>
 <th width="30">名前2</th>
-<tbody id="name1">
+<tbody id="output2">
+</tbody>
+</table>
+
+<table border="1" cellpadding="2" cellspacing="0">
+<thead>
+<tr>
+<th width="30">血液型</th>
+<th width="30">人数</th>
+<th width="30">名前</th>
+<tbody id="output3">
 </tbody>
 </table>
 
@@ -220,7 +274,7 @@ function sorter(tablesorter)
 <th width="30">期</th>
 </tr>
 </thead>
-<tbody id="output2">
+<tbody id="output1">
 </tbody>
 </table>
 
