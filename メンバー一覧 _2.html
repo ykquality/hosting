@@ -178,6 +178,36 @@ function bloodcheck(output)
 {
 	var eleb = document.getElementsByClassName("blood");
 	var elen = document.getElementsByClassName("name");
+	var a=[0,""];
+	var b=[0,""];
+	var o=[0,""];
+	var ab=[0,""];
+	var f=[0,""];
+	
+	for(var i=0;i<eleb.length;i++){
+		var blood=eleb[i].textContent;
+		switch (blood) {
+			case "A":a[0]++;a[1]+=" "+elen[i].textContent;break;
+			case "B":b[0]++;b[1]+=" "+elen[i].textContent;break;
+			case "O":o[0]++;o[1]+=" "+elen[i].textContent;break;
+			case "AB":ab[0]++;ab[1]+=" "+elen[i].textContent;break;
+			case "不明":f[0]++;f[1]+=" "+elen[i].textContent;break;
+			default:console.log(blood);break;
+		}
+	}
+	$(output).append("<tr><td>A型</td><td>"+a[0]+"人</td><td>"+a[1]+"</td></tr>");
+	$(output).append("<tr><td>B型</td><td>"+b[0]+"人</td><td>"+b[1]+"</td></tr>");
+	$(output).append("<tr><td>O型</td><td>"+o[0]+"人</td><td>"+o[1]+"</td></tr>");
+	$(output).append("<tr><td>AB型</td><td>"+ab[0]+"人</td><td>"+ab[1]+"</td></tr>");
+	$(output).append("<tr><td>不明</td><td>"+f[0]+"人</td><td>"+f[1]+"</td></tr>");
+	
+}
+</script>
+<script type="text/javascript">
+function birthcheck(output)
+{
+	var eleb = document.getElementsByClassName("blood");
+	var elen = document.getElementsByClassName("name");
 	var texta="";
 	var numa=0;
 	var textb="";
@@ -208,6 +238,42 @@ function bloodcheck(output)
 	
 }
 </script>
+<script type="text/javascript">
+function fromcheck(output)
+{
+	var eleb = document.getElementsByClassName("blood");
+	var elen = document.getElementsByClassName("name");
+	var texta="";
+	var numa=0;
+	var textb="";
+	var numb=0;
+	var texto="";
+	var numo=0;
+	var textab="";
+	var numab=0;
+	var textf="";
+	var numf=0;
+	
+	for(var i=0;i<eleb.length;i++){
+		var blood=eleb[i].textContent;
+		switch (blood) {
+			case "A":numa++;texta+=" "+elen[i].textContent;break;
+			case "B":numb++;textb+=" "+elen[i].textContent;break;
+			case "O":numo++;texto+=" "+elen[i].textContent;break;
+			case "AB":numab++;textab+=" "+elen[i].textContent;break;
+			case "不明":numf++;textf+=" "+elen[i].textContent;break;
+			default:console.log(blood);break;
+		}
+	}
+	$(output).append("<tr><td>A型</td><td>"+numa+"人</td><td>"+texta+"</td></tr>");
+	$(output).append("<tr><td>B型</td><td>"+numb+"人</td><td>"+textb+"</td></tr>");
+	$(output).append("<tr><td>O型</td><td>"+numo+"人</td><td>"+texto+"</td></tr>");
+	$(output).append("<tr><td>AB型</td><td>"+numab+"人</td><td>"+textab+"</td></tr>");
+	$(output).append("<tr><td>不明</td><td>"+numf+"人</td><td>"+textf+"</td></tr>");
+	
+}
+</script>
+
 <script type="text/javascript">
 function sorter(tablesorter)
 {
