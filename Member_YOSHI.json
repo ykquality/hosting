@@ -4,7 +4,7 @@
 "name_kana":"アノン",
 "birth":"????-12-29",
 "from":"福岡県",
-"blood":"A",
+"blood":"O",
 "term":"1",
 "status":""
 },
@@ -13,7 +13,7 @@
 "name_kana":"いけだ なおと",
 "birth":"1993-09-19",
 "from":"大阪府",
-"blood":"A",
+"blood":"O",
 "term":"1",
 "status":""
 },
@@ -40,7 +40,7 @@
 "name_kana":"エハラマサヒロ ",
 "birth":"1982-05-29",
 "from":"大阪府",
-"blood":"A",
+"blood":"B",
 "term":"1",
 "status":""
 },
@@ -49,7 +49,7 @@
 "name_kana":"えんどう しょうぞう",
 "birth":"1971-07-13",
 "from":"大阪府",
-"blood":"A",
+"blood":"O",
 "term":"1",
 "status":""
 },
@@ -58,7 +58,7 @@
 "name_kana":"おうき しずか",
 "birth":"????-02-14",
 "from":"徳島県",
-"blood":"A",
+"blood":"B",
 "term":"1",
 "status":""
 },
@@ -76,7 +76,7 @@
 "name_kana":"おがた たかひろ",
 "birth":"1977-04-27",
 "from":"宮城県",
-"blood":"A",
+"blood":"B",
 "term":"1",
 "status":""
 },
@@ -85,7 +85,7 @@
 "name_kana":"おがわ はるな",
 "birth":"1990-02-07",
 "from":"愛知県",
-"blood":"A",
+"blood":"不明",
 "term":"1",
 "status":""
 },
@@ -94,7 +94,7 @@
 "name_kana":"おたけ ",
 "birth":"1982-12-02",
 "from":"東京都",
-"blood":"A",
+"blood":"AB",
 "term":"1",
 "status":""
 },
@@ -103,7 +103,7 @@
 "name_kana":"おばたのおにいさん",
 "birth":"1988-06-05",
 "from":"新潟県",
-"blood":"A",
+"blood":"B",
 "term":"1",
 "status":""
 },
@@ -112,7 +112,7 @@
 "name_kana":"かなだ さとし",
 "birth":"1986-02-06",
 "from":"愛知県",
-"blood":"A",
+"blood":"B",
 "term":"1",
 "status":""
 },
@@ -130,7 +130,7 @@
 "name_kana":"きょん ",
 "birth":"1987-11-18",
 "from":"埼玉県",
-"blood":"A",
+"blood":"AB",
 "term":"1",
 "status":""
 },
@@ -139,7 +139,7 @@
 "name_kana":"ケン ",
 "birth":"1969-08-22",
 "from":"奈良県",
-"blood":"A",
+"blood":"B",
 "term":"1",
 "status":""
 },
@@ -157,7 +157,7 @@
 "name_kana":"こうもと じゅんいち",
 "birth":"1975-04-07",
 "from":"岡山県",
-"blood":"A",
+"blood":"AB",
 "term":"1",
 "status":""
 },
@@ -175,7 +175,7 @@
 "name_kana":"さいとう つかさ",
 "birth":"1979-02-15",
 "from":"神奈川県",
-"blood":"A",
+"blood":"AB",
 "term":"1",
 "status":""
 },
@@ -184,7 +184,7 @@
 "name_kana":"さかきばら てつじ",
 "birth":"1989-12-06",
 "from":"愛知県",
-"blood":"A",
+"blood":"O",
 "term":"1",
 "status":""
 },
@@ -193,7 +193,7 @@
 "name_kana":"さゆり",
 "birth":"1969-07-15",
 "from":"兵庫県",
-"blood":"A",
+"blood":"B",
 "term":"1",
 "status":""
 },
@@ -202,7 +202,7 @@
 "name_kana":"しまだ たまよ",
 "birth":"1970-05-10",
 "from":"大阪府",
-"blood":"A",
+"blood":"B",
 "term":"1",
 "status":""
 },
@@ -220,7 +220,7 @@
 "name_kana":"しゅんしゅんクリニックピー",
 "birth":"1983-07-20",
 "from":"群馬県",
-"blood":"A",
+"blood":"O",
 "term":"1",
 "status":""
 },
@@ -229,7 +229,7 @@
 "name_kana":"たかし ",
 "birth":"1986-01-30",
 "from":"東京都",
-"blood":"A",
+"blood":"B",
 "term":"1",
 "status":""
 },
@@ -238,7 +238,7 @@
 "name_kana":"たかの ゆい",
 "birth":"1993-12-06",
 "from":"大阪府",
-"blood":"A",
+"blood":"AB",
 "term":"1",
 "status":""
 },
@@ -247,7 +247,7 @@
 "name_kana":"ただ ともひろ",
 "birth":"1986-01-09",
 "from":"大阪府",
-"blood":"A",
+"blood":"O",
 "term":"1",
 "status":""
 },
@@ -256,7 +256,7 @@
 "name_kana":"たなか シングル",
 "birth":"1991-02-26",
 "from":"大阪府",
-"blood":"A",
+"blood":"B",
 "term":"1",
 "status":""
 },
@@ -265,7 +265,7 @@
 "name_kana":"てつじ ",
 "birth":"1975-08-07",
 "from":"大阪府",
-"blood":"A",
+"blood":"AB",
 "term":"1",
 "status":""
 },
@@ -283,7 +283,7 @@
 "name_kana":"にしむら しんじ",
 "birth":"1984-06-30",
 "from":"広島県",
-"blood":"A",
+"blood":"AB",
 "term":"1",
 "status":""
 },
@@ -292,7 +292,7 @@
 "name_kana":"のざわ なおこ",
 "birth":"1963-03-29",
 "from":"東京都",
-"blood":"A",
+"blood":"B",
 "term":"1",
 "status":""
 },
@@ -301,7 +301,7 @@
 "name_kana":"ヒデボウ",
 "birth":"1967-10-07",
 "from":"東京都",
-"blood":"A",
+"blood":"O",
 "term":"1",
 "status":""
 },
@@ -319,7 +319,7 @@
 "name_kana":"ふじい なお",
 "birth":"2001-11-06",
 "from":"広島県",
-"blood":"A",
+"blood":"O",
 "term":"1",
 "status":""
 },
@@ -346,7 +346,7 @@
 "name_kana":"まつうら しほ",
 "birth":"1984-06-13",
 "from":"山形県",
-"blood":"A",
+"blood":"O",
 "term":"1",
 "status":""
 },
@@ -355,7 +355,7 @@
 "name_kana":"まひる ",
 "birth":"1993-08-30",
 "from":"鳥取県",
-"blood":"A",
+"blood":"不明",
 "term":"1",
 "status":""
 },
@@ -373,7 +373,7 @@
 "name_kana":"むらかみ ショージ",
 "birth":"1955-05-28",
 "from":"愛媛県",
-"blood":"A",
+"blood":"B",
 "term":"1",
 "status":""
 },
@@ -382,7 +382,7 @@
 "name_kana":"やぎ ますみ",
 "birth":"1974-08-04",
 "from":"京都府",
-"blood":"A",
+"blood":"O",
 "term":"1",
 "status":""
 },
@@ -391,7 +391,7 @@
 "name_kana":"やまもと けいいち",
 "birth":"1968-02-23",
 "from":"広島県",
-"blood":"A",
+"blood":"O",
 "term":"1",
 "status":""
 },
@@ -400,7 +400,7 @@
 "name_kana":"ゆりやんレトリィバァ ",
 "birth":"1990-11-01",
 "from":"奈良県",
-"blood":"A",
+"blood":"B",
 "term":"1",
 "status":""
 },

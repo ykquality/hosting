@@ -23,6 +23,7 @@
 <script type="text/javascript">
 
 var NUM=0;
+var GROUP="";
 var AKB="Member_AKB";
 var AKB8="Member_AKB8";
 var SKE="Member_SKE";
@@ -44,6 +45,7 @@ $(document).ready(function () {
 function allcheck(){
 	console.log("allcheck");
 	alldel();
+	GROUP="ALL";
 	read(AKB);
 	read(AKB8);
 	read(SKE);
@@ -87,14 +89,21 @@ function check(file)
 }
 function alldel()
 {
-	del("output1");
-	del("output2");
-	del("output3");
+	del("output1");//表
+	del("output2");//名前
+	del("output3");//血液
+	del("output4");//誕生日
+	del("output5");//出身地
+	del("output6");//期
 }
 function del(output)
 {
+	GROUP="";
 	NUM=0;
 	var ele = document.getElementById(output);
+	if(ele==null)
+		;
+	else
 	while (ele.firstChild) {
 		ele.removeChild(ele.firstChild);
 	}
@@ -110,6 +119,8 @@ function read(file)
     continue;
     
    NUM++;
+   GROUP=(GROUP=="ALL"?"ALL":groupname(file));
+   
    var birth = parseInt(data[key].birth.replace(/-/g,""));
    var today = new Date();
    today=today.getFullYear()*10000+today.getMonth()*100+100+today.getDate();
@@ -135,6 +146,7 @@ function read(file)
    
 	$("#output1").append(html);
 	$("#NUM").html(NUM+"人");
+	$("#GROUP").html(GROUP);
   }
  //sorter("#tablesorter");
  });
@@ -145,6 +157,7 @@ function read(file)
 <script type="text/javascript">
 function namecheck(output)
 {
+	del(output);
 	var ele = document.getElementsByClassName("name");
 	for(var i=0;i<ele.length;i++){
 		var name1=ele[i].textContent;
@@ -180,86 +193,153 @@ function namecheck(output)
 <script type="text/javascript">
 function bloodcheck(output)
 {
-	var eleb = document.getElementsByClassName("blood");
+	del(output);
+	var ele = document.getElementsByClassName("blood");
 	var elen = document.getElementsByClassName("name");
-	var a=[0,""];
-	var b=[0,""];
-	var o=[0,""];
-	var ab=[0,""];
-	var f=[0,""];
+	var a=["A",0,""];
+	var b=["B",0,""];
+	var o=["AB",0,""];
+	var ab=["O",0,""];
+	var f=["不明",0,""];
 	
-	for(var i=0;i<eleb.length;i++){
-		var blood=eleb[i].textContent;
-		switch (blood) {
-			case "A":a[0]++;a[1]+=" "+elen[i].textContent;break;
-			case "B":b[0]++;b[1]+=" "+elen[i].textContent;break;
-			case "O":o[0]++;o[1]+=" "+elen[i].textContent;break;
-			case "AB":ab[0]++;ab[1]+=" "+elen[i].textContent;break;
-			case "不明":f[0]++;f[1]+=" "+elen[i].textContent;break;
-			default:console.log(blood);break;
+	for(var i=0;i<ele.length;i++){
+		var str=ele[i].textContent;
+		switch (str) {
+			case a[0]:a[1]++;a[2]+=" "+elen[i].textContent;break;
+			case b[0]:b[1]++;b[2]+=" "+elen[i].textContent;break;
+			case o[0]:o[1]++;o[2]+=" "+elen[i].textContent;break;
+			case ab[0]:ab[1]++;ab[2]+=" "+elen[i].textContent;break;
+			case f[0]:f[1]++;f[2]+=" "+elen[i].textContent;break;
+			default:console.log(str);break;
 		}
 	}
-	$(output).append("<tr><td>A型</td><td>"+a[0]+"人</td><td>"+(a[0]/eleb.length*100|0)+"%</td><td>37%</td><td>"+a[1]+"</td></tr>");
-	$(output).append("<tr><td>B型</td><td>"+b[0]+"人</td><td>"+(b[0]/eleb.length*100|0)+"%</td><td>22%</td><td>"+b[1]+"</td></tr>");
-	$(output).append("<tr><td>O型</td><td>"+o[0]+"人</td><td>"+(o[0]/eleb.length*100|0)+"%</td><td>32%</td><td>"+o[1]+"</td></tr>");
-	$(output).append("<tr><td>AB型</td><td>"+ab[0]+"人</td><td>"+(ab[0]/eleb.length*100|0)+"%</td><td>9%</td><td>"+ab[1]+"</td></tr>");
-	$(output).append("<tr><td>不明</td><td>"+f[0]+"人</td><td>"+(f[0]/eleb.length*100|0)+"%</td><td>不明</td><td>"+f[1]+"</td></tr>");
+	$(output).append("<tr><td>"+a[0]+"型</td><td>"+a[1]+"人</td><td>"+(a[1]/ele.length*100|0)+"%</td><td>37%</td><td>"+a[2]+"</td></tr>");
+	$(output).append("<tr><td>"+b[0]+"型</td><td>"+b[1]+"人</td><td>"+(b[1]/ele.length*100|0)+"%</td><td>22%</td><td>"+b[2]+"</td></tr>");
+	$(output).append("<tr><td>"+o[0]+"型</td><td>"+o[1]+"人</td><td>"+(o[1]/ele.length*100|0)+"%</td><td>32%</td><td>"+o[2]+"</td></tr>");
+	$(output).append("<tr><td>"+ab[0]+"型</td><td>"+ab[1]+"人</td><td>"+(ab[1]/ele.length*100|0)+"%</td><td>9%</td><td>"+ab[2]+"</td></tr>");
+	$(output).append("<tr><td>"+f[0]+"</td><td>"+f[1]+"人</td><td>"+(f[1]/ele.length*100|0)+"%</td><td>不明</td><td>"+f[2]+"</td></tr>");
 	
 }
 </script>
 <script type="text/javascript">
 function birthcheck(output)
 {
-	var eleb = document.getElementsByClassName("blood");
+	del(output);
+	var ele = document.getElementsByClassName("birth");
 	var elen = document.getElementsByClassName("name");
-	var a=[0,""];
-	var b=[0,""];
-	var o=[0,""];
-	var ab=[0,""];
-	var f=[0,""];
-	
-	for(var i=0;i<eleb.length;i++){
-		var blood=eleb[i].textContent;
-		switch (blood) {
-			case "A":a[0]++;a[1]+=" "+elen[i].textContent;break;
-			case "B":b[0]++;b[1]+=" "+elen[i].textContent;break;
-			case "O":o[0]++;o[1]+=" "+elen[i].textContent;break;
-			case "AB":ab[0]++;ab[1]+=" "+elen[i].textContent;break;
-			case "不明":f[0]++;f[1]+=" "+elen[i].textContent;break;
-			default:console.log(blood);break;
+	var p=0;
+	var array=[
+			["01",0,"","8.2%"],
+			["02",0,"","8.2%"],
+			["03",0,"","8.1%"],
+			["04",0,"","8.2%"],
+			["05",0,"","8.4%"],
+			["06",0,"","8.4%"],
+			["07",0,"","8.7%"],
+			["08",0,"","8.6%"],
+			["09",0,"","8.6%"],
+			["10",0,"","8.3%"],
+			["11",0,"","8.1%"],
+			["12",0,"","8.2%"]
+			];
+			
+	for(var i=0;i<ele.length;i++){
+		var str=ele[i].textContent.substring(0,2);
+		for(p=0;p<array.length;p++){
+			if(str==array[p][0]){
+				array[p][1]++;
+				array[p][2]+=" "+elen[i].textContent;
+				break;
+			}
+			else if(p==array.length-1){
+				console.log("unknown"+str);
+			}
 		}
 	}
-	$(output).append("<tr><td>A型</td><td>"+a[0]+"人</td><td>"+a[1]+"</td></tr>");
-	$(output).append("<tr><td>B型</td><td>"+b[0]+"人</td><td>"+b[1]+"</td></tr>");
-	$(output).append("<tr><td>O型</td><td>"+o[0]+"人</td><td>"+o[1]+"</td></tr>");
-	$(output).append("<tr><td>AB型</td><td>"+ab[0]+"人</td><td>"+ab[1]+"</td></tr>");
-	$(output).append("<tr><td>不明</td><td>"+f[0]+"人</td><td>"+f[1]+"</td></tr>");
-	
+	for(p=0;p<array.length;p++){
+		//console.log(array[p][0]+" "+array[ip][1]+" "+array[p][2]);
+		$(output).append("<tr><td>"+array[p][0]+"月</td><td>"+array[p][1]+"人</td><td>"+(array[p][1]/ele.length*100).toFixed(1)+"%</td><td>"+array[p][3]+"</td><td>"+array[p][2]+"</td></tr>");
+	}	
 }
 </script>
 <script type="text/javascript">
 function fromcheck(output)
 {
-	var eleb = document.getElementsByClassName("blood");
+	del(output);
+	var ele = document.getElementsByClassName("from");
 	var elen = document.getElementsByClassName("name");
-	var a=[0,""];
-	var b=[0,""];
-	var o=[0,""];
-	var ab=[0,""];
-	var f=[0,""];
-	
-	for(var i=0;i<eleb.length;i++){
-		var blood=eleb[i].textContent;
-		switch (blood) {
-			case "A":a[0]++;a[1]+=" "+elen[i].textContent;break;
-			case "B":b[0]++;b[1]+=" "+elen[i].textContent;break;
-			case "O":o[0]++;o[1]+=" "+elen[i].textContent;break;
-			case "AB":ab[0]++;ab[1]+=" "+elen[i].textContent;break;
-			case "不明":f[0]++;f[1]+=" "+elen[i].textContent;break;
-			default:console.log(blood);break;
-		}O型32%、A型、B型22%、AB型9%
+	var array=[
+			["北海道",0,"",""],
+			["青森県",0,"",""],
+			["岩手県",0,"",""],
+			["宮城県",0,"",""],
+			["秋田県",0,"",""],
+			["山形県",0,"",""],
+			["福島県",0,"",""],
+			["茨城県",0,"",""],
+			["栃木県",0,"",""],
+			["群馬県",0,"",""],
+			["埼玉県",0,"",""],
+			["千葉県",0,"",""],
+			["東京都",0,"",""],
+			["神奈川県",0,"",""],
+			["新潟県",0,"",""],
+			["富山県",0,"",""],
+			["石川県",0,"",""],
+			["福井県",0,"",""],
+			["山梨県",0,"",""],
+			["長野県",0,"",""],
+			["岐阜県",0,"",""],
+			["静岡県",0,"",""],
+			["愛知県",0,"",""],
+			["三重県",0,"",""],
+			["滋賀県",0,"",""],
+			["京都府",0,"",""],
+			["大阪府",0,"",""],
+			["兵庫県",0,"",""],
+			["奈良県",0,"",""],
+			["和歌山県",0,"",""],
+			["鳥取県",0,"",""],
+			["島根県",0,"",""],
+			["岡山県",0,"",""],
+			["広島県",0,"",""],
+			["山口県",0,"",""],
+			["徳島県",0,"",""],
+			["香川県",0,"",""],
+			["愛媛県",0,"",""],
+			["高知県",0,"",""],
+			["福岡県",0,"",""],
+			["佐賀県",0,"",""],
+			["長崎県",0,"",""],
+			["熊本県",0,"",""],
+			["大分県",0,"",""],
+			["宮崎県",0,"",""],
+			["鹿児島県",0,"",""],
+			["沖縄県",0,"",""],
+			];
+			
+	for(var i=0;i<ele.length;i++){
+		var str=ele[i].textContent;
+		for(p=0;p<array.length;p++){
+			if(str==array[p][0]){
+				array[p][1]++;
+				array[p][2]+=" "+elen[i].textContent;
+				break;
+			}
+			else if(p==array.length-1){
+				console.log("unknown"+str);
+			}
+		}
 	}
-	
+	for(p=0;p<array.length;p++){
+		//console.log(array[p][0]+" "+array[ip][1]+" "+array[p][2]);
+		$(output).append("<tr><td>"+array[p][0]+"</td><td>"+array[p][1]+"人</td><td>"+(array[p][1]/ele.length*100).toFixed(1)+"%</td><td>"+array[p][3]+"</td><td>"+array[p][2]+"</td></tr>");
+	}
+}
+</script>
+<script type="text/javascript">
+function term(output)
+{
 }
 </script>
 
@@ -280,27 +360,31 @@ function sorter(tablesorter)
 
 
 <br />
-<input type="button" value="Member_AKB" onclick="check('Member_AKB');"/><br />
-<input type="button" value="Member_AKB8" onclick="check('Member_AKB8');"/><br />
-<input type="button" value="Member_SKE" onclick="check('Member_SKE');"/><br />
-<input type="button" value="Member_NMB" onclick="check('Member');"/><br />
-<input type="button" value="Member_HKT" onclick="check('Member_HKT');"/><br />
-<input type="button" value="Member_NGT" onclick="check('Member_NGT');"/><br />
+<input type="button" value="Member_AKB" onclick="check('Member_AKB');"/>
+<input type="button" value="Member_AKB8" onclick="check('Member_AKB8');"/>
+<input type="button" value="Member_SKE" onclick="check('Member_SKE');"/>
+<input type="button" value="Member_NMB" onclick="check('Member');"/>
+<input type="button" value="Member_HKT" onclick="check('Member_HKT');"/>
+<input type="button" value="Member_NGT" onclick="check('Member_NGT');"/>
 <input type="button" value="Member_STU" onclick="check('Member_STU');"/><br />
-<input type="button" value="Member_JKT" onclick="check('Member_JKT');"/><br />
-<input type="button" value="Member_TPE" onclick="check('Member_TPE');"/><br />
+<input type="button" value="Member_JKT" onclick="check('Member_JKT');"/>
+<input type="button" value="Member_TPE" onclick="check('Member_TPE');"/>
 <input type="button" value="Member_BNK" onclick="check('Member_BNK');"/><br />
-<input type="button" value="Member_NOGI" onclick="check('Member_NOGI');"/><br />
-<input type="button" value="Member_KEYA" onclick="check('Member_KEYA');"/><br />
-<input type="button" value="Member_HINA" onclick="check('Member_HINA');"/><br />
+<input type="button" value="Member_NOGI" onclick="check('Member_NOGI');"/>
+<input type="button" value="Member_KEYA" onclick="check('Member_KEYA');"/>
+<input type="button" value="Member_HINA" onclick="check('Member_HINA');"/>
 <input type="button" value="Member_YOSHI" onclick="check('Member_YOSHI');"/><br />
 <input type="button" value="allcheck" onclick="allcheck();"/><br />
 <input type="button" value="del" onclick="alldel();"/><br />
 <input type="button" value="名前1" onclick="namecheck('#output2');"/><br />
 <input type="button" value="血液型1" onclick="bloodcheck('#output3');"/><br />
+<input type="button" value="誕生日1" onclick="birthcheck('#output4');"/><br />
+<input type="button" value="出身地1" onclick="fromcheck('#output5');"/><br />
+<input type="button" value="期1" onclick="termcheck('#output6');"/><br />
 <input type="button" value="sorter" onclick="sorter('.tablesorter');"/><br />
 
 <div id="NUM"></div>
+<div id="GROUP"></div>
 
 <table border="1" cellpadding="2" cellspacing="0">
 <thead>
@@ -316,10 +400,48 @@ function sorter(tablesorter)
 <tr>
 <th width="30">血液型</th>
 <th width="30">人数</th>
-<th width="30">割合 グループ内</th>
-<th width="30">割合 日本の標準</th>
+<th width="30">グループ内占有率</th>
+<th width="30">全国平均</th>
 <th width="30">名前</th>
 <tbody id="output3">
+</tbody>
+</table>
+
+
+<table border="1" cellpadding="2" cellspacing="0">
+<thead>
+<tr>
+<th width="30">誕生月</th>
+<th width="30">人数</th>
+<th width="30">グループ内占有率</th>
+<th width="30">全国平均</th>
+<th width="30">名前</th>
+<tbody id="output4">
+</tbody>
+</table>
+
+<table border="1" cellpadding="2" cellspacing="0">
+<thead>
+<tr>
+<th width="30">出身地</th>
+<th width="30">人数</th>
+<th width="30">グループ内占有率</th>
+<th width="30">全国平均</th>
+<th width="30">名前</th>
+<tbody id="output5">
+</tbody>
+</table>
+
+
+<table border="1" cellpadding="2" cellspacing="0">
+<thead>
+<tr>
+<th width="30">期</th>
+<th width="30">人数</th>
+<th width="30">グループ内占有率</th>
+<th width="30">全国平均</th>
+<th width="30">名前</th>
+<tbody id="output6">
 </tbody>
 </table>
 
